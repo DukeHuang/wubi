@@ -24,7 +24,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 		    contentRect: NSRect(x: 0, y: 0, width: 480, height: 300),
 		    styleMask: [.titled, .closable, .miniaturizable, .resizable, .fullSizeContentView],
 		    backing: .buffered, defer: false)
-		window.setFrame(CGRect(x: 10, y: 10, width: 1000, height: 1000), display: true)
 		window.center()
 		window.setFrameAutosaveName("Main Window")
 		window.contentView = NSHostingView(rootView: contentView.environmentObject(state))
