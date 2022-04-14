@@ -9,7 +9,7 @@
 import Foundation
 
 struct FiveStroke {
-    let components: Dictionary = ["a": ["a","a1","a2","a3","a4","a5","a6","a7","a8","a9","a10","a11","a12","a13","a14"],
+    static let components: Dictionary = ["a": ["a","a1","a2","a3","a4","a5","a6","a7","a8","a9","a10","a11","a12","a13","a14"],
                                   "b": ["b","b1","b2","b3","b4","b5","b6","b7","b8","b9","b10","b11","b12","b13","b14","b15"],
                                   "c": ["c","c1","c2","c3","c4","c5","c6","c7","c8"],
                                   "d": ["d","d1","d2","d3","d4","d5","d6","d7","d8","d9","d10","d11","d12"],
@@ -77,11 +77,11 @@ struct FiveStroke {
     }
 
     mutating func random() {
-        self.key = components.randomElement()?.key ?? "a"
+        self.key = FiveStroke.components.randomElement()?.key ?? "a"
         self.imageName = self.randomImageName(key: self.key)
     }
 
     func randomImageName(key: String) -> String {
-        return (components[key]?.randomElement())!
+        return (FiveStroke.components[key]?.randomElement())!
     }
 }

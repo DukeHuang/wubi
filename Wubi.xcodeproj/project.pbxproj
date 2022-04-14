@@ -7,9 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		761343A725C26B1E00152F93 /* single.db in Resources */ = {isa = PBXBuildFile; fileRef = 762DF76D25C2543B00AB2D5A /* single.db */; };
+		761343A725C26B1E00152F93 /* FiveTypistWord.db in Resources */ = {isa = PBXBuildFile; fileRef = 762DF76D25C2543B00AB2D5A /* FiveTypistWord.db */; };
 		761343A925C284D700152F93 /* Pods_Wubi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C590D489BEA390AA5E9D94FF /* Pods_Wubi.framework */; };
+		7615ADCB2696F82300DEC694 /* Wubi_iOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7615ADCA2696F82300DEC694 /* Wubi_iOSApp.swift */; };
+		7615ADD22696F82500DEC694 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7615ADD12696F82500DEC694 /* Preview Assets.xcassets */; };
+		7615ADD72696F84400DEC694 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 76D7542424BD829C001CC11D /* Assets.xcassets */; };
+		7615ADD82696F85600DEC694 /* FiveTypist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76620F4A26539364001F90A9 /* FiveTypist.swift */; };
+		7615ADD92696F85600DEC694 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76D7542224BD829A001CC11D /* ContentView.swift */; };
+		7615ADDA2696F85600DEC694 /* ContentViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76165D1324BEA06B006D5E48 /* ContentViewState.swift */; };
+		7615ADDB2696F85600DEC694 /* FiveStroke.swift in Sources */ = {isa = PBXBuildFile; fileRef = 766ADCBB25C10B3500CA702C /* FiveStroke.swift */; };
+		7615ADDC2696F85600DEC694 /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = 766ADCBE25C10C3C00CA702C /* Database.swift */; };
+		7615ADDD2696F85600DEC694 /* FiveTypistWord.db in Resources */ = {isa = PBXBuildFile; fileRef = 762DF76D25C2543B00AB2D5A /* FiveTypistWord.db */; };
 		76165D1424BEA06B006D5E48 /* ContentViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76165D1324BEA06B006D5E48 /* ContentViewState.swift */; };
+		76620F4B26539364001F90A9 /* FiveTypist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76620F4A26539364001F90A9 /* FiveTypist.swift */; };
 		766ADCBC25C10B3500CA702C /* FiveStroke.swift in Sources */ = {isa = PBXBuildFile; fileRef = 766ADCBB25C10B3500CA702C /* FiveStroke.swift */; };
 		766ADCBF25C10C3C00CA702C /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = 766ADCBE25C10C3C00CA702C /* Database.swift */; };
 		76A2149824D3B91B00DE737C /* AnalysisView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76A2149724D3B91B00DE737C /* AnalysisView.swift */; };
@@ -23,9 +33,14 @@
 /* Begin PBXFileReference section */
 		526C3E83644B396B68154720 /* Pods-Wubi.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Wubi.debug.xcconfig"; path = "Target Support Files/Pods-Wubi/Pods-Wubi.debug.xcconfig"; sourceTree = "<group>"; };
 		7613439F25C26A0600152F93 /* SQLite.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SQLite.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7615ADC82696F82300DEC694 /* Wubi_iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Wubi_iOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		7615ADCA2696F82300DEC694 /* Wubi_iOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wubi_iOSApp.swift; sourceTree = "<group>"; };
+		7615ADD12696F82500DEC694 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		7615ADD32696F82500DEC694 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		76165D1324BEA06B006D5E48 /* ContentViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewState.swift; sourceTree = "<group>"; };
-		762DF76D25C2543B00AB2D5A /* single.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = single.db; sourceTree = "<group>"; };
+		762DF76D25C2543B00AB2D5A /* FiveTypistWord.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = FiveTypistWord.db; sourceTree = "<group>"; };
 		762DF77725C267F800AB2D5A /* SQLite.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SQLite.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		76620F4A26539364001F90A9 /* FiveTypist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiveTypist.swift; sourceTree = "<group>"; };
 		766ADCBB25C10B3500CA702C /* FiveStroke.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiveStroke.swift; sourceTree = "<group>"; };
 		766ADCBE25C10C3C00CA702C /* Database.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Database.swift; sourceTree = "<group>"; };
 		76A2149724D3B91B00DE737C /* AnalysisView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalysisView.swift; sourceTree = "<group>"; };
@@ -37,11 +52,19 @@
 		76D7542A24BD829C001CC11D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		76D7542C24BD829C001CC11D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		76D7542D24BD829C001CC11D /* Wubi.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Wubi.entitlements; sourceTree = "<group>"; };
+		76FFCCEF280809B700D46892 /* Wubi_iOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Wubi_iOS.entitlements; sourceTree = "<group>"; };
 		841DB446DA6A9F339018B7FE /* Pods-Wubi.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Wubi.release.xcconfig"; path = "Target Support Files/Pods-Wubi/Pods-Wubi.release.xcconfig"; sourceTree = "<group>"; };
 		C590D489BEA390AA5E9D94FF /* Pods_Wubi.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Wubi.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		7615ADC52696F82300DEC694 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		76D7541A24BD829A001CC11D /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -72,10 +95,30 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		7615ADC92696F82300DEC694 /* Wubi_iOS */ = {
+			isa = PBXGroup;
+			children = (
+				76FFCCEF280809B700D46892 /* Wubi_iOS.entitlements */,
+				7615ADCA2696F82300DEC694 /* Wubi_iOSApp.swift */,
+				7615ADD32696F82500DEC694 /* Info.plist */,
+				7615ADD02696F82500DEC694 /* Preview Content */,
+			);
+			path = Wubi_iOS;
+			sourceTree = "<group>";
+		};
+		7615ADD02696F82500DEC694 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				7615ADD12696F82500DEC694 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
 		76D7541424BD829A001CC11D = {
 			isa = PBXGroup;
 			children = (
 				76D7541F24BD829A001CC11D /* Wubi */,
+				7615ADC92696F82300DEC694 /* Wubi_iOS */,
 				76D7541E24BD829A001CC11D /* Products */,
 				43251DE04304DA8383669C09 /* Pods */,
 				5DE43397E0EE1CAE167A9F7E /* Frameworks */,
@@ -86,6 +129,7 @@
 			isa = PBXGroup;
 			children = (
 				76D7541D24BD829A001CC11D /* Wubi.app */,
+				7615ADC82696F82300DEC694 /* Wubi_iOS.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -99,7 +143,8 @@
 				76165D1324BEA06B006D5E48 /* ContentViewState.swift */,
 				766ADCBB25C10B3500CA702C /* FiveStroke.swift */,
 				766ADCBE25C10C3C00CA702C /* Database.swift */,
-				762DF76D25C2543B00AB2D5A /* single.db */,
+				76620F4A26539364001F90A9 /* FiveTypist.swift */,
+				762DF76D25C2543B00AB2D5A /* FiveTypistWord.db */,
 				76D7542424BD829C001CC11D /* Assets.xcassets */,
 				76D7542924BD829C001CC11D /* Main.storyboard */,
 				76D7542D24BD829C001CC11D /* Wubi.entitlements */,
@@ -120,6 +165,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		7615ADC72696F82300DEC694 /* Wubi_iOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7615ADD42696F82500DEC694 /* Build configuration list for PBXNativeTarget "Wubi_iOS" */;
+			buildPhases = (
+				7615ADC42696F82300DEC694 /* Sources */,
+				7615ADC52696F82300DEC694 /* Frameworks */,
+				7615ADC62696F82300DEC694 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Wubi_iOS;
+			productName = Wubi_iOS;
+			productReference = 7615ADC82696F82300DEC694 /* Wubi_iOS.app */;
+			productType = "com.apple.product-type.application";
+		};
 		76D7541C24BD829A001CC11D /* Wubi */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 76D7543024BD829C001CC11D /* Build configuration list for PBXNativeTarget "Wubi" */;
@@ -144,10 +206,13 @@
 		76D7541524BD829A001CC11D /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1150;
+				LastSwiftUpdateCheck = 1250;
 				LastUpgradeCheck = 1220;
 				ORGANIZATIONNAME = sakuragi;
 				TargetAttributes = {
+					7615ADC72696F82300DEC694 = {
+						CreatedOnToolsVersion = 12.5;
+					};
 					76D7541C24BD829A001CC11D = {
 						CreatedOnToolsVersion = 11.5;
 					};
@@ -167,11 +232,22 @@
 			projectRoot = "";
 			targets = (
 				76D7541C24BD829A001CC11D /* Wubi */,
+				7615ADC72696F82300DEC694 /* Wubi_iOS */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		7615ADC62696F82300DEC694 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7615ADDD2696F85600DEC694 /* FiveTypistWord.db in Resources */,
+				7615ADD72696F84400DEC694 /* Assets.xcassets in Resources */,
+				7615ADD22696F82500DEC694 /* Preview Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		76D7541B24BD829A001CC11D /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -179,7 +255,7 @@
 				76D7542B24BD829C001CC11D /* Main.storyboard in Resources */,
 				76D7542824BD829C001CC11D /* Preview Assets.xcassets in Resources */,
 				76D7542524BD829C001CC11D /* Assets.xcassets in Resources */,
-				761343A725C26B1E00152F93 /* single.db in Resources */,
+				761343A725C26B1E00152F93 /* FiveTypistWord.db in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -211,6 +287,19 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		7615ADC42696F82300DEC694 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7615ADD82696F85600DEC694 /* FiveTypist.swift in Sources */,
+				7615ADD92696F85600DEC694 /* ContentView.swift in Sources */,
+				7615ADDB2696F85600DEC694 /* FiveStroke.swift in Sources */,
+				7615ADDA2696F85600DEC694 /* ContentViewState.swift in Sources */,
+				7615ADDC2696F85600DEC694 /* Database.swift in Sources */,
+				7615ADCB2696F82300DEC694 /* Wubi_iOSApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		76D7541924BD829A001CC11D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -221,6 +310,7 @@
 				76165D1424BEA06B006D5E48 /* ContentViewState.swift in Sources */,
 				766ADCBC25C10B3500CA702C /* FiveStroke.swift in Sources */,
 				76D7542124BD829A001CC11D /* AppDelegate.swift in Sources */,
+				76620F4B26539364001F90A9 /* FiveTypist.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -238,6 +328,57 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		7615ADD52696F82500DEC694 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Wubi_iOS/Wubi_iOS.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"Wubi_iOS/Preview Content\"";
+				DEVELOPMENT_TEAM = K8MXV5Q42C;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = Wubi_iOS/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.sakuragi.Wubi-iOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SUPPORTS_MACCATALYST = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		7615ADD62696F82500DEC694 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Wubi_iOS/Wubi_iOS.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"Wubi_iOS/Preview Content\"";
+				DEVELOPMENT_TEAM = K8MXV5Q42C;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = Wubi_iOS/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.sakuragi.Wubi-iOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SUPPORTS_MACCATALYST = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
 		76D7542E24BD829C001CC11D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -406,6 +547,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		7615ADD42696F82500DEC694 /* Build configuration list for PBXNativeTarget "Wubi_iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7615ADD52696F82500DEC694 /* Debug */,
+				7615ADD62696F82500DEC694 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		76D7541824BD829A001CC11D /* Build configuration list for PBXProject "Wubi" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

@@ -10,56 +10,50 @@ import Foundation
 import SQLite3
 
 enum DatabasePart: String {
-    case Part1
-    case Part2
+    case FiveTypistPractise //五笔字根练习记录db
+    case FiveTypistWord //五笔字根单字
     var path: String? {
         let directoryUrl = try? FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
         return directoryUrl?.appendingPathComponent("\(self.rawValue).sqlite").relativePath
     }
 }
 
-struct FiveTypist {
-    var character: String //字
-    var components: String //字根
-    var alphabetical: String //简码
-    var all_alphabetical: String //全码
-    var pingyin: String //拼音
-}
+
 
 struct Database {
-    var db: OpaquePointer?
-    var db1: OpaquePointer?
+    var db_FiveTypistPractise: OpaquePointer? //五笔练习
+    var db_FiveTypistWord: OpaquePointer? //五笔拆字
     var fileStroke: FiveStroke {
         get {
             return FiveStroke()
         }
     }
-    func openDatabase() -> OpaquePointer? {
+    func openDatabaseFiveTypistPractise() -> OpaquePointer? {
         var db: OpaquePointer?
-        guard let part1DbPath = DatabasePart.Part1.path else {
-            print("part1DbPath is nil.")
+        guard let fiveTypistPractise = DatabasePart.FiveTypistPractise.path else {
+            print("fiveTypistPractise is nil.")
             return nil
         }
-        if sqlite3_open(part1DbPath, &db) == SQLITE_OK {
-            print("Successfully opened connection to database at \(part1DbPath)")
+        if sqlite3_open(fiveTypistPractise, &db) == SQLITE_OK {
+            print("Successfully opened connection to database at \(fiveTypistPractise)")
             return db
         } else {
-            print("Unable to open database.")
+            print("Unable to open database fiveTypistPractise")
             return nil
         }
     }
 
-    func openDatabase1() -> OpaquePointer? {
+    func openDatabaseWord() -> OpaquePointer? {
         var db: OpaquePointer?
-        guard let path = Bundle.main.path(forResource: "single", ofType: "db") else {
-            print("part1DbPath is nil.")
+        guard let path = Bundle.main.path(forResource: DatabasePart.FiveTypistWord.rawValue, ofType: "db") else {
+            print("FiveTypistWord db  is nil.")
             return nil
         }
         if sqlite3_open(path, &db) == SQLITE_OK {
             print("Successfully opened connection to database at \(path)")
             return db
         } else {
-            print("Unable to open database.")
+            print("Unable to open database FiveTypistWord")
             return nil
         }
     }
@@ -75,7 +69,7 @@ struct Database {
                 ErrorCount INTEGER)
                 """
         var createTableStatement: OpaquePointer?
-        if sqlite3_prepare_v2(db, createTableString, -1, &createTableStatement, nil) ==
+        if sqlite3_prepare_v2(db_FiveTypistPractise, createTableString, -1, &createTableStatement, nil) ==
             SQLITE_OK {
             if sqlite3_step(createTableStatement) == SQLITE_DONE {
                 print("\nContact table created.")
@@ -92,10 +86,10 @@ struct Database {
         let insertStatementString = "INSERT INTO Contact (Id, KeyName,KeyValue,ShowCount,ErrorCount) VALUES (?, ?, ?,0,0);"
 
         var id: Int32 = 1
-        for e in fileStroke.components {
-            let keyValueArr: Array = fileStroke.components[e.key]!
+        for e in FiveStroke.components {
+            let keyValueArr: Array = FiveStroke.components[e.key]!
             for v in keyValueArr {
-                if sqlite3_prepare_v2(db, insertStatementString, -1, &insertStatement, nil) ==
+                if sqlite3_prepare_v2(db_FiveTypistPractise, insertStatementString, -1, &insertStatement, nil) ==
                     SQLITE_OK {
 
                     let keyName: String = e.key
@@ -119,7 +113,7 @@ struct Database {
 
     func update(updateStatementString:String) {
         var updateStatement: OpaquePointer?
-        if sqlite3_prepare_v2(db, updateStatementString, -1, &updateStatement, nil) ==
+        if sqlite3_prepare_v2(db_FiveTypistPractise, updateStatementString, -1, &updateStatement, nil) ==
             SQLITE_OK {
             if sqlite3_step(updateStatement) == SQLITE_DONE {
                 print("\nSuccessfully updated row.")
@@ -134,7 +128,7 @@ struct Database {
     func addShowCount(keyValue:String) {
         let updateStatementString = "UPDATE Contact SET ShowCount = ShowCount + 1 WHERE KeyValue = ?;"
         var updateStatement: OpaquePointer?
-        if sqlite3_prepare_v2(db, updateStatementString, -1, &updateStatement, nil) ==
+        if sqlite3_prepare_v2(db_FiveTypistPractise, updateStatementString, -1, &updateStatement, nil) ==
             SQLITE_OK {
             sqlite3_bind_text(updateStatement, 1, (keyValue as NSString).utf8String, -1, nil)
             if sqlite3_step(updateStatement) == SQLITE_DONE {
@@ -150,7 +144,7 @@ struct Database {
     func addErrorCount(keyValue:String) {
         let updateStatementString = "UPDATE Contact SET ErrorCount = ErrorCount + 1 WHERE KeyValue = ?;"
         var updateStatement: OpaquePointer?
-        if sqlite3_prepare_v2(db, updateStatementString, -1, &updateStatement, nil) ==
+        if sqlite3_prepare_v2(db_FiveTypistPractise, updateStatementString, -1, &updateStatement, nil) ==
             SQLITE_OK {
             sqlite3_bind_text(updateStatement, 1, (keyValue as NSString).utf8String, -1, nil)
             if sqlite3_step(updateStatement) == SQLITE_DONE {
@@ -166,7 +160,7 @@ struct Database {
     func query(keyValue:String) -> FiveTypist? {
         let queryStatementString = "Select B_key,C_key,D_key,E_key,F_key FROM sing_dic  where C_Key = ?;"
         var queryStatement: OpaquePointer?
-        if sqlite3_prepare_v2(db1, queryStatementString, -1, &queryStatement, nil) ==
+        if sqlite3_prepare_v2(db_FiveTypistWord, queryStatementString, -1, &queryStatement, nil) ==
             SQLITE_OK {
             sqlite3_bind_text(queryStatement, 1, (keyValue as NSString).utf8String, -1, nil)
             while sqlite3_step(queryStatement) == SQLITE_ROW {
@@ -181,12 +175,14 @@ struct Database {
                 let dString = String(cString:d!)
                 let eString = String(cString:e!)
                 let fString = String(cString:f!)
+
+                let alphabeticals = eString.map{String($0)}
                 sqlite3_finalize(queryStatement)
-                return FiveTypist(character: cString, components: dString, alphabetical: bString, all_alphabetical: eString, pingyin: fString)
+                return FiveTypist(character: cString, components: dString, alphabetical: bString, all_alphabetical: eString, pingyin: fString, alphabeticals: alphabeticals)
             }
                 return nil;
         } else {
-            let errorMessage = String(cString: sqlite3_errmsg(db1))
+            let errorMessage = String(cString: sqlite3_errmsg(db_FiveTypistWord))
             print("\nQuery is not prepared \(errorMessage)")
             sqlite3_finalize(queryStatement)
             return nil

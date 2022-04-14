@@ -10,13 +10,13 @@ import SwiftUI
 import Combine
 
 enum Result: String {
-    case right
+    case correct
     case error
 }
 
 final class ContentViewState: ObservableObject {
 
-    @Published var check: Result = .right
+    @Published var check: Result = .correct
     @Published var fiveStroke: FiveStroke = FiveStroke()
     var database = Database()
 
