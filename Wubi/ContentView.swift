@@ -8,7 +8,10 @@
 
 import SwiftUI
 
-/// 捕获系统键盘事件
+/*
+#if targetEnvironment(macCatalyst)
+
+// 捕获系统键盘事件
 struct KeyEventHandling: NSViewRepresentable {
     var state: ContentViewState
     class KeyView: NSView {
@@ -42,87 +45,62 @@ struct KeyEventHandling: NSViewRepresentable {
     }
 }
 
+#endif
+ */
+
 struct ContentView: View {
-    @EnvironmentObject  var state: ContentViewState
-    private let titles = ["字根练习","字根巩固","编码查询"]
-    @State private var searchWord: String = ""
-    @State private var typist: FiveTypist? //查询结果信息
-    @State private var alphabeticals: [String]? //查询全码
 
+    @ObservedObject var state: ContentViewState = ContentViewState()
+    @State private var searchWord: String = "黄"
+    @State private var result: FiveTypist = FiveTypist(character: "", components: "",
+                                                       jianma: "", quanma: "",jianmaKeys: [""],quanmaKeys: [""],
+                                                       pingyin: "") //查询结果信息
+    @State private var isSet: Bool = false
     var body: some View {
-        NavigationView {
-            List(titles, id:\.self) { title in
-                if  title == "字根练习" {
-                    NavigationLink(
-                        destination: VStack (
-                            alignment: .leading,
-                            spacing: 10
-                        ){
-                            if state.check == .error {
-                                Text(state.fiveStroke.key)
-                                    .font(.largeTitle)
-                                    .fontWeight(.bold)
-                                Image(state.fiveStroke.imageName)
-                                    .background(KeyEventHandling(state:state))
-                                    .scaledToFit()
-                                    .frame(width: 100, height: 100, alignment: .center)
-                                Image(state.fiveStroke.tipsImageName)
-                                    .frame(width: 100, height: 100, alignment: .center)
-                                    .scaledToFit()
-                                Text(state.fiveStroke.verse)
-                                    .font(.title)
-                            } else {
-                                Image(state.fiveStroke.imageName)
-                                    .background(KeyEventHandling(state:state))
-                                    .scaledToFit()
-                                    .frame(width: 500, height: 100, alignment: .center)
-                            }
-                        },
-                        label: {
-                            Text(title)
-                        })
+            List {
+
+                HStack {
+                    Text(searchWord)
+                        .font(.largeTitle)
+                        .bold()
+                    Text(self.result.pingyin)
+                        .padding(EdgeInsets(top: 3, leading:10, bottom: 3, trailing: 10))
+                        .foregroundStyle(.white)
+                        .background(.teal)
+                        .cornerRadius(3)
+                    FavoriteButton(isSet: $isSet)
                 }
-                else if title == "字根巩固" {
-                    //
-                } else {
-                    NavigationLink(
-                        destination: VStack (alignment: .leading) {
-                            TextField("输入要查询的单字", text: $searchWord)
-                            Button("search"){
-                                self.typist = self.state.database.query(keyValue:searchWord)
-                                self.alphabeticals = self.typist?.alphabeticals
-                            }
-                            VStack(alignment: .leading) {
-                                Text("简码：\(self.typist?.character ?? "")").font(.largeTitle).fontWeight(.bold)
-                                Text("拆字：\(self.typist?.components ?? "")").font(.largeTitle).fontWeight(.bold)
-                                Text("简码：\(self.typist?.alphabetical ?? "")").font(.largeTitle).fontWeight(.bold)
-                                Text("全码：\(self.typist?.all_alphabetical ?? "")").font(.largeTitle).fontWeight(.bold)
-                                AlphabeticalView(alphs:self.alphabeticals ?? ["a"])
-                                Text("拼音：\(self.typist?.pingyin ?? "")").font(.largeTitle).fontWeight(.bold)
-                            }.padding()
-                        },
-                        label: {
-                            Text(title)
-                        })
+
+                Section("拆字:") {
+                    Text(self.result.components.filter { $0 != "〔" && $0 != "〕" && $0 != "※" })
+                        .font(.title)
+                }
+                Section("简码:") {
+                    Text(self.result.jianma.uppercased())
+                    SingleKeyBoardView(quanma:self.result.jianmaKeys)
+                }
+
+                Section("全码:") {
+                    Text(self.result.quanma.uppercased())
+                    SingleKeyBoardView(quanma:self.result.quanmaKeys)
                 }
             }
-        }
+            .searchable(text: $searchWord,prompt: "请输入要查询的字")
+            .onAppear(perform: runSearch)
+            .onSubmit(of:.search, runSearch)
     }
-}
 
-//字母表
-struct AlphabeticalView: View {
-    var alphs: Array<String>
+    private func splitComponents(_ components: String) -> String {
+        //〔※󰁺※󰃙※󰄦※󰁧※〕
+        return components.filter { $0 != "〔" && $0 != "〕" && $0 != "※" }
+    }
 
-    var body: some View {
-        HStack {
-            ForEach(alphs.indices,id:\.self) { index in
-                Image("\(alphs[index])_keyboard")
-                    .frame(width: 100, height: 100, alignment: .center)
-                    .scaledToFit()
-                    .padding()
-            }
-        }.padding()
+    func runSearch() {
+        do {
+            try self.result = self.state.database.query(keyValue:searchWord)
+        } catch {
+            //do nothing
+        }
     }
 }
 

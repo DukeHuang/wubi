@@ -14,15 +14,12 @@ enum Result: String {
     case error
 }
 
-final class ContentViewState: ObservableObject {
+class ContentViewState: ObservableObject {
 
-    @Published var check: Result = .correct
-    @Published var fiveStroke: FiveStroke = FiveStroke()
+//    @Published var check: Result = .correct
+//    @Published var fiveStroke: FiveStroke = FiveStroke()//@Published是一个属性包装器，被他包装过的属性，就会在用到地方被监听值的变化
+
     var database = Database()
-
-	func showCountAdd(keyName:String) -> Void {
-		
-	}
 
 }
 
