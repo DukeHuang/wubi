@@ -9,7 +9,7 @@
 import Foundation
 
 
-struct FiveTypist: Identifiable {
+struct FiveTypist: Identifiable, Codable {
     var id = UUID()
     var character: String //字
     var components: String  //字根〔※󰁺※󰃙※󰄦※󰁧※〕
@@ -18,4 +18,5 @@ struct FiveTypist: Identifiable {
     var jianmaKeys: [String] //简码对应的英文字母
     var quanmaKeys: [String] //全码对应的英文字母
     var pingyin: String //拼音
+    var isFavorite: Bool
 }

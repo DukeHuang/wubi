@@ -24,9 +24,9 @@ struct Sidebar: View {
 
             Section {
                 NavigationLink {
-                    SearchView()
-                } label: {
-                    SideBarLabel(title: "练习", imageName:"rectangle.and.pencil.and.ellipsis")
+                    FavoriteView()
+                } label: {//rectangle.and.pencil.and.ellipsis
+                    SideBarLabel(title: "收藏", imageName:"star")
                 }
             }
 

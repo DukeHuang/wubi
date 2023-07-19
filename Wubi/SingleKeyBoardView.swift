@@ -18,9 +18,7 @@ struct SingleKeyBoardView: View {
                         .frame(width: 60, height: 60, alignment: .center)
                 }
             }
-            //            .padding()
         }
-        //        .padding()
     }
 }
 

@@ -52,10 +52,18 @@ struct ContentView: View {
 
     @ObservedObject var state: ContentViewState = ContentViewState()
     @State private var searchWord: String = "黄"
-    @State private var result: FiveTypist = FiveTypist(character: "", components: "",
-                                                       jianma: "", quanma: "",jianmaKeys: [""],quanmaKeys: [""],
-                                                       pingyin: "") //查询结果信息
-    @State private var isSet: Bool = false
+    @State private var result: FiveTypist = FiveTypist(character: "",
+                                                       components: "",
+                                                       jianma: "",
+                                                       quanma: "",
+                                                       jianmaKeys: [""],
+                                                       quanmaKeys: [""],
+                                                       pingyin: "",
+                                                       isFavorite: false) //查询结果信息
+
+
+    @EnvironmentObject var modelData: ModelData
+    @State private var isFavorite: Bool = false
     var body: some View {
             List {
 
@@ -68,7 +76,7 @@ struct ContentView: View {
                         .foregroundStyle(.white)
                         .background(.teal)
                         .cornerRadius(3)
-                    FavoriteButton(isSet: $isSet)
+                    FavoriteButton(isSet: $isFavorite)
                 }
 
                 Section("拆字:") {
@@ -84,6 +92,8 @@ struct ContentView: View {
                     Text(self.result.quanma.uppercased())
                     SingleKeyBoardView(quanma:self.result.quanmaKeys)
                 }
+
+                HighlightedImage(keys: self.result.quanmaKeys)
             }
             .searchable(text: $searchWord,prompt: "请输入要查询的字")
             .onAppear(perform: runSearch)
