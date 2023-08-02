@@ -8,15 +8,18 @@
 import SwiftUI
 
 struct Sidebar: View {
-    var body: some View {
-        List {
-            //https://blog.devgenius.io/how-to-use-sf-symbols-in-your-ios-app-ios-swift-guide-2e81ade5f69e
-            //how to use sf symbols
+    @State var favorites: [Wubi]
+    @State var selectedIndex: Int
 
+    var body: some View {
+
+        //https://blog.devgenius.io/how-to-use-sf-symbols-in-your-ios-app-ios-swift-guide-2e81ade5f69e
+        //how to use sf symbols
         //https://sarunw.com/posts/how-to-toggle-sidebar-in-macos/
+        List {
             Section {
                 NavigationLink {
-                    ContentView()
+                    SearchView()
                 } label: {
                     SideBarLabel(title: "查找", imageName:"magnifyingglass")
                 }
@@ -24,7 +27,7 @@ struct Sidebar: View {
 
             Section {
                 NavigationLink {
-                    FavoriteView()
+//                    FavoriteView(state: FavoriteViewState(), selectionIndex: $selectedIndex)
                 } label: {//rectangle.and.pencil.and.ellipsis
                     SideBarLabel(title: "收藏", imageName:"star")
                 }
@@ -32,7 +35,7 @@ struct Sidebar: View {
 
             Section {
                 NavigationLink {
-                    SearchView()
+
                 } label: {
                     SideBarLabel(title: "统计", imageName:"lines.measurement.horizontal")
                 }
@@ -40,7 +43,7 @@ struct Sidebar: View {
 
             Section {
                 NavigationLink {
-                    SearchView()
+
                 } label: {
                     SideBarLabel(title: "设置", imageName:"gear")
                 }
@@ -75,8 +78,8 @@ struct SideBarLabel: View {
     }
 }
 
-struct Sidebar_Previews: PreviewProvider {
-    static var previews: some View {
-        Sidebar()
-    }
-}
+//struct Sidebar_Previews: PreviewProvider {
+//    static var previews: some View {
+//        Sidebar(searchWord: "", favorites: [])
+//    }
+//}

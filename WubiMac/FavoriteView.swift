@@ -8,24 +8,19 @@
 import SwiftUI
 
 struct FavoriteView: View {
-
-    @EnvironmentObject var modelData: ModelData
+    @Binding var selectionIndex: String
+    @EnvironmentObject var state: FavoriteViewState
     var body: some View {
-        List {
-            ForEach(modelData.words) { word in
-                NavigationLink {
-
-                } label: {
-                    Text(word.character)
-                }
-
-            }
+        List(state.favoriteWords,selection: $selectionIndex) { word in
+            Text(word.character)
+        }.onAppear {
+            state.getFavoriteWords()
         }
     }
 }
 
-struct FavoriteView_Previews: PreviewProvider {
-    static var previews: some View {
-        FavoriteView()
-    }
-}
+//struct FavoriteView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        FavoriteView(selectionIndex: )
+//    }
+//}

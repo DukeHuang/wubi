@@ -14,7 +14,7 @@ struct WubiMacApp: App {
     var body: some Scene {
         WindowGroup {
            //ContentView()
-            WubiMacContentView()
+            WubiMacContentView(columnVisibility: .all, selectionIndex: 0, favoriteSelectionIndex: "0")
         }
 
         //https://sarunw.com/posts/swiftui-menu-bar-app/
@@ -46,33 +46,46 @@ struct WubiMacApp: App {
     }
 }
 
+struct MenuItem: Identifiable {
+    var id: Int
+    let name: String
+    let icon: String
+}
 
+let menuItems: [MenuItem] = [MenuItem(id: 0, name: "查找", icon: "magnifyingglass"),
+                             MenuItem(id: 1, name: "收藏", icon: "star")]
 
 struct WubiMacContentView: View {
+    @State var columnVisibility: NavigationSplitViewVisibility
+    @State var selectionIndex: Int
+    @State var favoriteSelectionIndex: String
+    @StateObject var favoriteState = FavoriteViewState()
     var body: some View  {
-        NavigationSplitView {
-            Sidebar()
-        } content: {
-            Text("wubi")
-                .navigationTitle("wubi")
-        } detail: {
-            
-        }
+        NavigationSplitView(columnVisibility: $columnVisibility, sidebar:  {
+            List(menuItems,selection: $selectionIndex) { item in
+                SideBarLabel(title: item.name, imageName: item.icon)
+            }
+        }, content: {
+            if selectionIndex == 0 {
+                Text("Search History")
+            }
+             if selectionIndex == 1 {
+                FavoriteView(selectionIndex: $favoriteSelectionIndex)
+                    .environmentObject(favoriteState)
+            }
+        },  detail: {
+            if selectionIndex == 0 {
+                SearchView()
+            } else if selectionIndex == 1 && favoriteState.favoriteWords.count > 0 {
+                WubiDetailView(result:$favoriteState.favoriteWords.first(where: {
+                    $0.id == favoriteSelectionIndex }) ?? $favoriteState.favoriteWords.first!,
+                               action: {
+                    favoriteState.getFavoriteWords()
+                    }
+                )
+            }
+        })
         .frame(minHeight: 650)
         .navigationTitle("五笔反查")
-//        .toolbar {
-//            ToolbarItem(placement: .navigation) {
-//                Button {
-//                    toggleSidebar()
-//                } label: {
-//                    Image(systemName: "sidebar.leading")
-//                }
-//            }
-//        }
-
-    }
-
-    private func toggleSidebar() {
-        NSApp.keyWindow?.firstResponder?.tryToPerform(#selector(NSSplitViewController.toggleSidebar(_:)), with: nil)
     }
 }

@@ -9,7 +9,7 @@ import Foundation
 import Combine
 
 final class ModelData: ObservableObject {
-    @Published var words: [FiveTypist] = load("favorite.json")
+    
 }
 
 func load<T: Decodable>( _ filename: String) -> T {
