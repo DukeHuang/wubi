@@ -20,13 +20,11 @@ let previewWord = Wubi(id: "",
 
 struct SearchView: View {
     @State private var searchWord: String = ""
-    @State var result: Wubi?
+    @State var wubi: Wubi?
 
     var body: some View {
-        if let _ = result {
-            WubiDetailView(result: Binding($result)!, action: {
-                
-            })
+        if let _ = wubi {
+            WubiDetailView(wubi: Binding($wubi)!) {}
             .searchable(text: $searchWord,prompt: "请输入要查询的字")
             .onSubmit(of:.search, runSearch)
         } else {
@@ -44,7 +42,7 @@ struct SearchView: View {
 
     func runSearch() {
         do {
-            try self.result = Database.shared!.query(keyValue:searchWord)
+            try self.wubi = Database.shared!.query(keyValue:searchWord)
         } catch {
             //do nothing
             print("search error: \(error)")

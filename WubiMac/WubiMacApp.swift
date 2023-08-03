@@ -9,39 +9,41 @@ import SwiftUI
 
 @main
 struct WubiMacApp: App {
-    @State var currentNumber: String = "1"
+    @State var search: String = ""
+    @State var show: Bool = false
+    @State var wubi: Wubi = previewWord
 
     var body: some Scene {
         WindowGroup {
-           //ContentView()
-            WubiMacContentView(columnVisibility: .all, selectionIndex: 0, favoriteSelectionIndex: "0")
+            WubiMacContentView(
+                columnVisibility: .all,
+                selectionIndex: 0,
+                favoriteSelectionIndex: "0"
+            )
         }
-
-        //https://sarunw.com/posts/swiftui-menu-bar-app/
-        //how to create a menu bar app
-        MenuBarExtra(currentNumber, systemImage: "\(currentNumber).circle") {
-            Button("One") {
-                currentNumber = "1"
-            }
-            .keyboardShortcut("1")
-
-            Button("Two") {
-                currentNumber = "2"
-            }
-            .keyboardShortcut("2")
-
-            Button("Three") {
-                currentNumber = "3"
-            }
-            .keyboardShortcut("3")
-
-            Divider()
-
+        MenuBarExtra("五笔查询", systemImage: "magnifyingglass.circle") {
+            TextField("请输入要查询的汉字",text: $search)
+            .onSubmit {
+                self.runSearch()
+                if self.wubi.character.count > 0 {
+                    show = true
+                } else {
+                show = false
+                }
+            }.keyboardShortcut("s")
+            WubiMenuBarDetailView(wubi: $wubi) {}.opacity(show ? 0 : 1)
             Button("Quit") {
-
                 NSApplication.shared.terminate(nil)
-
             }.keyboardShortcut("q")
+        }.menuBarExtraStyle(.window)
+    }
+
+    func runSearch() {
+        do {
+            try self.wubi = Database.shared!.query(keyValue:search)
+        } catch {
+            //do nothing
+            print("search error: \(error)")
         }
     }
 }
@@ -77,7 +79,7 @@ struct WubiMacContentView: View {
             if selectionIndex == 0 {
                 SearchView()
             } else if selectionIndex == 1 && favoriteState.favoriteWords.count > 0 {
-                WubiDetailView(result:$favoriteState.favoriteWords.first(where: {
+                WubiDetailView(wubi:$favoriteState.favoriteWords.first(where: {
                     $0.id == favoriteSelectionIndex }) ?? $favoriteState.favoriteWords.first!,
                                action: {
                     favoriteState.getFavoriteWords()

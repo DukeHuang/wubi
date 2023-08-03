@@ -1,13 +1,13 @@
 //
-//  WubiDetailView.swift
+//  WubiMenuBarDetailView.swift
 //  WubiMac
 //
-//  Created by yongyou on 2023/8/2.
+//  Created by yongyou on 2023/8/3.
 //
 
 import SwiftUI
 
-struct WubiDetailView: View {
+struct WubiMenuBarDetailView: View {
     @Binding var wubi: Wubi
     var action: () -> Void
     var body: some View {
@@ -22,28 +22,21 @@ struct WubiDetailView: View {
                     .background(.teal)
                     .cornerRadius(3)
                 FavoriteButton(word: $wubi, action: action)
-            }
-            Section("拆字:") {
                 Text(wubi.components.filter { $0 != "〔" && $0 != "〕" && $0 != "※" })
                     .font(.title)
             }
-            Section("简码:") {
-                Text(wubi.jianma.uppercased())
+            Section("简码:\(wubi.jianma.uppercased())") {
                 SingleKeyBoardView(quanma:wubi.jianmaKeys)
             }
-
-            Section("全码:") {
-                Text(wubi.quanma.uppercased())
+            Section("全码: \(wubi.quanma.uppercased())") {
                 SingleKeyBoardView(quanma:wubi.quanmaKeys)
             }
-//            HighlightedImage(keys: result.quanmaKeys)
-//                .minimumScaleFactor(0.5)
         }
     }
 }
 
-//struct WubiDetailView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        WubiDetailView(result: <#Binding<Wubi>#>)
-//    }
-//}
+struct WubiMenuBarDetailView_Previews: PreviewProvider {
+    static var previews: some View {
+        WubiMenuBarDetailView(wubi: .constant(previewWord), action: {})
+    }
+}
