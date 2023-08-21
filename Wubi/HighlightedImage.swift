@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+let ratio: CGFloat = 600 / 1237
 struct HighlightedImage: View {
     var keys: [String]
     private let rect98Dict = KeyboardImageManager.shared.rect98Dict
@@ -15,24 +16,28 @@ struct HighlightedImage: View {
 
         ZStack(alignment:.topLeading) {
             Image("iWuBi-98-keyboard")
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .frame(width:600)
+            
 
             Rectangle()
                 .foregroundColor(.black)
+                .frame(width: 600,height: 480 * ratio)
                 .opacity(0.5)
 
-            ForEach(keys,id: \.self) { key in
-                if let image = KeyboardImageManager.shared.image98Dict[key.capitalized] {
-                    Image(nsImage:image)
-                        .frame(width: rect98Dict[key.capitalized]?.width,height: rect98Dict[key.capitalized]?.height)
-                        .offset(CGSize(width: rect98Dict[key.capitalized]?.origin.x ?? 0, height: rect98Dict[key.capitalized]?.origin.y ?? 0))
+            ForEach(keys, id: \.self) { key in
+                if let image = KeyboardImageManager.shared.image98Dict[key.capitalized],
+                   let rect = rect98Dict[key.capitalized] {
+                    Image(nsImage: image)
+                        .resizable()
+                        .frame(width: rect.width * ratio,
+                               height: rect.height * ratio)
+                        .offset(CGSize(width: rect.origin.x * ratio, height: rect.origin.y * ratio))
                         .foregroundColor(.white)
-                        .animation(.default,value: 2)
                 }
-
             }
         }
-        .transition(.slide)
-
     }
 }
 

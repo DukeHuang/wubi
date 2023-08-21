@@ -72,7 +72,8 @@ struct SideBarLabel: View {
             Image(systemName:imageName)
                 .resizable()
                 .aspectRatio( contentMode: .fit)
-                .frame(width: 20)
+                .frame(width: 15)
+                .foregroundColor(.blue)
             Text(title)
         }
     }

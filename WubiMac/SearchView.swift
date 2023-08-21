@@ -8,16 +8,6 @@
 
 import SwiftUI
 
-let previewWord = Wubi(id: "",
-                       character: "",
-                       components: "",
-                       jianma: "",
-                       quanma: "",
-                       jianmaKeys: [""],
-                       quanmaKeys: [""],
-                       pingyin: "",
-                       isFavorite: false)
-
 struct SearchView: View {
     @State private var searchWord: String = ""
     @State var wubi: Wubi?
@@ -41,11 +31,13 @@ struct SearchView: View {
     }
 
     func runSearch() {
-        do {
-            try self.wubi = Database.shared!.query(keyValue:searchWord)
-        } catch {
-            //do nothing
-            print("search error: \(error)")
+        DispatchQueue.global().async {
+            do {
+                try self.wubi = Database.shared!.query(keyValue:searchWord)
+            } catch {
+                //do nothing
+                print("search error: \(error)")
+            }
         }
     }
 }

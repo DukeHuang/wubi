@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct FavoriteView: View {
+struct FavoriteListView: View {
     @Binding var selectionIndex: String
     @EnvironmentObject var state: FavoriteViewState
     var body: some View {

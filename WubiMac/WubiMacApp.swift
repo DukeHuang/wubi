@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-@main
+ @main
 struct WubiMacApp: App {
     @State var search: String = ""
     @State var show: Bool = false
@@ -18,7 +18,8 @@ struct WubiMacApp: App {
             WubiMacContentView(
                 columnVisibility: .all,
                 selectionIndex: 0,
-                favoriteSelectionIndex: "0"
+                favoriteSelectionIndex: "0",
+                searchString: ""
             )
         }
         MenuBarExtra("五笔查询", systemImage: "magnifyingglass.circle") {
@@ -62,6 +63,7 @@ struct WubiMacContentView: View {
     @State var selectionIndex: Int
     @State var favoriteSelectionIndex: String
     @StateObject var favoriteState = FavoriteViewState()
+    @State var searchString: String
     var body: some View  {
         NavigationSplitView(columnVisibility: $columnVisibility, sidebar:  {
             List(menuItems,selection: $selectionIndex) { item in
@@ -69,10 +71,10 @@ struct WubiMacContentView: View {
             }
         }, content: {
             if selectionIndex == 0 {
-                Text("Search History")
+                SearchListView()
             }
              if selectionIndex == 1 {
-                FavoriteView(selectionIndex: $favoriteSelectionIndex)
+                FavoriteListView(selectionIndex: $favoriteSelectionIndex)
                     .environmentObject(favoriteState)
             }
         },  detail: {
@@ -87,7 +89,7 @@ struct WubiMacContentView: View {
                 )
             }
         })
-        .frame(minHeight: 650)
-        .navigationTitle("五笔反查")
+        .frame(minWidth: 1250, minHeight: 650)
+        .navigationTitle("98五笔")
     }
 }

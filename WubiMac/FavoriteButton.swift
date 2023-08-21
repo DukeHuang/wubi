@@ -13,7 +13,12 @@ struct FavoriteButton: View {
     var body: some View {
         Button {
             do {
-                try Database.shared?.update(where: "A_key", equal: word.id, which: "is_Favorite", equal: word.isFavorite ? 0 : 1)
+                try Database.shared?.update(
+                    where: "A_key",
+                    equal: word.id,
+                    which: "is_Favorite",
+                    equal: word.isFavorite ? 0 : 1
+                )
             } catch {
                 print(error)
             }
