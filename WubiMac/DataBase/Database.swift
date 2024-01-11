@@ -58,11 +58,6 @@ class Database {
     private let dbMainPointer: OpaquePointer? //五笔拆字
 //    private let dbUserPointer: OpaquePointer? //五笔练习
 
-    var fileStroke: FiveStroke {
-        get {
-            return FiveStroke()
-        }
-    }
 
     private init(dbMainPointer: OpaquePointer?) {
         self.dbMainPointer = dbMainPointer

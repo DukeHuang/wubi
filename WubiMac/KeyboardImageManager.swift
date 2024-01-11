@@ -8,7 +8,7 @@
 
 #if os(macOS)
 import AppKit
-class KeyboardImageManager: NSObject {
+class KeyboardImageManager {
     static let shared = KeyboardImageManager()
 
     static let image98Keys = [
@@ -17,9 +17,9 @@ class KeyboardImageManager: NSObject {
         "Z": [96, 360], "X": [221, 360], "C": [346, 360], "V": [471, 360], "B": [595, 360], "N": [720, 360], "M": [847, 360]
     ]
 
-    private override init() {
-        super.init()
-    }
+//    private override init() {
+//        super.init()
+//    }
 
     func trim(image: NSImage, rect: CGRect) -> NSImage {
         let result = NSImage(size: rect.size)

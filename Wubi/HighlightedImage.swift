@@ -11,9 +11,7 @@ let ratio: CGFloat = 600 / 1237
 struct HighlightedImage: View {
     var keys: [String]
     private let rect98Dict = KeyboardImageManager.shared.rect98Dict
-
     var body: some View {
-
         ZStack(alignment:.topLeading) {
             Image("iWuBi-98-keyboard")
                 .resizable()

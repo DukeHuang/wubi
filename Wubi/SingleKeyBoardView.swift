@@ -11,18 +11,21 @@ struct SingleKeyBoardView: View {
     var quanma: Array<String>
     var body: some View {
         HStack(spacing: 5) {
-            ForEach(quanma.indices,id:\.self) { index in
-                if let image = KeyboardImageManager.shared.image98Dict[quanma[index].capitalized] {
+            ForEach(quanma.indices,id:\.self) { index  in
+                let key = quanma[index].capitalized.lowercased()
+                if let image = KeyboardImageManager.shared.image98Dict[key.uppercased()] {
                     VStack {
-                        Image(systemName: "\(quanma[index].capitalized.lowercased()).square.fill")
-                            .resizable()
-                            .frame(width: 60, height: 60, alignment: .center)
+//                        Image(systemName: "\(key).square.fill")
+//                            .resizable()
+//                            .frame(width: 60, height: 60, alignment: .center)
+//                            .foregroundStyle(.gray)
                         Image(nsImage: image)
                             .resizable()
                             .frame(width: 60, height: 60, alignment: .center)
-
+//                        Text(Wubi.poem[key] ?? "" )
+//                            .foregroundStyle(.gray)
                     }
-
+                    Spacer().frame(width: 20)
                 }
             }
         }

@@ -7,39 +7,34 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		760AA1272A60DC7800592525 /* HighlightedImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 760AA1262A60DC7800592525 /* HighlightedImage.swift */; };
-		760AA1282A60DC7800592525 /* HighlightedImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 760AA1262A60DC7800592525 /* HighlightedImage.swift */; };
-		760AA12A2A61454800592525 /* ModelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 760AA1292A61454800592525 /* ModelData.swift */; };
-		760AA12B2A61454800592525 /* ModelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 760AA1292A61454800592525 /* ModelData.swift */; };
 		760AA1332A61479300592525 /* FavoriteListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 760AA1322A61479300592525 /* FavoriteListView.swift */; };
 		760AA1342A61479300592525 /* FavoriteListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 760AA1322A61479300592525 /* FavoriteListView.swift */; };
 		761008E72A79FD15005C57B9 /* WubiDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 761008E62A79FD15005C57B9 /* WubiDetailView.swift */; };
-		762C3B982A54014900C0E048 /* Sidebar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 762C3B972A54014900C0E048 /* Sidebar.swift */; };
-		762C3B9E2A5412FE00C0E048 /* FiveStroke.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E2C891292341FD0022364A /* FiveStroke.swift */; };
 		762C3BA02A54130500C0E048 /* KeyboardImageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E2C895292341FF0022364A /* KeyboardImageManager.swift */; };
+		763830242B4558BB00FFC915 /* SearchHistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 763830232B4558BB00FFC915 /* SearchHistoryView.swift */; };
 		7662EB322A5C02E00088E4A5 /* NSImageExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7662EB312A5C02E00088E4A5 /* NSImageExtensions.swift */; };
 		7662EB332A5C02E00088E4A5 /* NSImageExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7662EB312A5C02E00088E4A5 /* NSImageExtensions.swift */; };
+		767984AC2B3E6A04000BA5A6 /* Sidebar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 762C3B972A54014900C0E048 /* Sidebar.swift */; };
+		767984AF2B3E7134000BA5A6 /* SearchViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 767984AE2B3E7134000BA5A6 /* SearchViewState.swift */; };
 		767AFA0E2A7B80D40016EB4D /* WubiMenuBarDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 767AFA0D2A7B80D40016EB4D /* WubiMenuBarDetailView.swift */; };
 		769DC2D52A5F8F480087A16D /* NSImage+Exs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769DC2D42A5F8F480087A16D /* NSImage+Exs.swift */; };
 		769DC2D72A5FA0BB0087A16D /* SingleKeyBoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769DC2D62A5FA0BB0087A16D /* SingleKeyBoardView.swift */; };
 		769DC2D82A5FA0BB0087A16D /* SingleKeyBoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769DC2D62A5FA0BB0087A16D /* SingleKeyBoardView.swift */; };
 		769DC2DA2A5FDEBF0087A16D /* View+Exs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769DC2D92A5FDEBF0087A16D /* View+Exs.swift */; };
 		769DC2DB2A5FDEBF0087A16D /* View+Exs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769DC2D92A5FDEBF0087A16D /* View+Exs.swift */; };
+		76A7FFA62B4F8BB10007DD45 /* HighlightedImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76A7FFA52B4F8BB10007DD45 /* HighlightedImage.swift */; };
 		76C00D2C2A52CC3B009D2ED7 /* WubiMacApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76C00D2B2A52CC3B009D2ED7 /* WubiMacApp.swift */; };
 		76C00D302A52CC3C009D2ED7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 76C00D2F2A52CC3C009D2ED7 /* Assets.xcassets */; };
 		76C00D332A52CC3D009D2ED7 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 76C00D322A52CC3D009D2ED7 /* Preview Assets.xcassets */; };
 		76C00D372A52CCBF009D2ED7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 76E2C8832923404C0022364A /* Assets.xcassets */; };
 		76C00D3F2A52CCED009D2ED7 /* main.db in Resources */ = {isa = PBXBuildFile; fileRef = 76E2C88E292341FB0022364A /* main.db */; };
-		76E1DE3C2A7C99D900FD5F7F /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E1DE3B2A7C99D900FD5F7F /* Constants.swift */; };
 		76E1DE3D2A7C99D900FD5F7F /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E1DE3B2A7C99D900FD5F7F /* Constants.swift */; };
-		76E1DE3F2A7C9D8100FD5F7F /* SearchListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E1DE3E2A7C9D8100FD5F7F /* SearchListView.swift */; };
 		76E1DE402A7C9D8100FD5F7F /* SearchListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E1DE3E2A7C9D8100FD5F7F /* SearchListView.swift */; };
 		76E2C8802923404A0022364A /* WubiApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E2C87F2923404A0022364A /* WubiApp.swift */; };
 		76E2C8842923404C0022364A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 76E2C8832923404C0022364A /* Assets.xcassets */; };
 		76E2C8882923404C0022364A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 76E2C8872923404C0022364A /* Preview Assets.xcassets */; };
 		76E2C896292341FF0022364A /* main.db in Resources */ = {isa = PBXBuildFile; fileRef = 76E2C88E292341FB0022364A /* main.db */; };
 		76E2C897292341FF0022364A /* AnalysisView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E2C88F292341FC0022364A /* AnalysisView.swift */; };
-		76E2C899292341FF0022364A /* FiveStroke.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E2C891292341FD0022364A /* FiveStroke.swift */; };
 		76E2C89D292341FF0022364A /* KeyboardImageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E2C895292341FF0022364A /* KeyboardImageManager.swift */; };
 		76F17E822A74FD48006B7F1D /* FavoriteViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F17E812A74FD48006B7F1D /* FavoriteViewState.swift */; };
 		76F17E832A74FD48006B7F1D /* FavoriteViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F17E812A74FD48006B7F1D /* FavoriteViewState.swift */; };
@@ -49,23 +44,25 @@
 		76F17E8D2A7503AB006B7F1D /* FavoriteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F17E852A7503AB006B7F1D /* FavoriteButton.swift */; };
 		76F17E8E2A7503AB006B7F1D /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F17E862A7503AB006B7F1D /* Database.swift */; };
 		76F17E8F2A7503AB006B7F1D /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F17E862A7503AB006B7F1D /* Database.swift */; };
-		76F17E902A7503AB006B7F1D /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F17E872A7503AB006B7F1D /* SearchView.swift */; };
-		76F17E912A7503AB006B7F1D /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F17E872A7503AB006B7F1D /* SearchView.swift */; };
-		76F17E922A7503AB006B7F1D /* Favorite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F17E882A7503AB006B7F1D /* Favorite.swift */; };
-		76F17E932A7503AB006B7F1D /* Favorite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F17E882A7503AB006B7F1D /* Favorite.swift */; };
+		76F17E902A7503AB006B7F1D /* SearchDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F17E872A7503AB006B7F1D /* SearchDetailView.swift */; };
+		76F17E912A7503AB006B7F1D /* SearchDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F17E872A7503AB006B7F1D /* SearchDetailView.swift */; };
+		76F17E922A7503AB006B7F1D /* FavoriteModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F17E882A7503AB006B7F1D /* FavoriteModel.swift */; };
+		76F17E932A7503AB006B7F1D /* FavoriteModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F17E882A7503AB006B7F1D /* FavoriteModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		760AA1262A60DC7800592525 /* HighlightedImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HighlightedImage.swift; sourceTree = "<group>"; };
 		760AA1292A61454800592525 /* ModelData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelData.swift; sourceTree = "<group>"; };
 		760AA1322A61479300592525 /* FavoriteListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteListView.swift; sourceTree = "<group>"; };
 		761008E62A79FD15005C57B9 /* WubiDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WubiDetailView.swift; sourceTree = "<group>"; };
 		762C3B972A54014900C0E048 /* Sidebar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sidebar.swift; sourceTree = "<group>"; };
+		763830232B4558BB00FFC915 /* SearchHistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchHistoryView.swift; sourceTree = "<group>"; };
 		7662EB312A5C02E00088E4A5 /* NSImageExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSImageExtensions.swift; sourceTree = "<group>"; };
+		767984AE2B3E7134000BA5A6 /* SearchViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewState.swift; sourceTree = "<group>"; };
 		767AFA0D2A7B80D40016EB4D /* WubiMenuBarDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WubiMenuBarDetailView.swift; sourceTree = "<group>"; };
 		769DC2D42A5F8F480087A16D /* NSImage+Exs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSImage+Exs.swift"; sourceTree = "<group>"; };
 		769DC2D62A5FA0BB0087A16D /* SingleKeyBoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleKeyBoardView.swift; sourceTree = "<group>"; };
 		769DC2D92A5FDEBF0087A16D /* View+Exs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Exs.swift"; sourceTree = "<group>"; };
+		76A7FFA52B4F8BB10007DD45 /* HighlightedImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HighlightedImage.swift; path = Wubi/HighlightedImage.swift; sourceTree = SOURCE_ROOT; };
 		76C00D292A52CC3B009D2ED7 /* WubiMac.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WubiMac.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		76C00D2B2A52CC3B009D2ED7 /* WubiMacApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WubiMacApp.swift; sourceTree = "<group>"; };
 		76C00D2F2A52CC3C009D2ED7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -85,8 +82,9 @@
 		76F17E842A7503AB006B7F1D /* Wubi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Wubi.swift; sourceTree = "<group>"; };
 		76F17E852A7503AB006B7F1D /* FavoriteButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteButton.swift; sourceTree = "<group>"; };
 		76F17E862A7503AB006B7F1D /* Database.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Database.swift; sourceTree = "<group>"; };
-		76F17E872A7503AB006B7F1D /* SearchView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
-		76F17E882A7503AB006B7F1D /* Favorite.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Favorite.swift; sourceTree = "<group>"; };
+		76F17E872A7503AB006B7F1D /* SearchDetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchDetailView.swift; sourceTree = "<group>"; };
+		76F17E882A7503AB006B7F1D /* FavoriteModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteModel.swift; sourceTree = "<group>"; };
+		76F511D42A93377B00E293E3 /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,9 +105,69 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		767984A52B3E5FB0000BA5A6 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				76F17E842A7503AB006B7F1D /* Wubi.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		767984A62B3E600F000BA5A6 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				767984A72B3E6021000BA5A6 /* Search */,
+				767984A82B3E6032000BA5A6 /* Favorite */,
+				767984AA2B3E6057000BA5A6 /* About */,
+				763830232B4558BB00FFC915 /* SearchHistoryView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		767984A72B3E6021000BA5A6 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				76E1DE3E2A7C9D8100FD5F7F /* SearchListView.swift */,
+				76F17E872A7503AB006B7F1D /* SearchDetailView.swift */,
+				761008E62A79FD15005C57B9 /* WubiDetailView.swift */,
+				767984AE2B3E7134000BA5A6 /* SearchViewState.swift */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		767984A82B3E6032000BA5A6 /* Favorite */ = {
+			isa = PBXGroup;
+			children = (
+				76F17E882A7503AB006B7F1D /* FavoriteModel.swift */,
+				76F17E852A7503AB006B7F1D /* FavoriteButton.swift */,
+				760AA1322A61479300592525 /* FavoriteListView.swift */,
+				76F17E812A74FD48006B7F1D /* FavoriteViewState.swift */,
+			);
+			path = Favorite;
+			sourceTree = "<group>";
+		};
+		767984AA2B3E6057000BA5A6 /* About */ = {
+			isa = PBXGroup;
+			children = (
+				76F511D42A93377B00E293E3 /* AboutView.swift */,
+			);
+			path = About;
+			sourceTree = "<group>";
+		};
+		767984AB2B3E6111000BA5A6 /* DataBase */ = {
+			isa = PBXGroup;
+			children = (
+				76E2C88E292341FB0022364A /* main.db */,
+				76F17E862A7503AB006B7F1D /* Database.swift */,
+			);
+			path = DataBase;
+			sourceTree = "<group>";
+		};
 		769DC2D32A5F8EA80087A16D /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				76A7FFA52B4F8BB10007DD45 /* HighlightedImage.swift */,
+				7662EB312A5C02E00088E4A5 /* NSImageExtensions.swift */,
 				769DC2D42A5F8F480087A16D /* NSImage+Exs.swift */,
 				769DC2D92A5FDEBF0087A16D /* View+Exs.swift */,
 			);
@@ -119,22 +177,16 @@
 		76C00D2A2A52CC3B009D2ED7 /* WubiMac */ = {
 			isa = PBXGroup;
 			children = (
-				76C00D2F2A52CC3C009D2ED7 /* Assets.xcassets */,
-				76F17E862A7503AB006B7F1D /* Database.swift */,
+				76C00D2B2A52CC3B009D2ED7 /* WubiMacApp.swift */,
+				767984A62B3E600F000BA5A6 /* View */,
 				769DC2D32A5F8EA80087A16D /* Extensions */,
-				76F17E882A7503AB006B7F1D /* Favorite.swift */,
-				76F17E852A7503AB006B7F1D /* FavoriteButton.swift */,
-				760AA1322A61479300592525 /* FavoriteListView.swift */,
-				76F17E812A74FD48006B7F1D /* FavoriteViewState.swift */,
-				76C00D312A52CC3D009D2ED7 /* Preview Content */,
-				76F17E872A7503AB006B7F1D /* SearchView.swift */,
-				76E1DE3E2A7C9D8100FD5F7F /* SearchListView.swift */,
-				761008E62A79FD15005C57B9 /* WubiDetailView.swift */,
+				767984A52B3E5FB0000BA5A6 /* Model */,
+				767984AB2B3E6111000BA5A6 /* DataBase */,
+				76E2C895292341FF0022364A /* KeyboardImageManager.swift */,
 				767AFA0D2A7B80D40016EB4D /* WubiMenuBarDetailView.swift */,
 				762C3B972A54014900C0E048 /* Sidebar.swift */,
-				76F17E842A7503AB006B7F1D /* Wubi.swift */,
-				76C00D2B2A52CC3B009D2ED7 /* WubiMacApp.swift */,
-				76E1DE3B2A7C99D900FD5F7F /* Constants.swift */,
+				76C00D2F2A52CC3C009D2ED7 /* Assets.xcassets */,
+				76C00D312A52CC3D009D2ED7 /* Preview Content */,
 			);
 			path = WubiMac;
 			sourceTree = "<group>";
@@ -142,6 +194,7 @@
 		76C00D312A52CC3D009D2ED7 /* Preview Content */ = {
 			isa = PBXGroup;
 			children = (
+				76E1DE3B2A7C99D900FD5F7F /* Constants.swift */,
 				76C00D322A52CC3D009D2ED7 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
@@ -171,11 +224,7 @@
 				76E2C88F292341FC0022364A /* AnalysisView.swift */,
 				76E2C891292341FD0022364A /* FiveStroke.swift */,
 				769DC2D62A5FA0BB0087A16D /* SingleKeyBoardView.swift */,
-				76E2C895292341FF0022364A /* KeyboardImageManager.swift */,
-				7662EB312A5C02E00088E4A5 /* NSImageExtensions.swift */,
-				760AA1262A60DC7800592525 /* HighlightedImage.swift */,
 				760AA1292A61454800592525 /* ModelData.swift */,
-				76E2C88E292341FB0022364A /* main.db */,
 				76E2C87F2923404A0022364A /* WubiApp.swift */,
 				76E2C8832923404C0022364A /* Assets.xcassets */,
 				76E2C8852923404C0022364A /* Wubi.entitlements */,
@@ -297,25 +346,25 @@
 			files = (
 				761008E72A79FD15005C57B9 /* WubiDetailView.swift in Sources */,
 				769DC2D82A5FA0BB0087A16D /* SingleKeyBoardView.swift in Sources */,
-				762C3B982A54014900C0E048 /* Sidebar.swift in Sources */,
 				769DC2D52A5F8F480087A16D /* NSImage+Exs.swift in Sources */,
 				76F17E8F2A7503AB006B7F1D /* Database.swift in Sources */,
-				760AA12B2A61454800592525 /* ModelData.swift in Sources */,
 				762C3BA02A54130500C0E048 /* KeyboardImageManager.swift in Sources */,
-				762C3B9E2A5412FE00C0E048 /* FiveStroke.swift in Sources */,
 				769DC2DB2A5FDEBF0087A16D /* View+Exs.swift in Sources */,
 				76F17E8B2A7503AB006B7F1D /* Wubi.swift in Sources */,
+				767984AF2B3E7134000BA5A6 /* SearchViewState.swift in Sources */,
 				7662EB332A5C02E00088E4A5 /* NSImageExtensions.swift in Sources */,
+				763830242B4558BB00FFC915 /* SearchHistoryView.swift in Sources */,
 				76C00D2C2A52CC3B009D2ED7 /* WubiMacApp.swift in Sources */,
 				76E1DE402A7C9D8100FD5F7F /* SearchListView.swift in Sources */,
+				767984AC2B3E6A04000BA5A6 /* Sidebar.swift in Sources */,
 				760AA1342A61479300592525 /* FavoriteListView.swift in Sources */,
-				76F17E932A7503AB006B7F1D /* Favorite.swift in Sources */,
-				76F17E912A7503AB006B7F1D /* SearchView.swift in Sources */,
+				76F17E932A7503AB006B7F1D /* FavoriteModel.swift in Sources */,
+				76F17E912A7503AB006B7F1D /* SearchDetailView.swift in Sources */,
 				76E1DE3D2A7C99D900FD5F7F /* Constants.swift in Sources */,
 				767AFA0E2A7B80D40016EB4D /* WubiMenuBarDetailView.swift in Sources */,
 				76F17E8D2A7503AB006B7F1D /* FavoriteButton.swift in Sources */,
-				760AA1282A60DC7800592525 /* HighlightedImage.swift in Sources */,
 				76F17E832A74FD48006B7F1D /* FavoriteViewState.swift in Sources */,
+				76A7FFA62B4F8BB10007DD45 /* HighlightedImage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -323,22 +372,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				760AA1272A60DC7800592525 /* HighlightedImage.swift in Sources */,
-				76E1DE3C2A7C99D900FD5F7F /* Constants.swift in Sources */,
 				7662EB322A5C02E00088E4A5 /* NSImageExtensions.swift in Sources */,
 				769DC2DA2A5FDEBF0087A16D /* View+Exs.swift in Sources */,
 				76E2C89D292341FF0022364A /* KeyboardImageManager.swift in Sources */,
 				76F17E8A2A7503AB006B7F1D /* Wubi.swift in Sources */,
-				76E1DE3F2A7C9D8100FD5F7F /* SearchListView.swift in Sources */,
 				760AA1332A61479300592525 /* FavoriteListView.swift in Sources */,
 				76F17E822A74FD48006B7F1D /* FavoriteViewState.swift in Sources */,
 				769DC2D72A5FA0BB0087A16D /* SingleKeyBoardView.swift in Sources */,
 				76E2C897292341FF0022364A /* AnalysisView.swift in Sources */,
-				76F17E922A7503AB006B7F1D /* Favorite.swift in Sources */,
-				76E2C899292341FF0022364A /* FiveStroke.swift in Sources */,
-				76F17E902A7503AB006B7F1D /* SearchView.swift in Sources */,
+				76F17E922A7503AB006B7F1D /* FavoriteModel.swift in Sources */,
+				76F17E902A7503AB006B7F1D /* SearchDetailView.swift in Sources */,
 				76E2C8802923404A0022364A /* WubiApp.swift in Sources */,
-				760AA12A2A61454800592525 /* ModelData.swift in Sources */,
 				76F17E8E2A7503AB006B7F1D /* Database.swift in Sources */,
 				76F17E8C2A7503AB006B7F1D /* FavoriteButton.swift in Sources */,
 			);
@@ -368,7 +412,8 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MACOSX_DEPLOYMENT_TARGET = 14.1;
+				MARKETING_VERSION = 0.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.cetccst.WubiMac;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
@@ -401,7 +446,8 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MACOSX_DEPLOYMENT_TARGET = 14.1;
+				MARKETING_VERSION = 0.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.cetccst.WubiMac;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;

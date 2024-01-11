@@ -1,5 +1,5 @@
 //
-//  Favorite.swift
+//  FavoriteModel.swift
 //  Landmarks
 //
 //  Created by yongyou on 2023/6/28.
@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-struct Favorite: Hashable, Codable,Identifiable {
+struct FavoriteModel: Hashable, Codable,Identifiable {
     var id: Int
     var name: String
     var park: String

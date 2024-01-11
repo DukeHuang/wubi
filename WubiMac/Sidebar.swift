@@ -19,7 +19,7 @@ struct Sidebar: View {
         List {
             Section {
                 NavigationLink {
-                    SearchView()
+                    SearchDetailView()
                 } label: {
                     SideBarLabel(title: "查找", imageName:"magnifyingglass")
                 }
@@ -74,8 +74,9 @@ struct SideBarLabel: View {
                 .aspectRatio( contentMode: .fit)
                 .frame(width: 15)
                 .foregroundColor(.blue)
+            Spacer().frame(width: 10)
             Text(title)
-        }
+        }.frame(height: 44)
     }
 }
 

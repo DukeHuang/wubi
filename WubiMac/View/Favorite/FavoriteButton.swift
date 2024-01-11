@@ -39,7 +39,7 @@ struct FavoriteButton: View {
 
 //struct FavoriteButton_Previews: PreviewProvider {
 //    static var previews: some View {
-        //关注一下这个方法
+////        关注一下这个方法
 //        FavoriteButton(word: .constant(previewWord),db:db)
 //    }
 //}
