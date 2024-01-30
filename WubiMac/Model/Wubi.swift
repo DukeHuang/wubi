@@ -21,7 +21,16 @@ class Wubi: Identifiable {
     let jianmaKeys: [String] //简码对应的英文字母
     let quanmaKeys: [String] //全码对应的英文字母
     let pingyin: String //拼音
-    let isFavorite: Bool
+    var isFavorite: Bool = false //是否被收藏
+    var isSearch: Bool = false //是否查找
+    let searchDate: Date //查找时间，用于排序
+    let favoriteDate: Date //收藏时间
+    var sourceType: Set<SourceType> = [] //来源：查找收藏
+
+    enum SourceType: Codable {
+        case favorite
+        case search
+    }
 
     init(id: String = "", character: String = "", components: String = "", jianma: String = "", quanma: String = "",
          jianmaKeys: [String] = [""], quanmaKeys: [String] = [""], pingyin: String  = "",isFavorite: Bool = false ) {
@@ -34,6 +43,9 @@ class Wubi: Identifiable {
         self.quanmaKeys = quanmaKeys
         self.pingyin = pingyin
         self.isFavorite = isFavorite
+        self.sourceType = [.search]
+        self.searchDate = Date.now
+        self.favoriteDate = Date.now
     }
 
 

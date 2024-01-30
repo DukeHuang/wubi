@@ -10,45 +10,35 @@ import SwiftData
 
 struct SearchListView: View {
     @Binding var selectionIndex: String
+    @Binding var wubis: [Wubi]
     @State   var searchString: String = ""
-    @EnvironmentObject var state: SearchViewState
+    
     @Environment(\.modelContext) var modelContext
     var body: some View {
-        if state.wubis.isEmpty {
+        if wubis.isEmpty {
             Text("请输入要查找的内容")
                 .searchable(text: $searchString,prompt: "查找")
                 .onSubmit(of:.search, runSearch)
         } else {
-            List(state.wubis, selection: $selectionIndex) { word in
-                HStack {
-                    Text(word.character)
-                        .padding()
-                        .foregroundStyle(.green)
-                    Text(word.jianma.uppercased() )
-                        .padding()
-                        .foregroundStyle(.black)
-                    Text(word.components.filter { $0 != "〔" && $0 != "〕" && $0 != "※" })
-                        .padding()
-                        .foregroundStyle(.blue)
-                }
-
-            }
-            .searchable(text: $searchString,prompt: "查找")
-            .onSubmit(of:.search, runSearch)
+            WubiListView(selectionIndex: $selectionIndex, wubis: wubis)
+                .searchable(text: $searchString,prompt: "查找")
+                .onSubmit(of:.search, runSearch)
         }
 
     }
 
-     func runSearch() {
+    func runSearch() {
         DispatchQueue.global().async {
             DispatchQueue.main.async {
-                state.wubis.removeAll()
+                wubis.removeAll()
             }
             searchString.forEach { word in
                 do {
                     let wubi = try Database.shared!.query(keyValue:String(word))
+                    wubi.isSearch = true
+                    wubi.sourceType.insert(.search)
                     DispatchQueue.main.async {
-                        state.wubis.append(wubi)
+                        wubis.append(wubi)
                         modelContext.insert(wubi)
                     }
                 } catch {
@@ -64,10 +54,7 @@ struct SearchListView: View {
 struct SearchListView_Previews: PreviewProvider {
 
     static var previews: some View {
-        let state = SearchViewState()
-        state.wubis = [previewWord,previewWord]
-        return SearchListView(selectionIndex: .constant("0"), searchString: "就把五笔")
-            .environmentObject(state)
+        return SearchListView(selectionIndex: .constant("0"), wubis:.constant([previewWord,previewWord]), searchString: "就把五笔")
     }
 }
 

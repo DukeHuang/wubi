@@ -9,6 +9,8 @@ import SwiftUI
 
 struct SingleKeyBoardView: View {
     var quanma: Array<String>
+
+    @State var showPoem: Bool = false
     var body: some View {
         HStack(spacing: 5) {
             ForEach(quanma.indices,id:\.self) { index  in
@@ -19,11 +21,24 @@ struct SingleKeyBoardView: View {
 //                            .resizable()
 //                            .frame(width: 60, height: 60, alignment: .center)
 //                            .foregroundStyle(.gray)
-                        Image(nsImage: image)
-                            .resizable()
-                            .frame(width: 60, height: 60, alignment: .center)
-//                        Text(Wubi.poem[key] ?? "" )
-//                            .foregroundStyle(.gray)
+                        ZStack(alignment:Alignment(horizontal: .trailing, vertical: .bottom)){
+                            Image(nsImage: image)
+                                .resizable()
+                                .frame(width: 60, height: 60, alignment: .center)
+                            Button {
+                                showPoem.toggle()
+                            } label: {
+                                Image(systemName:"info")
+                                    .frame(width: 5,height: 5)
+                            }
+
+                        }
+                        if showPoem {
+                            Text(poem[key] ?? "" )
+                                 .foregroundStyle(.gray)
+                        }
+
+//
                     }
                     Spacer().frame(width: 20)
                 }

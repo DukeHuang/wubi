@@ -248,7 +248,7 @@ extension Database {
             let d = sqlite3_column_text(queryStatement, 3) //拆字
             let e = sqlite3_column_text(queryStatement, 4) //全码
             let f = sqlite3_column_text(queryStatement, 5) //拼音
-            let g = sqlite3_column_int(queryStatement, 6) //是否收藏过
+//            let g = sqlite3_column_int(queryStatement, 6) //是否收藏过
 
             let aString = String(cString:a!)
             let bString = String(cString:b!)
@@ -256,11 +256,11 @@ extension Database {
             let dString = String(cString:d!)
             let eString = String(cString:e!)
             let fString = String(cString:f!)
-            let gBool = g != 0
+//            let gBool = g != 0
 
             let wubi = Wubi(id: aString, character: cString, components: dString, jianma: bString,
                             quanma: eString, jianmaKeys: bString.map { String($0) },
-                            quanmaKeys: eString.map { String($0) }, pingyin: fString, isFavorite: gBool)
+                            quanmaKeys: eString.map { String($0) }, pingyin: fString)
 
             wubis.append(wubi)
         }
@@ -276,9 +276,9 @@ extension Database {
         }
     }
 
-    func queryFavorites() throws -> [Wubi] {
-        return try self.query(key: "is_Favorite", value: 1)
-    }
+//    func queryFavorites() throws -> [Wubi] {
+//        return try self.query(key: "is_Favorite", value: 1)
+//    }
 
 
 //    func isExitColumn() throws -> Bool {

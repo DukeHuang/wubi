@@ -6,16 +6,13 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct FavoriteListView: View {
     @Binding var selectionIndex: String
-    @EnvironmentObject var state: FavoriteViewState
+    var favorites: [Wubi]
     var body: some View {
-        List(state.favoriteWords,selection: $selectionIndex) { word in
-            Text(word.character)
-        }.onAppear {
-            state.getFavoriteWords()
-        }
+        WubiListView(selectionIndex: $selectionIndex, wubis:favorites )
     }
 }
 

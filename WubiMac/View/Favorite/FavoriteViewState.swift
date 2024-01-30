@@ -10,11 +10,11 @@ import Combine
 
 class FavoriteViewState: ObservableObject {
     @Published var favoriteWords: [Wubi] = []
-    func getFavoriteWords() {
-        do {
-            favoriteWords = try Database.shared?.queryFavorites() ?? []
-        } catch {
-            print(error)
-        }
-    }
+//    func getFavoriteWords() {
+//        do {
+//            favoriteWords = try Database.shared?.queryFavorites() ?? []
+//        } catch {
+//            print(error)
+//        }
+//    }
 }

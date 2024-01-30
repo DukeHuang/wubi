@@ -31,11 +31,21 @@ struct WubiDetailView: View {
                     }
 
                     HStack(alignment: .top) {
-                        SingleKeyBoardView(quanma:wubi.jianmaKeys)
+//                        SingleKeyBoardView(quanma:wubi.jianmaKeys)
                         FavoriteButton(word: $wubi, action: action)
                     }
 
                 }
+//                Section("拆字:") {
+//                    QLImage(wubi.character)
+//                    .frame(width: 280, height: 70, alignment: .leading)
+//                }
+
+
+                Section("简码:") {
+                    SingleKeyBoardView(quanma:wubi.jianmaKeys)
+                }
+
                 Section("全码:") {
                     SingleKeyBoardView(quanma:wubi.quanmaKeys)
                 }
