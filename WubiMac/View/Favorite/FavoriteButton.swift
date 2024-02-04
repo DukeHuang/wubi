@@ -34,6 +34,7 @@ struct FavoriteButton: View {
                 .labelStyle(.iconOnly)
                 .foregroundColor(word.isFavorite ? .yellow : .gray)
         }
+        .keyboardShortcut("f")
 
     }
 }

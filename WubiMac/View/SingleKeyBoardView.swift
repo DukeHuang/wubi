@@ -10,7 +10,7 @@ import SwiftUI
 struct SingleKeyBoardView: View {
     var quanma: Array<String>
 
-    @State var showPoem: Bool = false
+    @State var showPoem: Bool = true
     var body: some View {
         HStack(spacing: 5) {
             ForEach(quanma.indices,id:\.self) { index  in
@@ -21,16 +21,15 @@ struct SingleKeyBoardView: View {
 //                            .resizable()
 //                            .frame(width: 60, height: 60, alignment: .center)
 //                            .foregroundStyle(.gray)
-                        ZStack(alignment:Alignment(horizontal: .trailing, vertical: .bottom)){
+                        HStack(){
                             Image(nsImage: image)
                                 .resizable()
                                 .frame(width: 60, height: 60, alignment: .center)
-                            Button {
-                                showPoem.toggle()
-                            } label: {
-                                Image(systemName:"info")
-                                    .frame(width: 5,height: 5)
-                            }
+//                            Button {
+//                                showPoem.toggle()
+//                            } label: {
+//                            }
+//                            .keyboardShortcut("h")
 
                         }
                         if showPoem {
@@ -40,7 +39,8 @@ struct SingleKeyBoardView: View {
 
 //
                     }
-                    Spacer().frame(width: 20)
+                    .frame(width: 100)
+//                    Spacer().frame(width: 50)
                 }
             }
         }
