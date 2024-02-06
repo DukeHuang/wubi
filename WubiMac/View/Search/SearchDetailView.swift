@@ -14,7 +14,7 @@ struct SearchDetailView: View {
 
     var body: some View {
         if let _ = wubi {
-            WubiDetailView(wubi: Binding($wubi)!) {}
+            WubiDetailView(wubi: $wubi) 
         } else {
             Text("")
         }

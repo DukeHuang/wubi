@@ -9,11 +9,11 @@ import SwiftUI
 import SwiftData
 
 struct SearchHistoryView: View {
-    @Binding var selectionIndex: String
-    var historys: [Wubi]
+    @Binding var selected: Wubi?
+    var wubis: [Wubi]
 
     var body: some View {
-        WubiListView(selectionIndex: $selectionIndex, wubis: historys)
+        WubiListView(selected: $selected, wubis: wubis)
     }
 }
 

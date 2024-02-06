@@ -21,7 +21,7 @@ struct WubiMenuBarDetailView: View {
                     .foregroundStyle(.white)
                     .background(.teal)
                     .cornerRadius(3)
-                FavoriteButton(word: $wubi, action: action)
+                FavoriteButton(word: $wubi)
                 Text(wubi.components.filter { $0 != "〔" && $0 != "〕" && $0 != "※" })
                     .font(.title)
             }

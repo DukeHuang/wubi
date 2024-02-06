@@ -9,10 +9,10 @@ import SwiftUI
 import SwiftData
 
 struct FavoriteListView: View {
-    @Binding var selectionIndex: String
-    var favorites: [Wubi]
+    @Binding var selectedWubi: Wubi?
+    var wubis: [Wubi]
     var body: some View {
-        WubiListView(selectionIndex: $selectionIndex, wubis:favorites )
+        WubiListView(selected: $selectedWubi, wubis:wubis)
     }
 }
 

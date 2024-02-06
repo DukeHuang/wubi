@@ -15,66 +15,137 @@ struct MenuItem: Identifiable {
     let icon: String
 }
 
-let menuItems: [MenuItem] = [MenuItem(id: 0, name: "查找", icon: "magnifyingglass"),
-                             MenuItem(id: 1, name: "历史", icon: "doc.text.magnifyingglass"),
-                             MenuItem(id: 2, name: "收藏", icon: "star"),
-                             MenuItem(id: 3, name: "跟打", icon: "rectangle.and.pencil.and.ellipsis"),
-                             MenuItem(id: 4, name: "关于", icon:  "person"),]
+//let menuItems: [MenuItem] = [MenuItem(id: 0, name: "查找", icon: "magnifyingglass"),
+//                             MenuItem(id: 1, name: "历史", icon: "doc.text.magnifyingglass"),
+//                             MenuItem(id: 2, name: "收藏", icon: "star"),
+//                             MenuItem(id: 3, name: "跟打", icon: "rectangle.and.pencil.and.ellipsis"),
+//                             MenuItem(id: 4, name: "关于", icon:  "person"),]
+
+enum SideBarItem: String, Identifiable, CaseIterable {
+    case search
+    case history
+    case favorite
+    case typing
+    case setting
+    case about
+
+    var id: UUID { UUID() }
+
+    var icon: String {
+        switch self {
+            case .search:
+                "magnifyingglass"
+            case .history:
+                "doc.text.magnifyingglass"
+            case .favorite:
+                "star"
+            case .typing:
+                "rectangle.and.pencil.and.ellipsis"
+            case .setting:
+                "gear"
+            case .about:
+                "person"
+
+        }
+    }
+
+    var name: String {
+        switch self {
+            case .search:
+                "查找"
+            case .history:
+                "历史"
+            case .favorite:
+                "收藏"
+            case .typing:
+                "跟打"
+            case .about:
+                "关于"
+            case .setting:
+                "设置"
+        }
+    }
+}
+enum DetailItem {
+    case search(Binding<Wubi?>)
+    case history(Binding<Wubi?>)
+    case favorite(Binding<Wubi?>)
+    case typing
+    case about
+    case setting
+}
+
+//let menuItems: [SideBarItem] = [.search,.about]
 
 struct WubiMacContentView: View {
     @State var columnVisibility: NavigationSplitViewVisibility = .all
-    @State var selectionIndex: Int = 0
+    @State var selectedSideBarItem: SideBarItem = .search
 
-
+    //search
+    @State var selectedSearch: Wubi?
     @State var searchs: [Wubi] = []
-    @State var searchSelectionIndex: String = "0"
 
-
-    @Query(filter: #Predicate<Wubi> {$0.isFavorite},sort: \Wubi.searchDate,order: .reverse) var favorites: [Wubi]
-    @State var favoriteSelectionIndex: String  = "0"
-
-    @State var searchString: String  = ""
+    //history
+    @State var selectedHistory: Wubi?
     @Query(filter: #Predicate<Wubi> {$0.isSearch},sort: \Wubi.searchDate,order: .reverse) var historys: [Wubi]
 
-    
-    @State var histroySelectionIndex: String  = "0"
+    //favorite
+    @State var selectedFavorite: Wubi?
+    @Query(filter: #Predicate<Wubi> {$0.isFavorite},sort: \Wubi.searchDate,order: .reverse) var favorites: [Wubi]
+
+    var selectedDetailItem: DetailItem? {
+        switch selectedSideBarItem {
+            case .search:
+                return .search($selectedSearch)
+            case .history:
+                return .history($selectedHistory)
+            case .favorite:
+                return .favorite($selectedFavorite)
+            case .typing:
+                return .typing
+            case .about:
+                return .about
+            case .setting:
+                return .setting
+        }
+    }
+
     var body: some View  {
-        NavigationSplitView(columnVisibility: $columnVisibility, sidebar:  {
-            List(menuItems,selection: $selectionIndex) { item in
+        NavigationSplitView(columnVisibility: $columnVisibility, sidebar: {
+            List(SideBarItem.allCases,id: \.self, selection: $selectedSideBarItem) { item in
                 SideBarLabel(title: item.name, imageName: item.icon)
             }
         }, content: {
-            switch selectionIndex {
-                case 0: SearchListView(selectionIndex: $searchSelectionIndex, wubis: $searchs)
-                case 1: SearchHistoryView(selectionIndex: $histroySelectionIndex, historys: historys)
-                case 2: FavoriteListView(selectionIndex: $favoriteSelectionIndex, favorites: favorites)
-                case 3: EmptyView()
-                default: Text("")
+            switch selectedSideBarItem {
+                case .search: 
+                    SearchListView(selected: $selectedSearch, wubis: $searchs)
+                case .history:
+                    SearchHistoryView(selected: $selectedHistory, wubis: historys)
+                case .favorite:
+                    FavoriteListView(selectedWubi: $selectedFavorite, wubis: favorites)
+                case .typing:
+                    Text("").navigationSplitViewColumnWidth(0)
+                case .about: 
+                    Text("").navigationSplitViewColumnWidth(0)
+                case .setting:
+                    Text("").navigationSplitViewColumnWidth(0)
             }
         },  detail: {
-            switch selectionIndex {
-                case 0:
-                    if let wubi = $searchs.first(where: { $0.id == searchSelectionIndex }) {
-                        WubiDetailView(wubi:wubi, action: {})
-                    } else {
+            if let detailItem = selectedDetailItem {
+                switch detailItem {
+                    case .search(let wubi):
+                        WubiDetailView(wubi:wubi)
+                    case .history(let wubi):
+                        WubiDetailView(wubi:wubi)
+                    case .favorite(let wubi):
+                        WubiDetailView(wubi:wubi)
+                    case .typing:
                         EmptyView()
-                    }
-                case 1:
-                    if let wubi = historys.first(where: { $0.id == histroySelectionIndex }) {
-                        WubiDetailView(wubi:.constant(wubi), action: {})
-                    } else {
+                    case .about:
+                        AboutView()
+                    case .setting:
                         EmptyView()
-                    }
-                case 2:
-                    if let wubi = favorites.first(where: { $0.id == favoriteSelectionIndex }) {
-                        WubiDetailView(wubi:.constant(wubi), action: {})
-                    } else {
-                        EmptyView()
-                    }
-                case 3:
-                    TypingView()
-                default:
-                    EmptyView()
+                }
             }
         })
         .frame(minWidth: 1250, minHeight: 650)

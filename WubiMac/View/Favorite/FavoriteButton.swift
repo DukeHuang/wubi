@@ -9,7 +9,7 @@ import SwiftUI
 
 struct FavoriteButton: View {
     @Binding var word: Wubi
-    var action: () -> Void
+//    var action: () -> Void
     var body: some View {
         Button {
             word.isFavorite.toggle()

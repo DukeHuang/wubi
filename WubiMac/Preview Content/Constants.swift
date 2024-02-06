@@ -16,6 +16,17 @@ let previewWord = Wubi(id: "22365",
                        quanmaKeys: ["r","y","u","d"],
                        pingyin: "zhāi",
                        isFavorite: true)
+
+let previewWord1 = Wubi(id: "22364",
+                       character: "摘",
+                       components: "󰃿󰄶󰄒󰂟",
+                       jianma: "ry",
+                       quanma: "ryud",
+                       jianmaKeys: ["r","y"],
+                       quanmaKeys: ["r","y","u","d"],
+                       pingyin: "zhāi",
+                       isFavorite: true)
+
 let poem: [String:String] = ["g": "王旁青头五夫一",
                              "f": "土干十寸未甘雨",
                              "d": "大犬戊其古石厂",

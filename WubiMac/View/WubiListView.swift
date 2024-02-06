@@ -8,25 +8,10 @@
 import SwiftUI
 
 struct WubiListView: View {
-    @Binding var selectionIndex: String
+    @Binding var selected: Wubi?
     var wubis: [Wubi]
     var body: some View {
-//        List(0..<1) {_ in
-//            HStack {
-//                Text("单字")
-//                    .frame(width:30)
-//                    .foregroundStyle(.red)
-//                Text("简码")
-//                    .frame(width:40)
-//                    .foregroundStyle(.red)
-//                Text("拆字")
-//                    .frame(width:80)
-//                    .foregroundStyle(.red)
-//            }
-//        }
-//        .frame(height: 40)
-
-        List(wubis, selection: $selectionIndex) { word in
+        List(wubis,id:\.self, selection: $selected) { word in
             HStack {
                 Text(word.character)
                     .font(.system(size: 30))
@@ -46,5 +31,5 @@ struct WubiListView: View {
 }
 
 #Preview {
-    WubiListView(selectionIndex: .constant("0"), wubis: [previewWord,previewWord])
+    WubiListView(selected: .constant(previewWord), wubis: [previewWord,previewWord1])
 }

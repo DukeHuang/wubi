@@ -9,7 +9,7 @@ import SwiftUI
 import SwiftData
 
 struct SearchListView: View {
-    @Binding var selectionIndex: String
+    @Binding var selected: Wubi?
     @Binding var wubis: [Wubi]
     @State   var searchString: String = ""
     
@@ -20,7 +20,7 @@ struct SearchListView: View {
                 .searchable(text: $searchString,prompt: "查找")
                 .onSubmit(of:.search, runSearch)
         } else {
-            WubiListView(selectionIndex: $selectionIndex, wubis: wubis)
+            WubiListView(selected: $selected, wubis: wubis)
                 .searchable(text: $searchString,prompt: "查找")
                 .onSubmit(of:.search, runSearch)
         }
@@ -54,7 +54,7 @@ struct SearchListView: View {
 struct SearchListView_Previews: PreviewProvider {
 
     static var previews: some View {
-        return SearchListView(selectionIndex: .constant("0"), wubis:.constant([previewWord,previewWord]), searchString: "就把五笔")
+        return SearchListView(selected: .constant(previewWord), wubis:.constant([previewWord,previewWord]), searchString: "就把五笔")
     }
 }
 
