@@ -14,13 +14,6 @@ struct MenuItem: Identifiable {
     let name: String
     let icon: String
 }
-
-//let menuItems: [MenuItem] = [MenuItem(id: 0, name: "查找", icon: "magnifyingglass"),
-//                             MenuItem(id: 1, name: "历史", icon: "doc.text.magnifyingglass"),
-//                             MenuItem(id: 2, name: "收藏", icon: "star"),
-//                             MenuItem(id: 3, name: "跟打", icon: "rectangle.and.pencil.and.ellipsis"),
-//                             MenuItem(id: 4, name: "关于", icon:  "person"),]
-
 enum SideBarItem: String, Identifiable, CaseIterable {
     case search
     case history
@@ -75,8 +68,6 @@ enum DetailItem {
     case setting
 }
 
-//let menuItems: [SideBarItem] = [.search,.about]
-
 struct WubiMacContentView: View {
     @State var columnVisibility: NavigationSplitViewVisibility = .all
     @State var selectedSideBarItem: SideBarItem = .search
@@ -128,7 +119,7 @@ struct WubiMacContentView: View {
                 case .about: 
                     Text("").navigationSplitViewColumnWidth(0)
                 case .setting:
-                    Text("").navigationSplitViewColumnWidth(0)
+                    SettingListView()
             }
         },  detail: {
             if let detailItem = selectedDetailItem {
@@ -144,7 +135,7 @@ struct WubiMacContentView: View {
                     case .about:
                         AboutView()
                     case .setting:
-                        EmptyView()
+                        VersionSegementView(version: 0)
                 }
             }
         })

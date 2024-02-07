@@ -20,7 +20,9 @@ struct AboutView: View {
 
 //            Link("\(AboutView.offSiteAdr.replace(of: "http://", to: ""))", destination: AboutView.offCiteUrl )
 
-            Text("Ver: \(Bundle.main.appVersionLong) (\(Bundle.main.appBuild)) ")
+            Text("V\(Bundle.main.appVersionLong) (\(Bundle.main.appBuild)) ")
+            
+            Text("Copyright © 2024 sakuragi. All Rights Reserved.")
             // Xcode 13.0 beta 2
             //.textSelection(.enabled)
 

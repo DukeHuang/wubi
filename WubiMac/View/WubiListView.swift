@@ -14,14 +14,14 @@ struct WubiListView: View {
         List(wubis,id:\.self, selection: $selected) { word in
             HStack {
                 Text(word.character)
-                    .font(.system(size: 30))
+                    .font(.system(size: 15))
                     .foregroundStyle(.blue)
                 VStack(alignment:.leading) {
                     Text(word.jianma.uppercased() )
-                        .font(.title2)
+                        .font(.system(size: 10))
                         .foregroundStyle(.black)
                     Text(word.components.filter { $0 != "〔" && $0 != "〕" && $0 != "※" })
-                        .font(.title3)
+                        .font(.custom("98WB-2.otf", size: 10,relativeTo: .title3))
                         .foregroundStyle(.gray)
                 }
 

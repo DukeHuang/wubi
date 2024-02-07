@@ -49,6 +49,10 @@
 		76F17E912A7503AB006B7F1D /* SearchDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F17E872A7503AB006B7F1D /* SearchDetailView.swift */; };
 		76F847E42B510AFB003FE909 /* GIFView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 761F904D2B5105D1007F97BB /* GIFView.swift */; };
 		76F847E62B510C89003FE909 /* QLImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F847E52B510C89003FE909 /* QLImage.swift */; };
+		E0553D462B6DFF7000E7D4A7 /* 98WB-2.otf in Resources */ = {isa = PBXBuildFile; fileRef = E0553D452B6DFF7000E7D4A7 /* 98WB-2.otf */; };
+		E0ACBA852B72716E00F40339 /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F511D42A93377B00E293E3 /* AboutView.swift */; };
+		E0ACBA892B72806300F40339 /* SettingListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0ACBA882B72806300F40339 /* SettingListView.swift */; };
+		E0ACBA8B2B72836900F40339 /* VersionSegementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0ACBA8A2B72836900F40339 /* VersionSegementView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -90,6 +94,11 @@
 		76F17E872A7503AB006B7F1D /* SearchDetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchDetailView.swift; sourceTree = "<group>"; };
 		76F511D42A93377B00E293E3 /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
 		76F847E52B510C89003FE909 /* QLImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QLImage.swift; sourceTree = "<group>"; };
+		E0553D442B6DF39200E7D4A7 /* WubiMac.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = WubiMac.entitlements; sourceTree = "<group>"; };
+		E0553D452B6DFF7000E7D4A7 /* 98WB-2.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "98WB-2.otf"; sourceTree = "<group>"; };
+		E0553D472B6DFFA800E7D4A7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		E0ACBA882B72806300F40339 /* SettingListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingListView.swift; sourceTree = "<group>"; };
+		E0ACBA8A2B72836900F40339 /* VersionSegementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VersionSegementView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,6 +151,7 @@
 				767984A72B3E6021000BA5A6 /* Search */,
 				767984A82B3E6032000BA5A6 /* Favorite */,
 				767984AA2B3E6057000BA5A6 /* About */,
+				E0ACBA872B72801700F40339 /* Setting */,
 				761008E62A79FD15005C57B9 /* WubiDetailView.swift */,
 				7618BA462B5660C700FEBCF1 /* WubiListView.swift */,
 				769DC2D62A5FA0BB0087A16D /* SingleKeyBoardView.swift */,
@@ -200,6 +210,8 @@
 		76C00D2A2A52CC3B009D2ED7 /* WubiMac */ = {
 			isa = PBXGroup;
 			children = (
+				E0553D472B6DFFA800E7D4A7 /* Info.plist */,
+				E0553D442B6DF39200E7D4A7 /* WubiMac.entitlements */,
 				76C00D2B2A52CC3B009D2ED7 /* WubiMacApp.swift */,
 				7618BA5F2B56785500FEBCF1 /* WubiMacContentView.swift */,
 				767984A62B3E600F000BA5A6 /* View */,
@@ -210,6 +222,7 @@
 				767AFA0D2A7B80D40016EB4D /* WubiMenuBarDetailView.swift */,
 				762C3B972A54014900C0E048 /* Sidebar.swift */,
 				76C00D2F2A52CC3C009D2ED7 /* Assets.xcassets */,
+				E0553D452B6DFF7000E7D4A7 /* 98WB-2.otf */,
 				76C00D312A52CC3D009D2ED7 /* Preview Content */,
 			);
 			path = WubiMac;
@@ -264,6 +277,15 @@
 				76E2C8872923404C0022364A /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		E0ACBA872B72801700F40339 /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				E0ACBA882B72806300F40339 /* SettingListView.swift */,
+				E0ACBA8A2B72836900F40339 /* VersionSegementView.swift */,
+			);
+			path = Setting;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -352,6 +374,7 @@
 				76C00D3F2A52CCED009D2ED7 /* main.db in Resources */,
 				76C00D332A52CC3D009D2ED7 /* Preview Assets.xcassets in Resources */,
 				76C00D372A52CCBF009D2ED7 /* Assets.xcassets in Resources */,
+				E0553D462B6DFF7000E7D4A7 /* 98WB-2.otf in Resources */,
 				76C00D302A52CC3C009D2ED7 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -380,6 +403,7 @@
 				762C3BA02A54130500C0E048 /* KeyboardImageManager.swift in Sources */,
 				769DC2DB2A5FDEBF0087A16D /* View+Exs.swift in Sources */,
 				76F17E8B2A7503AB006B7F1D /* Wubi.swift in Sources */,
+				E0ACBA8B2B72836900F40339 /* VersionSegementView.swift in Sources */,
 				7618BA472B5660C700FEBCF1 /* WubiListView.swift in Sources */,
 				761F2CD82B51048D007F97BB /* URLType.swift in Sources */,
 				7662EB332A5C02E00088E4A5 /* NSImageExtensions.swift in Sources */,
@@ -389,9 +413,11 @@
 				767984AC2B3E6A04000BA5A6 /* Sidebar.swift in Sources */,
 				760AA1342A61479300592525 /* FavoriteListView.swift in Sources */,
 				76F17E912A7503AB006B7F1D /* SearchDetailView.swift in Sources */,
+				E0ACBA852B72716E00F40339 /* AboutView.swift in Sources */,
 				76E89D392B552BC7001637FE /* TypingView.swift in Sources */,
 				76E1DE3D2A7C99D900FD5F7F /* Constants.swift in Sources */,
 				76F847E62B510C89003FE909 /* QLImage.swift in Sources */,
+				E0ACBA892B72806300F40339 /* SettingListView.swift in Sources */,
 				767AFA0E2A7B80D40016EB4D /* WubiMenuBarDetailView.swift in Sources */,
 				76F17E8D2A7503AB006B7F1D /* FavoriteButton.swift in Sources */,
 				76A7FFA62B4F8BB10007DD45 /* HighlightedImage.swift in Sources */,
@@ -426,12 +452,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = WubiMac/WubiMac.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"WubiMac/Preview Content\"";
-				DEVELOPMENT_TEAM = K8MXV5Q42C;
+				DEVELOPMENT_TEAM = GH9J6ETQPF;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = WubiMac/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -444,7 +473,7 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = 14.1;
 				MARKETING_VERSION = 0.0.1;
-				PRODUCT_BUNDLE_IDENTIFIER = com.cetccst.WubiMac;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sakuragg.WubiMac;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SUPPORTED_PLATFORMS = macosx;
@@ -460,12 +489,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = WubiMac/WubiMac.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"WubiMac/Preview Content\"";
-				DEVELOPMENT_TEAM = K8MXV5Q42C;
+				DEVELOPMENT_TEAM = GH9J6ETQPF;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = WubiMac/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -478,7 +510,7 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = 14.1;
 				MARKETING_VERSION = 0.0.1;
-				PRODUCT_BUNDLE_IDENTIFIER = com.cetccst.WubiMac;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sakuragg.WubiMac;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SUPPORTED_PLATFORMS = macosx;
