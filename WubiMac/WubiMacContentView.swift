@@ -131,7 +131,8 @@ struct WubiMacContentView: View {
                     case .favorite(let wubi):
                         WubiDetailView(wubi:wubi)
                     case .typing:
-                        EmptyView()
+//                        EmptyView()
+                        TypingView()
                     case .about:
                         AboutView()
                     case .setting:
