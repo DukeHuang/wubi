@@ -23,7 +23,6 @@
 		769DC2D82A5FA0BB0087A16D /* SingleKeyBoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769DC2D62A5FA0BB0087A16D /* SingleKeyBoardView.swift */; };
 		769DC2DA2A5FDEBF0087A16D /* View+Exs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769DC2D92A5FDEBF0087A16D /* View+Exs.swift */; };
 		769DC2DB2A5FDEBF0087A16D /* View+Exs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769DC2D92A5FDEBF0087A16D /* View+Exs.swift */; };
-		76A7FFA62B4F8BB10007DD45 /* HighlightedImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76A7FFA52B4F8BB10007DD45 /* HighlightedImage.swift */; };
 		76C00D2C2A52CC3B009D2ED7 /* WubiMacApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76C00D2B2A52CC3B009D2ED7 /* WubiMacApp.swift */; };
 		76C00D302A52CC3C009D2ED7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 76C00D2F2A52CC3C009D2ED7 /* Assets.xcassets */; };
 		76C00D332A52CC3D009D2ED7 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 76C00D322A52CC3D009D2ED7 /* Preview Assets.xcassets */; };
@@ -53,6 +52,7 @@
 		E0ACBA852B72716E00F40339 /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F511D42A93377B00E293E3 /* AboutView.swift */; };
 		E0ACBA892B72806300F40339 /* SettingListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0ACBA882B72806300F40339 /* SettingListView.swift */; };
 		E0ACBA8B2B72836900F40339 /* VersionSegementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0ACBA8A2B72836900F40339 /* VersionSegementView.swift */; };
+		E0E721312BA09A74001C6434 /* HighlightedImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0E721302BA09A74001C6434 /* HighlightedImage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -70,7 +70,6 @@
 		769DC2D42A5F8F480087A16D /* NSImage+Exs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSImage+Exs.swift"; sourceTree = "<group>"; };
 		769DC2D62A5FA0BB0087A16D /* SingleKeyBoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleKeyBoardView.swift; sourceTree = "<group>"; };
 		769DC2D92A5FDEBF0087A16D /* View+Exs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Exs.swift"; sourceTree = "<group>"; };
-		76A7FFA52B4F8BB10007DD45 /* HighlightedImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HighlightedImage.swift; path = Wubi/HighlightedImage.swift; sourceTree = SOURCE_ROOT; };
 		76C00D292A52CC3B009D2ED7 /* WubiMac.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WubiMac.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		76C00D2B2A52CC3B009D2ED7 /* WubiMacApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WubiMacApp.swift; sourceTree = "<group>"; };
 		76C00D2F2A52CC3C009D2ED7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -99,6 +98,7 @@
 		E0553D472B6DFFA800E7D4A7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		E0ACBA882B72806300F40339 /* SettingListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingListView.swift; sourceTree = "<group>"; };
 		E0ACBA8A2B72836900F40339 /* VersionSegementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VersionSegementView.swift; sourceTree = "<group>"; };
+		E0E721302BA09A74001C6434 /* HighlightedImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HighlightedImage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -198,7 +198,7 @@
 		769DC2D32A5F8EA80087A16D /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				76A7FFA52B4F8BB10007DD45 /* HighlightedImage.swift */,
+				E0E721302BA09A74001C6434 /* HighlightedImage.swift */,
 				7662EB312A5C02E00088E4A5 /* NSImageExtensions.swift */,
 				769DC2D42A5F8F480087A16D /* NSImage+Exs.swift */,
 				769DC2D92A5FDEBF0087A16D /* View+Exs.swift */,
@@ -409,6 +409,7 @@
 				7662EB332A5C02E00088E4A5 /* NSImageExtensions.swift in Sources */,
 				763830242B4558BB00FFC915 /* SearchHistoryView.swift in Sources */,
 				76C00D2C2A52CC3B009D2ED7 /* WubiMacApp.swift in Sources */,
+				E0E721312BA09A74001C6434 /* HighlightedImage.swift in Sources */,
 				76E1DE402A7C9D8100FD5F7F /* SearchListView.swift in Sources */,
 				767984AC2B3E6A04000BA5A6 /* Sidebar.swift in Sources */,
 				760AA1342A61479300592525 /* FavoriteListView.swift in Sources */,
@@ -420,7 +421,6 @@
 				E0ACBA892B72806300F40339 /* SettingListView.swift in Sources */,
 				767AFA0E2A7B80D40016EB4D /* WubiMenuBarDetailView.swift in Sources */,
 				76F17E8D2A7503AB006B7F1D /* FavoriteButton.swift in Sources */,
-				76A7FFA62B4F8BB10007DD45 /* HighlightedImage.swift in Sources */,
 				7618BA602B56785500FEBCF1 /* WubiMacContentView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
