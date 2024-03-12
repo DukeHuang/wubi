@@ -8,11 +8,24 @@
 import SwiftUI
 
 struct AttributedDemoView: View {
+    var message: AttributedString {
+        var amount = Measurement(value: 200, unit: UnitLength.kilometers)
+        var result = amount.formatted(.measurement(width: .wide).attributed)
+
+        let distanceStyling = AttributeContainer.font(.title)
+        let distance = AttributeContainer.measurement(.value)
+        result.replaceAttributes(distance, with: distanceStyling)
+
+        return result
+    }
+
+
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Text(message)
     }
 }
 
 #Preview {
     AttributedDemoView()
+        .frame(width: 800,height: 800)
 }

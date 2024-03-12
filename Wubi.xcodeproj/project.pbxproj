@@ -15,6 +15,7 @@
 		761F2CD82B51048D007F97BB /* URLType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 761F2CD72B51048D007F97BB /* URLType.swift */; };
 		762C3BA02A54130500C0E048 /* KeyboardImageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E2C895292341FF0022364A /* KeyboardImageManager.swift */; };
 		763830242B4558BB00FFC915 /* SearchHistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 763830232B4558BB00FFC915 /* SearchHistoryView.swift */; };
+		765A14EB2BA05FC100EA127A /* AttributedDemoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 765A14EA2BA05FC100EA127A /* AttributedDemoView.swift */; };
 		7662EB322A5C02E00088E4A5 /* NSImageExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7662EB312A5C02E00088E4A5 /* NSImageExtensions.swift */; };
 		7662EB332A5C02E00088E4A5 /* NSImageExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7662EB312A5C02E00088E4A5 /* NSImageExtensions.swift */; };
 		767984AC2B3E6A04000BA5A6 /* Sidebar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 762C3B972A54014900C0E048 /* Sidebar.swift */; };
@@ -65,6 +66,7 @@
 		761F904D2B5105D1007F97BB /* GIFView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GIFView.swift; sourceTree = "<group>"; };
 		762C3B972A54014900C0E048 /* Sidebar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sidebar.swift; sourceTree = "<group>"; };
 		763830232B4558BB00FFC915 /* SearchHistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchHistoryView.swift; sourceTree = "<group>"; };
+		765A14EA2BA05FC100EA127A /* AttributedDemoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttributedDemoView.swift; sourceTree = "<group>"; };
 		7662EB312A5C02E00088E4A5 /* NSImageExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSImageExtensions.swift; sourceTree = "<group>"; };
 		767AFA0D2A7B80D40016EB4D /* WubiMenuBarDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WubiMenuBarDetailView.swift; sourceTree = "<group>"; };
 		769DC2D42A5F8F480087A16D /* NSImage+Exs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSImage+Exs.swift"; sourceTree = "<group>"; };
@@ -131,6 +133,7 @@
 			isa = PBXGroup;
 			children = (
 				76E89D382B552BC7001637FE /* TypingView.swift */,
+				765A14EA2BA05FC100EA127A /* AttributedDemoView.swift */,
 			);
 			path = Typing;
 			sourceTree = "<group>";
@@ -415,6 +418,7 @@
 				76F17E912A7503AB006B7F1D /* SearchDetailView.swift in Sources */,
 				E0ACBA852B72716E00F40339 /* AboutView.swift in Sources */,
 				76E89D392B552BC7001637FE /* TypingView.swift in Sources */,
+				765A14EB2BA05FC100EA127A /* AttributedDemoView.swift in Sources */,
 				76E1DE3D2A7C99D900FD5F7F /* Constants.swift in Sources */,
 				76F847E62B510C89003FE909 /* QLImage.swift in Sources */,
 				E0ACBA892B72806300F40339 /* SettingListView.swift in Sources */,
