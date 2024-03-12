@@ -57,15 +57,98 @@ import SwiftUI
 
 struct TypingView: View {
 
-
-    static let origin: String = "的一是了不在有个人这上中大为来我到出要以时和地们得可下对生也子就过能他会多发说而于自之用年行家方后作成开面事好小心前所道法如进着同经分定都然与本还其当起动已两点从问里主实天高去现长此三将无国全文理明日些看只公等十意正外想间把情者没重相那向知因样学应又手但信关使种见力名二处门并口么先位头回话很再由身入内第平被给次别几月真立新通少机打水果最部何安接报声才体今合性西你放表目加常做己老四件解路更走比总金管光工结提任东原便美及教难世至气神山数利书代直色场变记张必受交非服化求风度太万各算边王什快许连五活思该步海指物则女或完马强言条特命感清带认保望转传儿制干计民白住字它义车像反象题却流且即深近形取往系量论告息让决未花收满每华业南觉电空眼听远师元请容她军士百办语期北林识半夫客战院城候单音台死视领失司亲始极双令改功程爱德复切随李员离轻观青足落叫根怎持精送众影八首包准兴红达早尽故房引火站似找备调断设格消拉照布友整术石展紧据终周式举飞片虽易运笑云建谈界务写钱商乐推注越千微若约英集示呢待坐议乎留称品志黑存六造低江念产刻节尔吃势依图共曾响底装具喜严九况跟罗须显热病证刚治绝群市阳确究久除闻答段官政类黄武七支费父统"
-    @State private var content: AttributedString = AttributedString(origin)
-
+    @Binding var article: Article
+    
+    @State private var content: AttributedString = AttributedString()
     @State private var inputText = ""
     @State private var wordCount: Int = 0
-
     @State private var version:Int = 0
 
+    
+    var body: some View {
+        let origin: String = self.article.content
+        self.content = AttributedString(origin)
+        
+        return VStack {
+            HStack {
+                HStack {
+                    Button {
+                    } label: {
+                        Text("打乱")
+                    }.buttonStyle(.plain)
+                    Button {
+                        
+                    } label: {
+                        Text("重打")
+                    }
+                    Button {
+                    } label: {
+                        Text("暂停")
+                    }
+                    Button {
+                    } label: {
+                        Text("继续")
+                    }
+                }
+                Spacer()
+                Text("6/100")
+                Text("1/1")
+                Spacer()
+                Button {
+                } label: {
+                    Text("文章选择")
+                }
+                Button {
+                } label: {
+                    Text("文章自定义")
+                }
+                Spacer()
+                Picker("", selection: $version) {
+                    Text("5").tag(0)
+                    Text("10").tag(1)
+                    Text("15").tag(2)
+                    Text("20").tag(2)
+                    Text("50").tag(0)
+                    Text("100").tag(0)
+                    Text("200").tag(0)
+                    Text("500").tag(0)
+                    Text("全").tag(0)
+                }
+                .pickerStyle(.segmented)
+                
+                Spacer()
+                
+                Button {
+                    
+                } label: {
+                    Text("极简模式")
+                }
+            }
+
+            Text(content)
+                .border(.primary)
+                .font(.largeTitle)
+                .padding(.top,20)
+            ZStack(alignment: .topTrailing) {
+                TextEditor(text: $inputText)
+                    .border(.primary)
+                    .font(.largeTitle)
+                    .padding()
+                    .padding(.top, 20)
+                    .onChange(of: inputText, { oldValue, newValue in
+//                        let words = inputText.split { $0 == " " || $0.isNewline }
+                        self.wordCount = inputText.count
+                        self.content = self.compareAndColorize(origin, with: inputText)
+
+                    })
+                Text("\(wordCount) words")
+                    .font(.headline)
+                    .foregroundStyle(.secondary)
+            }
+        }
+    }
+        
+    
     func compareAndColorize(_ mutableString:String, with immutableString: String) -> AttributedString {        var result = AttributedString()
 
         let minLength = min(mutableString.count, immutableString.count)
@@ -74,7 +157,6 @@ struct TypingView: View {
 
         for i in 0..<minLength {
             var mutableChar = AttributedString(String(mutableChars[i]))
-
             if mutableChars[i] == immutableChars[i] {
                 // 如果汉字相同，颜色变成灰色
                 mutableChar.foregroundColor = .green
@@ -82,13 +164,11 @@ struct TypingView: View {
                 // 如果汉字不同，颜色变成红色
                 mutableChar.foregroundColor = .red
             }
-
             result.append(mutableChar)
         }
 
         // 如果可变字符串比不可变字符串长，将剩余部分添加为红色
         if mutableString.count > minLength {
-
             let index = mutableString.index(mutableString.startIndex, offsetBy: minLength)
             var remainingString = AttributedString(String(mutableString[index...]))
             remainingString.foregroundColor = .black
@@ -97,150 +177,8 @@ struct TypingView: View {
 
         return result
     }
-    var body: some View {
-        VStack {
-            HStack {
-                //                Button {
-                //
-                //                } label: {
-                //                    Text("打乱")
-                //                }
-                //                Button {
-                //
-                //                } label: {
-                //                    Text("重打")
-                //                }
-                //                Button {
-                //
-                //                } label: {
-                //                    Text("暂停")
-                //                }
-                //                Button {
-                //
-                //                } label: {
-                //                    Text("继续")
-                //                }
-
-                Picker("", selection: $version) {
-                    Text("打乱").tag(0)
-                    Text("重打").tag(1)
-                    Text("暂停").tag(2)
-                    Text("继续").tag(2)
-                }
-                .pickerStyle(.segmented)
-
-
-                Spacer()
-
-                Text("6/100")
-
-                Text("1/1")
-
-                Spacer()
-
-                Button {
-
-                } label: {
-                    Text("文章选择")
-                }
-                Button {
-
-                } label: {
-                    Text("文章自定义")
-                }
-
-                Spacer()
-                Button {
-
-                } label: {
-                    Text("5")
-                }
-                Button {
-
-                } label: {
-                    Text("10")
-                }
-                Button {
-
-                } label: {
-                    Text("15")
-                }
-                Button {
-
-                } label: {
-                    Text("20")
-                }
-                Button {
-
-                } label: {
-                    Text("50")
-                }
-                Button {
-
-                } label: {
-                    Text("100")
-                }
-                Button {
-
-                } label: {
-                    Text("200")
-                }
-                Button {
-
-                } label: {
-                    Text("500")
-                }
-                Button {
-
-                } label: {
-                    Text("全")
-                }
-
-                Spacer()
-
-                Button {
-
-                } label: {
-                    Text("极简模式")
-                }
-            }
-
-            Text(content)
-                .border(.secondary)
-
-            //            TextField(
-            //                "",
-            //                text: $label,
-            //                axis: .vertical
-            //            )
-            //            .textFieldStyle(.roundedBorder)
-            //            .frame(height: 500)
-
-
-            ZStack(alignment: .topTrailing) {
-                TextEditor(text: $inputText)
-                    .font(.body)
-                    .padding()
-                    .padding(.top, 20)
-                    .onChange(of: inputText, { oldValue, newValue in
-//                        let words = inputText.split { $0 == " " || $0.isNewline }
-//                        self.wordCount = words.count
-//                        Text("\(wordCount) words")
-//                            .font(.headline)
-//                            .foregroundColor(.secondary)
-
-
-                        self.content = self.compareAndColorize(TypingView.origin, with: inputText)
-
-                    })
-            }
-
-        }
-
-        //            .padding()
-    }
 }
 
 #Preview {
-    TypingView()
+    TypingView(article: .constant(DefaultArticle.top500))
 }

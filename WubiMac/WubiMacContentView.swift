@@ -63,7 +63,7 @@ enum DetailItem {
     case search(Binding<Wubi?>)
     case history(Binding<Wubi?>)
     case favorite(Binding<Wubi?>)
-    case typing
+    case typing(Binding<Article>)
     case about
     case setting
 }
@@ -83,6 +83,11 @@ struct WubiMacContentView: View {
     //favorite
     @State var selectedFavorite: Wubi?
     @Query(filter: #Predicate<Wubi> {$0.isFavorite},sort: \Wubi.searchDate,order: .reverse) var favorites: [Wubi]
+    
+    
+    //Typing
+    @State var selectedArticle: Article
+    var articles: [Article] = [DefaultArticle.mid500,DefaultArticle.top500,DefaultArticle.tail500]
 
     var selectedDetailItem: DetailItem? {
         switch selectedSideBarItem {
@@ -93,7 +98,7 @@ struct WubiMacContentView: View {
             case .favorite:
                 return .favorite($selectedFavorite)
             case .typing:
-                return .typing
+                return .typing($selectedArticle)
             case .about:
                 return .about
             case .setting:
@@ -115,8 +120,8 @@ struct WubiMacContentView: View {
                 case .favorite:
                     FavoriteListView(selectedWubi: $selectedFavorite, wubis: favorites)
                 case .typing:
-                    Text("").navigationSplitViewColumnWidth(0)
-                case .about: 
+                    TypingListView(selected: $selectedArticle, articles: articles)
+                case .about:
                     Text("").navigationSplitViewColumnWidth(0)
                 case .setting:
                     SettingListView()
@@ -130,9 +135,8 @@ struct WubiMacContentView: View {
                         WubiDetailView(wubi:wubi)
                     case .favorite(let wubi):
                         WubiDetailView(wubi:wubi)
-                    case .typing:
-//                        EmptyView()
-                        TypingView()
+                    case .typing(let article):
+                        TypingView(article: article)
                     case .about:
                         AboutView()
                     case .setting:
@@ -146,5 +150,5 @@ struct WubiMacContentView: View {
 }
 
 #Preview {
-    WubiMacContentView()
+    WubiMacContentView(selectedArticle: DefaultArticle.top500)
 }
