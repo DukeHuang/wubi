@@ -149,6 +149,39 @@ extension Database {
     }
 
 
+    func insertData() {
+        let fileName = "86"
+        if let file = Bundle.main.url(forResource: fileName, withExtension: "json") {
+            do {
+                let data = try Data(contentsOf: file)
+                if let jsonArray = try JSONSerialization.jsonObject(with: data, options: []) as? [[String]] {
+                    for arr in jsonArray {
+                        if arr.count > 1 {
+                            let jianma = arr[0]
+                            for word in arr[1...] {
+                                print("jianma: \(jianma), word: \(word)")
+                            }
+                        }
+                    }
+                }
+            } catch {
+                print("Error parsing JSON: \(error)")
+            }
+        }
+
+        /*
+         CREATE TABLE 86_dic (
+         A_key INTEGER PRIMARY KEY AUTOINCREMENT,
+         B_key TEXT,
+         C_key TEXT PRIMARY KEY,
+         D_key TEXT,
+         E_key TEXT,
+         F_key TEXT
+         );
+         */
+    }
+
+    
     func update(where theKey: String, equal theValue: Any, which key: String, equal value: Any) throws {
         let updateStatementString = "UPDATE sing_dic SET \(key) = ? WHERE \(theKey) = ? "
         guard let updateStatement = try? prepareStatement(sql: updateStatementString) else {

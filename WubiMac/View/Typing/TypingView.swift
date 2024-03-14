@@ -6,70 +6,18 @@
 //
 
 import SwiftUI
-//import WebView
-//
-//struct TypingView: View  {
-//    @StateObject var webViewStore = WebViewStore()
-//
-//    var body: some View {
-//        NavigationStack {
-//            WebView(webView: webViewStore.webView)
-//                .navigationTitle(Text(verbatim: webViewStore.title ?? ""))
-//                .toolbar(content: {
-//                    HStack {
-//                        Button(action: goBack) {
-//                            Image(systemName: "chevron.left")
-//                                .imageScale(.large)
-//                                .aspectRatio(contentMode: .fit)
-//                                .frame(width: 32, height: 32)
-//                        }.disabled(!webViewStore.canGoBack)
-//                        Button(action: goForward) {
-//                            Image(systemName: "chevron.right")
-//                                .imageScale(.large)
-//                                .aspectRatio(contentMode: .fit)
-//                                .frame(width: 32, height: 32)
-//                        }.disabled(!webViewStore.canGoForward)
-//                    }
-//                })
-//
-//        }.onAppear {
-//            if let url = Bundle.main.url(forResource: "typepadBundle", withExtension: "bundle"),
-//               let bundle = Bundle(url: url),
-//               let path = bundle.path(forResource: "index", ofType: "html") {
-//                let url = URL(filePath: path)
-//                self.webViewStore.webView.load(URLRequest(url: url))
-//            }
-//        }
-//    }
-//
-//    func goBack() {
-//        webViewStore.webView.goBack()
-//    }
-//
-//    func goForward() {
-//        webViewStore.webView.goForward()
-//    }
-//}
-//
-//#Preview {
-//    TypingView()
-//}
 
 struct TypingView: View {
 
-    @Binding var article: Article
-    
-    @State private var content: AttributedString = AttributedString()
+//    @Binding var article: Article?
+    @Binding var origin: String
+    @Binding var content: AttributedString
     @State private var inputText = ""
     @State private var wordCount: Int = 0
     @State private var version:Int = 0
 
-    
     var body: some View {
-        let origin: String = self.article.content
-        self.content = AttributedString(origin)
-        
-        return VStack {
+         VStack {
             HStack {
                 HStack {
                     Button {
@@ -125,7 +73,7 @@ struct TypingView: View {
                 }
             }
 
-            Text(content)
+             Text(content)
                 .border(.primary)
                 .font(.largeTitle)
                 .padding(.top,20)
@@ -145,7 +93,7 @@ struct TypingView: View {
                     .font(.headline)
                     .foregroundStyle(.secondary)
             }
-        }
+         }
     }
         
     
@@ -179,6 +127,6 @@ struct TypingView: View {
     }
 }
 
-#Preview {
-    TypingView(article: .constant(DefaultArticle.top500))
-}
+//#Preview {
+//    TypingView()
+//}

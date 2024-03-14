@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		760AA1332A61479300592525 /* FavoriteListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 760AA1322A61479300592525 /* FavoriteListView.swift */; };
 		760AA1342A61479300592525 /* FavoriteListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 760AA1322A61479300592525 /* FavoriteListView.swift */; };
+		760E29AC2BA2DA3D00A2A1DD /* gbk.json in Resources */ = {isa = PBXBuildFile; fileRef = 760E29AA2BA2DA3D00A2A1DD /* gbk.json */; };
+		760E29AD2BA2DA3D00A2A1DD /* 86.json in Resources */ = {isa = PBXBuildFile; fileRef = 760E29AB2BA2DA3D00A2A1DD /* 86.json */; };
 		761008E72A79FD15005C57B9 /* WubiDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 761008E62A79FD15005C57B9 /* WubiDetailView.swift */; };
 		7618BA472B5660C700FEBCF1 /* WubiListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7618BA462B5660C700FEBCF1 /* WubiListView.swift */; };
 		7618BA602B56785500FEBCF1 /* WubiMacContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7618BA5F2B56785500FEBCF1 /* WubiMacContentView.swift */; };
@@ -62,6 +64,8 @@
 /* Begin PBXFileReference section */
 		760AA1292A61454800592525 /* ModelData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelData.swift; sourceTree = "<group>"; };
 		760AA1322A61479300592525 /* FavoriteListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteListView.swift; sourceTree = "<group>"; };
+		760E29AA2BA2DA3D00A2A1DD /* gbk.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = gbk.json; sourceTree = "<group>"; };
+		760E29AB2BA2DA3D00A2A1DD /* 86.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = 86.json; sourceTree = "<group>"; };
 		761008E62A79FD15005C57B9 /* WubiDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WubiDetailView.swift; sourceTree = "<group>"; };
 		7618BA462B5660C700FEBCF1 /* WubiListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WubiListView.swift; sourceTree = "<group>"; };
 		7618BA5F2B56785500FEBCF1 /* WubiMacContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WubiMacContentView.swift; sourceTree = "<group>"; };
@@ -201,6 +205,8 @@
 			isa = PBXGroup;
 			children = (
 				76E2C88E292341FB0022364A /* main.db */,
+				760E29AB2BA2DA3D00A2A1DD /* 86.json */,
+				760E29AA2BA2DA3D00A2A1DD /* gbk.json */,
 				76F17E862A7503AB006B7F1D /* Database.swift */,
 			);
 			path = DataBase;
@@ -225,8 +231,6 @@
 				E0553D442B6DF39200E7D4A7 /* WubiMac.entitlements */,
 				76C00D2B2A52CC3B009D2ED7 /* WubiMacApp.swift */,
 				7618BA5F2B56785500FEBCF1 /* WubiMacContentView.swift */,
-				76E1DE3B2A7C99D900FD5F7F /* Constants.swift */,
-				E0E721362BA0AC4E001C6434 /* DefaultArticle.swift */,
 				767984A62B3E600F000BA5A6 /* View */,
 				769DC2D32A5F8EA80087A16D /* Extensions */,
 				767984A52B3E5FB0000BA5A6 /* Model */,
@@ -234,6 +238,8 @@
 				76E2C895292341FF0022364A /* KeyboardImageManager.swift */,
 				767AFA0D2A7B80D40016EB4D /* WubiMenuBarDetailView.swift */,
 				762C3B972A54014900C0E048 /* Sidebar.swift */,
+				76E1DE3B2A7C99D900FD5F7F /* Constants.swift */,
+				E0E721362BA0AC4E001C6434 /* DefaultArticle.swift */,
 				76C00D2F2A52CC3C009D2ED7 /* Assets.xcassets */,
 				E0553D452B6DFF7000E7D4A7 /* 98WB-2.otf */,
 				76C00D312A52CC3D009D2ED7 /* Preview Content */,
@@ -385,6 +391,8 @@
 			files = (
 				76C00D3F2A52CCED009D2ED7 /* main.db in Resources */,
 				76C00D332A52CC3D009D2ED7 /* Preview Assets.xcassets in Resources */,
+				760E29AD2BA2DA3D00A2A1DD /* 86.json in Resources */,
+				760E29AC2BA2DA3D00A2A1DD /* gbk.json in Resources */,
 				76C00D372A52CCBF009D2ED7 /* Assets.xcassets in Resources */,
 				E0553D462B6DFF7000E7D4A7 /* 98WB-2.otf in Resources */,
 				76C00D302A52CC3C009D2ED7 /* Assets.xcassets in Resources */,

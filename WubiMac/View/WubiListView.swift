@@ -26,6 +26,8 @@ struct WubiListView: View {
                 }
 
             }
+        }.onAppear {
+            selected = wubis.first
         }
     }
 }

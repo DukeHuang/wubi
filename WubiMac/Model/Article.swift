@@ -23,11 +23,12 @@ class Article: Identifiable {
     let name: String
     let type: ArticleType
     let content: String
-    
+
     init(id: String, name: String, type: ArticleType, content: String) {
         self.id = id
         self.name = name
         self.type = type
         self.content = content
+
     }
 }

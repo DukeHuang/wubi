@@ -8,10 +8,10 @@
 import SwiftUI
 
 struct TypingListView: View {
-    @Binding var selected: Article
+    @Binding var selected: Article?
     var articles: [Article]
     var body: some View {
-        List(articles,id: \.self, selection: $selected) { article in
+        List(articles, id: \.self, selection: $selected) { article in
             VStack(alignment: .leading, content: {
                 Text(article.id)
                     .font(.headline)

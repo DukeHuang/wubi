@@ -20,7 +20,7 @@ struct WubiMacApp: App {
     }
     var body: some Scene {
         WindowGroup {
-            WubiMacContentView(selectedArticle: DefaultArticle.top500)
+            WubiMacContentView()
         }
         .modelContainer(modelContainer)
     }

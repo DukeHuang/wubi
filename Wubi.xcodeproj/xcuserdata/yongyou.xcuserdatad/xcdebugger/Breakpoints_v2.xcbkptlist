@@ -15,53 +15,5 @@
             type = "65535">
          </BreakpointContent>
       </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "E27478E3-B892-428C-8E06-1085DBA4B109"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Wubi/Database.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "16"
-            endingLineNumber = "16"
-            landmarkName = "path"
-            landmarkType = "24">
-            <Locations>
-               <Location
-                  uuid = "E27478E3-B892-428C-8E06-1085DBA4B109 - ce03ef87dc7008b1"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "WubiMac.DatabasePart.path.getter : Swift.Optional&lt;Swift.String&gt;"
-                  moduleName = "WubiMac"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/yongyou/side_project/Wubi/Wubi/Database.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "16"
-                  endingLineNumber = "16"
-                  offsetFromSymbolStart = "230">
-               </Location>
-               <Location
-                  uuid = "E27478E3-B892-428C-8E06-1085DBA4B109 - ce03ef87dc7008b1"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "WubiMac.DatabasePart.path.getter : Swift.Optional&lt;Swift.String&gt;"
-                  moduleName = "WubiMac"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/yongyou/side_project/Wubi/Wubi/Database.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "16"
-                  endingLineNumber = "16"
-                  offsetFromSymbolStart = "355">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
    </Breakpoints>
 </Bucket>

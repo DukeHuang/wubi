@@ -63,7 +63,7 @@ enum DetailItem {
     case search(Binding<Wubi?>)
     case history(Binding<Wubi?>)
     case favorite(Binding<Wubi?>)
-    case typing(Binding<Article>)
+    case typing(Binding<Article?>)
     case about
     case setting
 }
@@ -86,8 +86,8 @@ struct WubiMacContentView: View {
     
     
     //Typing
-    @State var selectedArticle: Article
-    var articles: [Article] = [DefaultArticle.mid500,DefaultArticle.top500,DefaultArticle.tail500]
+    @State var selectedArticle: Article?
+    var articles: [Article] = [DefaultArticle.top500,DefaultArticle.mid500,DefaultArticle.tail500]
 
     var selectedDetailItem: DetailItem? {
         switch selectedSideBarItem {
@@ -136,7 +136,7 @@ struct WubiMacContentView: View {
                     case .favorite(let wubi):
                         WubiDetailView(wubi:wubi)
                     case .typing(let article):
-                        TypingView(article: article)
+                        TypingView(origin: .constant(article.wrappedValue?.content ?? ""), content: .constant(AttributedString(article.wrappedValue?.content ?? "")))
                     case .about:
                         AboutView()
                     case .setting:

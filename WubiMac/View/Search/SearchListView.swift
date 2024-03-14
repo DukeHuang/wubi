@@ -41,6 +41,8 @@ struct SearchListView: View {
                         wubis.append(wubi)
                         modelContext.insert(wubi)
                     }
+
+                    Database.shared?.insertData()
                 } catch {
                     //do nothing
                     print("search error: \(error)")
