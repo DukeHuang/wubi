@@ -55,6 +55,9 @@
 		E0ACBA852B72716E00F40339 /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F511D42A93377B00E293E3 /* AboutView.swift */; };
 		E0ACBA892B72806300F40339 /* SettingListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0ACBA882B72806300F40339 /* SettingListView.swift */; };
 		E0ACBA8B2B72836900F40339 /* VersionSegementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0ACBA8A2B72836900F40339 /* VersionSegementView.swift */; };
+		E0D8F41B2BA6D2420086EBE9 /* 06.txt in Resources */ = {isa = PBXBuildFile; fileRef = E0D8F4192BA6D2420086EBE9 /* 06.txt */; };
+		E0D8F41C2BA6D2420086EBE9 /* 86.txt in Resources */ = {isa = PBXBuildFile; fileRef = E0D8F41A2BA6D2420086EBE9 /* 86.txt */; };
+		E0D8F41E2BA7194F0086EBE9 /* DatabaseTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0D8F41D2BA7194F0086EBE9 /* DatabaseTestView.swift */; };
 		E0E721312BA09A74001C6434 /* HighlightedImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0E721302BA09A74001C6434 /* HighlightedImage.swift */; };
 		E0E721332BA09EC7001C6434 /* TypingListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0E721322BA09EC7001C6434 /* TypingListView.swift */; };
 		E0E721352BA0A903001C6434 /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0E721342BA0A903001C6434 /* Article.swift */; };
@@ -107,6 +110,9 @@
 		E0553D472B6DFFA800E7D4A7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		E0ACBA882B72806300F40339 /* SettingListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingListView.swift; sourceTree = "<group>"; };
 		E0ACBA8A2B72836900F40339 /* VersionSegementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VersionSegementView.swift; sourceTree = "<group>"; };
+		E0D8F4192BA6D2420086EBE9 /* 06.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 06.txt; sourceTree = "<group>"; };
+		E0D8F41A2BA6D2420086EBE9 /* 86.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 86.txt; sourceTree = "<group>"; };
+		E0D8F41D2BA7194F0086EBE9 /* DatabaseTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseTestView.swift; sourceTree = "<group>"; };
 		E0E721302BA09A74001C6434 /* HighlightedImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HighlightedImage.swift; sourceTree = "<group>"; };
 		E0E721322BA09EC7001C6434 /* TypingListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypingListView.swift; sourceTree = "<group>"; };
 		E0E721342BA0A903001C6434 /* Article.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Article.swift; sourceTree = "<group>"; };
@@ -205,6 +211,8 @@
 			isa = PBXGroup;
 			children = (
 				76E2C88E292341FB0022364A /* main.db */,
+				E0D8F4192BA6D2420086EBE9 /* 06.txt */,
+				E0D8F41A2BA6D2420086EBE9 /* 86.txt */,
 				760E29AB2BA2DA3D00A2A1DD /* 86.json */,
 				760E29AA2BA2DA3D00A2A1DD /* gbk.json */,
 				76F17E862A7503AB006B7F1D /* Database.swift */,
@@ -302,6 +310,7 @@
 			children = (
 				E0ACBA882B72806300F40339 /* SettingListView.swift */,
 				E0ACBA8A2B72836900F40339 /* VersionSegementView.swift */,
+				E0D8F41D2BA7194F0086EBE9 /* DatabaseTestView.swift */,
 			);
 			path = Setting;
 			sourceTree = "<group>";
@@ -391,6 +400,8 @@
 			files = (
 				76C00D3F2A52CCED009D2ED7 /* main.db in Resources */,
 				76C00D332A52CC3D009D2ED7 /* Preview Assets.xcassets in Resources */,
+				E0D8F41C2BA6D2420086EBE9 /* 86.txt in Resources */,
+				E0D8F41B2BA6D2420086EBE9 /* 06.txt in Resources */,
 				760E29AD2BA2DA3D00A2A1DD /* 86.json in Resources */,
 				760E29AC2BA2DA3D00A2A1DD /* gbk.json in Resources */,
 				76C00D372A52CCBF009D2ED7 /* Assets.xcassets in Resources */,
@@ -423,6 +434,7 @@
 				E0E721372BA0AC4E001C6434 /* DefaultArticle.swift in Sources */,
 				762C3BA02A54130500C0E048 /* KeyboardImageManager.swift in Sources */,
 				769DC2DB2A5FDEBF0087A16D /* View+Exs.swift in Sources */,
+				E0D8F41E2BA7194F0086EBE9 /* DatabaseTestView.swift in Sources */,
 				76F17E8B2A7503AB006B7F1D /* Wubi.swift in Sources */,
 				E0ACBA8B2B72836900F40339 /* VersionSegementView.swift in Sources */,
 				7618BA472B5660C700FEBCF1 /* WubiListView.swift in Sources */,

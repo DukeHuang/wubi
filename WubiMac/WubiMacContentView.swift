@@ -124,7 +124,8 @@ struct WubiMacContentView: View {
                 case .about:
                     Text("").navigationSplitViewColumnWidth(0)
                 case .setting:
-                    SettingListView()
+//                    SettingListView()
+                    DatabaseTestView()
             }
         },  detail: {
             if let detailItem = selectedDetailItem {
