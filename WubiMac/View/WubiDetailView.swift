@@ -13,11 +13,18 @@ struct WubiDetailView: View {
     var body: some View {
         if let wubi = wubi
         {
-            let components = wubi.components.filter({ $0 != "〔" && $0 != "〕" && $0 != "※" })
+            
+            
+            let components_86 = wubi.components[.wubi86]
+            
+            let components_98 = wubi.components[.wubi98]?.filter({ $0 != "〔" && $0 != "〕" && $0 != "※" })
+            
+            let components_gbk = wubi.components[.wubi98]?.filter({ $0 != "〔" && $0 != "〕" && $0 != "※" })
+            
             HStack {
                 List {
                     HStack {
-                        Text(wubi.character)
+                        Text(wubi.word)
                             .font(.system(size: 70))
                         HStack(alignment: .top) {
                             VStack(alignment:.leading) {
@@ -26,7 +33,7 @@ struct WubiDetailView: View {
                                     .foregroundStyle(.white)
                                     .background(.teal)
                                     .cornerRadius(3)
-                                Text(components)
+                                Text(components_98 ?? "")
                                     .padding(EdgeInsets(top: 3, leading:10, bottom: 3, trailing: 10))
                                     .foregroundStyle(.white)
                                     .background(.gray)
@@ -45,12 +52,11 @@ struct WubiDetailView: View {
                      */
 
                     Section("简码:") {
-                        SingleKeyBoardView(quanma:wubi.jianmaKeys)
-                        
+                        SingleKeyBoardView(quanma:wubi.jianma_1[.wubi98]?.map {String($0)} ?? [""])
                     }
                     
                     Section("全码:") {
-                        SingleKeyBoardView(quanma:wubi.quanmaKeys)
+                        SingleKeyBoardView(quanma:wubi.quanma[.wubi98]?.map {String($0)} ?? [""])
                     }
                 }
             }

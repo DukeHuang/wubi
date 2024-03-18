@@ -99,6 +99,34 @@ class Database {
 }
 
 extension Database {
+    func createTableGbk() throws {
+        let createTableString = """
+        CREATE TABLE IF NOT EXISTS wubigbk(
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            word CHAR(255) NOT NULL UNIQUE,
+            components CHAR(255),
+            jianma_1 CHAR(255),
+            jianma_2 CHAR(255),
+            jianma_3 CHAR(255),
+            quanma CHAR(255),
+            pinyin CHAR(255));
+        """
+        guard let createTableStatement = try? prepareStatement(sql: createTableString) else {
+            throw SQLiteError.Prepare(message: "Failed to prepare create table statement")
+        }
+        defer {
+            sqlite3_finalize(createTableStatement)
+        }
+        if sqlite3_step(createTableStatement) == SQLITE_DONE {
+            print("wubigbk table created successfully.")
+        } else {
+            let error = String(cString: sqlite3_errmsg(dbMainPointer))
+            throw SQLiteError.Step(message: "Failed to create wubigbk table: \(error)")
+        }
+    }
+}
+
+extension Database {
     func createTable86Dic() throws {
         let createTableString = """
         CREATE TABLE IF NOT EXISTS wubi86(
@@ -123,63 +151,6 @@ extension Database {
             let error = String(cString: sqlite3_errmsg(dbMainPointer))
             throw SQLiteError.Step(message: "Failed to create wubi86 table: \(error)")
         }
-    }
-    
-    func query_86(key: String, value: Any) throws -> [Wubi] {
-        let queryStatementString = "SELECT * FROM dic_86 WHERE \(key) = ?;"
-
-        guard let queryStatement =  try prepareStatement(sql: queryStatementString) else {
-            throw SQLiteError.QueryStatementInvalid
-        }
-        defer {
-            sqlite3_finalize(queryStatement)
-        }
-        if  let value = value as? Int {
-            guard sqlite3_bind_int(queryStatement, 1, Int32(value as Int)) == SQLITE_OK else {
-                throw SQLiteError.Bind(message: "Bind  \(value) to \(key) Failed")
-            }
-
-        } else if let value = value as? Double {
-            guard sqlite3_bind_double(queryStatement, 1, Double(floatLiteral: value)) == SQLITE_OK else {
-                throw SQLiteError.Bind(message: "Bind  \(value) to \(key) Failed")
-            }
-        } else if let value =  value as? String {
-            guard sqlite3_bind_text(queryStatement, 1, (value as NSString).utf8String, -1, nil) == SQLITE_OK else {
-                throw SQLiteError.Bind(message: "Bind  \(value) to \(key) Failed")
-            }
-        } else {
-            throw SQLiteError.Bind(message: "Bind  \(value) to \(key) Failed, not supported this type")
-        }
-    //        guard sqlite3_step(queryStatement) == SQLITE_ROW  else {
-    //            throw SQLiteError.Query(message: "faild")
-    //        }
-
-        var wubis: [Wubi] = []
-        while  sqlite3_step(queryStatement) == SQLITE_ROW  {
-            let queryResult = self.resultToDictonary(stmt: queryStatement)
-            print(queryResult)
-
-            let a = sqlite3_column_text(queryStatement, 0) //id
-            let b = sqlite3_column_text(queryStatement, 1) //简码
-            let c = sqlite3_column_text(queryStatement, 2) //单字
-            let d = sqlite3_column_text(queryStatement, 3) //拆字
-            let e = sqlite3_column_text(queryStatement, 4) //全码
-            let f = sqlite3_column_text(queryStatement, 5) //拼音
-
-            let aString = String(cString:a!)
-            let bString = String(cString:b!)
-            let cString = String(cString:c!)
-            let dString = String(cString:d!)
-            let eString = String(cString:e!)
-            let fString = String(cString:f!)
-
-            let wubi = Wubi(id: aString, character: cString, components: dString, jianma: bString,
-                            quanma: eString, jianmaKeys: bString.map { String($0) },
-                            quanmaKeys: eString.map { String($0) }, pingyin: fString)
-
-            wubis.append(wubi)
-        }
-        return wubis
     }
     
     func update_86(where theKey: String, equal theValue: Any, which key: String, equal value: Any) throws {
@@ -401,8 +372,8 @@ extension Database {
             sqlite3_finalize(queryStatement)
         }
         while  sqlite3_step(queryStatement) == SQLITE_ROW  {
-            let queryResult = self.resultToDictonary(stmt: queryStatement)
-            print(queryResult)
+//            let queryResult = self.resultToDictonary(stmt: queryStatement)
+//            print(queryResult)
             
             let a = sqlite3_column_text(queryStatement, 0) //id
             let b = sqlite3_column_text(queryStatement, 1) //简码
@@ -485,7 +456,6 @@ extension Database {
                 } else {
                     print("\nINSERT statement is not prepared.")
                 }
-            
             }
         }
     }
@@ -504,7 +474,7 @@ extension Database {
     private func resultToDictonary(stmt: OpaquePointer?) -> [String: Any] {
         let columnCount = sqlite3_column_count(stmt)
         var dict = [String : Any](minimumCapacity: Int(columnCount))
-
+        
         for column in 0..<columnCount {
             if let cName = sqlite3_column_name(stmt, column),
                let name = String(cString: cName, encoding: .utf8),
@@ -512,12 +482,12 @@ extension Database {
                 dict[name] = value
             }
         }
-
+        
         return dict
     }
-
+    
     private func valueOfSQLStatement(_ stmt: OpaquePointer!, atColumn column: Int32) -> Any? {
-
+        
         var value: Any?
         let type = sqlite3_column_type(stmt, column)
         switch type {
@@ -530,10 +500,10 @@ extension Database {
         case SQLITE_NULL:
             value = nil
         case SQLITE_BLOB:
-//            DLog("SQLite type 'BLOB' not supported right now")
+            //            DLog("SQLite type 'BLOB' not supported right now")
             value = nil
         default:
-//            DLog("Unknown data type: \(type)")
+            //            DLog("Unknown data type: \(type)")
             value = nil
         }
         return value
@@ -543,12 +513,12 @@ extension Database {
         guard let updateStatement = try? prepareStatement(sql: updateStatementString) else {
             throw SQLiteError.Update(meessage: "statement invalid")
         }
-
+        
         if  let value = value as? Int {
             guard sqlite3_bind_int(updateStatement, 1, Int32(value as Int)) == SQLITE_OK else {
                 throw SQLiteError.Bind(message: "Bind  \(value) to \(key) Failed")
             }
-
+            
         } else if let value = value as? Double {
             guard sqlite3_bind_double(updateStatement, 1, Double(floatLiteral: value)) == SQLITE_OK else {
                 throw SQLiteError.Bind(message: "Bind  \(value) to \(key) Failed")
@@ -560,16 +530,16 @@ extension Database {
         } else {
             throw SQLiteError.Bind(message: "Bind  \(value) to \(key) Failed, not supported this type")
         }
-
+        
         if  let theValue = theValue as? Int {
             guard sqlite3_bind_int(updateStatement, 2, Int32(theValue as Int)) == SQLITE_OK else {
                 throw SQLiteError.Bind(message: "Bind  \(value) to \(key) Failed")
             }
-
+            
         } else if let theValue = theValue as? Double {
             guard sqlite3_bind_double(updateStatement, 2, Double(floatLiteral: theValue)) == SQLITE_OK else {
                 throw SQLiteError.Bind(message: "Bind  \(theValue) to \(theKey) Failed")
-
+                
             }
         } else if let theValue =  theValue as? String {
             guard sqlite3_bind_text(updateStatement, 2, (theValue as NSString).utf8String, -1, nil) == SQLITE_OK else {
@@ -578,11 +548,11 @@ extension Database {
         } else {
             throw SQLiteError.Bind(message: "Bind  \(theValue) to \(theKey) Failed, not supported this type")
         }
-
+        
         defer {
             sqlite3_finalize(updateStatement)
         }
-
+        
         if sqlite3_step(updateStatement) == SQLITE_DONE {
             print("update success")
         } else {
@@ -590,26 +560,21 @@ extension Database {
             throw SQLiteError.Update(meessage: error)
         }
     }
-
-    func query(key: String, value: Any) throws -> [Wubi] {
-        let queryStatementString = "SELECT * FROM sing_dic WHERE \(key) = ?;"
-
+    func query(table name: String, which key: String, equal value: Any) throws -> [Wubi] {
+        let queryStatementString = "SELECT components,pinyin,jianma_1,jianma_2,jianma_3,quanma FROM \(name) WHERE \(key) = ?;"
+        
         guard let queryStatement =  try prepareStatement(sql: queryStatementString) else {
             throw SQLiteError.QueryStatementInvalid
         }
         defer {
             sqlite3_finalize(queryStatement)
         }
-
-//        guard sqlite3_bind_text(queryStatement, 1, (key as NSString).utf8String, -1, nil) == SQLITE_OK else {
-//            throw SQLiteError.Bind(message: "Bind  \(key) to \(key) Failed")
-//        }
-
+        
         if  let value = value as? Int {
             guard sqlite3_bind_int(queryStatement, 1, Int32(value as Int)) == SQLITE_OK else {
                 throw SQLiteError.Bind(message: "Bind  \(value) to \(key) Failed")
             }
-
+            
         } else if let value = value as? Double {
             guard sqlite3_bind_double(queryStatement, 1, Double(floatLiteral: value)) == SQLITE_OK else {
                 throw SQLiteError.Bind(message: "Bind  \(value) to \(key) Failed")
@@ -621,48 +586,91 @@ extension Database {
         } else {
             throw SQLiteError.Bind(message: "Bind  \(value) to \(key) Failed, not supported this type")
         }
-
-//        guard sqlite3_step(queryStatement) == SQLITE_ROW  else {
-//            throw SQLiteError.Query(message: "faild")
-//        }
-
+        
         var wubis: [Wubi] = []
         while  sqlite3_step(queryStatement) == SQLITE_ROW  {
             let queryResult = self.resultToDictonary(stmt: queryStatement)
             print(queryResult)
-
-            let a = sqlite3_column_text(queryStatement, 0) //id
-            let b = sqlite3_column_text(queryStatement, 1) //简码
-            let c = sqlite3_column_text(queryStatement, 2) //单字
-            let d = sqlite3_column_text(queryStatement, 3) //拆字
-            let e = sqlite3_column_text(queryStatement, 4) //全码
-            let f = sqlite3_column_text(queryStatement, 5) //拼音
-//            let g = sqlite3_column_int(queryStatement, 6) //是否收藏过
-
-            let aString = String(cString:a!)
-            let bString = String(cString:b!)
-            let cString = String(cString:c!)
-            let dString = String(cString:d!)
-            let eString = String(cString:e!)
-            let fString = String(cString:f!)
-//            let gBool = g != 0
-
-            let wubi = Wubi(id: aString, character: cString, components: dString, jianma: bString,
-                            quanma: eString, jianmaKeys: bString.map { String($0) },
-                            quanmaKeys: eString.map { String($0) }, pingyin: fString)
-
+            let components = sqlite3_column_text(queryStatement, 0) //拆字
+            let pinyin = sqlite3_column_text(queryStatement, 1) //拼音
+            let jianma_1 = sqlite3_column_text(queryStatement, 2) //简码
+            let jianma_2 = sqlite3_column_text(queryStatement, 3) //简码
+            let jianma_3 = sqlite3_column_text(queryStatement, 4) //简码
+            let quanma = sqlite3_column_text(queryStatement, 5) //全码
+            
+            
+            let componentsString = String(cString:components!)
+            let pinyinString = String(cString:pinyin!)
+            let jianma_1String = String(cString:jianma_1!)
+            let jianma_2String = String(cString:jianma_2!)
+            let jianma_3String = String(cString:jianma_3!)
+            let quanmaString = String(cString:quanma!)
+            
+            var scheme: WubiScheme = .wubi86
+            
+            if name == "wubi86" {
+                scheme = .wubi86
+            } else if name == "wubi98" {
+                scheme = .wubi98
+            } else if name == "wubigbk" {
+                scheme = .wubigbk
+            }
+            
+            let wubi = Wubi(word: value as! String, pingyin: pinyinString, components: [scheme: componentsString], jianma_1: [scheme: jianma_1String], jianma_2: [scheme: jianma_2String], jianma_3: [scheme: jianma_3String], quanma: [scheme: quanmaString])
+            
             wubis.append(wubi)
         }
         return wubis
     }
-
-    func query(keyValue:String) throws -> Wubi {
-
-        if let wubi = try self.query(key: "C_key", value: keyValue).first {
-            return wubi
-        } else {
-            throw  SQLiteError.QueryStatementInvalid
+    
+    func query(scheme: WubiScheme, word:String) -> Wubi? {
+        var name = ""
+        switch scheme {
+        case .wubi86:
+            name = "wubi86"
+        case .wubi98:
+            name = "wubi98"
+        case .wubigbk:
+            name = "wubigbk"
         }
+        
+        var wubi: Wubi?
+        do {
+             wubi = try self.query(table: name, which: "word", equal: word).first
+        } catch {
+            print(error)
+        }
+        
+        return wubi
+    }
+    
+    func query(word: String) -> Wubi? {
+        
+        var wubi: Wubi?
+        if let wubi86 = query(scheme: .wubi86, word: word) {
+            wubi = wubi86
+        }
+        if let wubi98 = query(scheme: .wubi98, word: word) {
+            if let wubi = wubi {
+                wubi.jianma_1.merge(wubi98.jianma_1, uniquingKeysWith: { _, new in new })
+                wubi.jianma_2.merge(wubi98.jianma_2, uniquingKeysWith: { _, new in new })
+                wubi.jianma_3.merge(wubi98.jianma_3, uniquingKeysWith: { _, new in new })
+                wubi.quanma.merge(wubi98.quanma, uniquingKeysWith: { _, new in new })
+            } else {
+                wubi = wubi98
+            }
+        }
+        if let wubigbk = query(scheme: .wubigbk, word: word) {
+            if let wubi = wubi {
+                wubi.jianma_1.merge(wubigbk.jianma_1, uniquingKeysWith: { _, new in new })
+                wubi.jianma_2.merge(wubigbk.jianma_2, uniquingKeysWith: { _, new in new })
+                wubi.jianma_3.merge(wubigbk.jianma_3, uniquingKeysWith: { _, new in new })
+                wubi.quanma.merge(wubigbk.quanma, uniquingKeysWith: { _, new in new })
+            } else {
+                wubi = wubigbk
+            }
+        }
+        return wubi
     }
 
 //    func isExitColumn() throws -> Bool {

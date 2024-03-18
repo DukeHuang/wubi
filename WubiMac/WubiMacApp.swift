@@ -13,7 +13,7 @@ struct WubiMacApp: App {
     let modelContainer: ModelContainer
     init() {
         do {
-            modelContainer = try ModelContainer(for: Wubi.self,Article.self)
+            modelContainer = try ModelContainer(for: Wubi.self,Article.self,UserSetting.self)
         } catch {
             fatalError("Could not initialize ModelContainer")
         }

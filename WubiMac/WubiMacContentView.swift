@@ -88,6 +88,9 @@ struct WubiMacContentView: View {
     //Typing
     @State var selectedArticle: Article?
     var articles: [Article] = [DefaultArticle.top500,DefaultArticle.mid500,DefaultArticle.tail500]
+    
+    //UserSetting
+    @Query var settings: [UserSetting]
 
     var selectedDetailItem: DetailItem? {
         switch selectedSideBarItem {
@@ -114,11 +117,11 @@ struct WubiMacContentView: View {
         }, content: {
             switch selectedSideBarItem {
                 case .search: 
-                    SearchListView(selected: $selectedSearch, wubis: $searchs)
+                SearchListView(selected: $selectedSearch, wubis: $searchs, scheme: settings.first?.wubiScheme ?? .wubi98)
                 case .history:
-                    SearchHistoryView(selected: $selectedHistory, wubis: historys)
+                SearchHistoryView(selected: $selectedHistory, wubis: historys, scheme: settings.first?.wubiScheme ?? .wubi98)
                 case .favorite:
-                    FavoriteListView(selectedWubi: $selectedFavorite, wubis: favorites)
+                FavoriteListView(selectedWubi: $selectedFavorite, wubis: favorites, scheme: settings.first?.wubiScheme ?? .wubi98)
                 case .typing:
                     TypingListView(selected: $selectedArticle, articles: articles)
                 case .about:
@@ -151,5 +154,5 @@ struct WubiMacContentView: View {
 }
 
 #Preview {
-    WubiMacContentView(selectedArticle: DefaultArticle.top500)
+    WubiMacContentView()
 }

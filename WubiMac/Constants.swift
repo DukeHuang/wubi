@@ -7,25 +7,9 @@
 
 import Foundation
 
-let previewWord = Wubi(id: "22365",
-                       character: "摘",
-                       components: "󰃿󰄶󰄒󰂟",
-                       jianma: "ry",
-                       quanma: "ryud",
-                       jianmaKeys: ["r","y"],
-                       quanmaKeys: ["r","y","u","d"],
-                       pingyin: "zhāi",
-                       isFavorite: true)
+let previewWord = Wubi(word: "摘", pingyin: "zhāi", components: [.wubi98:"󰃿󰄶󰄒󰂟"], jianma_1: [.wubi98:""], jianma_2: [.wubi98:""], jianma_3: [.wubi98:""], quanma: [.wubi98:""], isFavorite: true, isSearch: true, searchDate: .now, favoriteDate: .now)
 
-let previewWord1 = Wubi(id: "22364",
-                       character: "摘",
-                       components: "󰃿󰄶󰄒󰂟",
-                       jianma: "ry",
-                       quanma: "ryud",
-                       jianmaKeys: ["r","y"],
-                       quanmaKeys: ["r","y","u","d"],
-                       pingyin: "zhāi",
-                       isFavorite: true)
+let previewWord1 =  Wubi(word: "摘", pingyin: "zhāi", components: [.wubi98:"󰃿󰄶󰄒󰂟"], jianma_1: [.wubi98:""], jianma_2: [.wubi98:""], jianma_3: [.wubi98:""], quanma: [.wubi98:""], isFavorite: true, isSearch: true, searchDate: .now, favoriteDate: .now)
 
 let poem: [String:String] = ["g": "王旁青头五夫一",
                              "f": "土干十寸未甘雨",

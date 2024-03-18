@@ -31,6 +31,18 @@ struct DatabaseTestView: View {
             Text("转换86五笔数据表")
         })
         
+        Button(action: {
+            do {
+                try Database.shared?.createTableGbk()
+            } catch {
+                print("search error: \(error)")
+            }
+//            Database.shared?.insert86Data()
+//            Database.shared?.insert86compents()
+        }, label: {
+            Text("创建gbk五笔数据表")
+        })
+        
                
     }
 }
