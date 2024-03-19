@@ -23,7 +23,7 @@ struct TypingView: View {
                     Button {
                     } label: {
                         Text("打乱")
-                    }.buttonStyle(.plain)
+                    }
                     Button {
                         
                     } label: {

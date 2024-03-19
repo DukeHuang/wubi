@@ -11,9 +11,10 @@ import SwiftData
 struct SearchHistoryView: View {
     @Binding var selected: Wubi?
     var wubis: [Wubi]
+    var scheme: WubiScheme
 
     var body: some View {
-        WubiListView(selected: $selected, wubis: wubis)
+        WubiListView(selected: $selected, wubis: wubis, scheme: scheme)
     }
 }
 

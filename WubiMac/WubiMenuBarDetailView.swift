@@ -13,7 +13,7 @@ struct WubiMenuBarDetailView: View {
     var body: some View {
         List {
             HStack {
-                Text(wubi.character)
+                Text(wubi.word)
                     .font(.largeTitle)
                     .bold()
                 Text(wubi.pingyin)
@@ -22,15 +22,15 @@ struct WubiMenuBarDetailView: View {
                     .background(.teal)
                     .cornerRadius(3)
                 FavoriteButton(word: $wubi)
-                Text(wubi.components.filter { $0 != "〔" && $0 != "〕" && $0 != "※" })
+                Text(wubi.components_98.filter { $0 != "〔" && $0 != "〕" && $0 != "※" })
                     .font(.title)
             }
-            Section("简码:\(wubi.jianma.uppercased())") {
-                SingleKeyBoardView(quanma:wubi.jianmaKeys)
-            }
-            Section("全码: \(wubi.quanma.uppercased())") {
-                SingleKeyBoardView(quanma:wubi.quanmaKeys)
-            }
+//            Section("简码:\(wubi.jianma.uppercased())") {
+//                SingleKeyBoardView(quanma:wubi.jianmaKeys)
+//            }
+//            Section("全码: \(wubi.quanma.uppercased())") {
+//                SingleKeyBoardView(quanma:wubi.quanmaKeys)
+//            }
         }
     }
 }

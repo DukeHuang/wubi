@@ -11,8 +11,9 @@ import SwiftData
 struct FavoriteListView: View {
     @Binding var selectedWubi: Wubi?
     var wubis: [Wubi]
+    var scheme: WubiScheme
     var body: some View {
-        WubiListView(selected: $selectedWubi, wubis:wubis)
+        WubiListView(selected: $selectedWubi, wubis:wubis, scheme: scheme)
     }
 }
 

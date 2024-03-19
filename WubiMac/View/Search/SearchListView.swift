@@ -12,6 +12,7 @@ struct SearchListView: View {
     @Binding var selected: Wubi?
     @Binding var wubis: [Wubi]
     @State   var searchString: String = ""
+    var scheme: WubiScheme
     
     @Environment(\.modelContext) var modelContext
     var body: some View {
@@ -20,7 +21,7 @@ struct SearchListView: View {
                 .searchable(text: $searchString,prompt: "查找")
                 .onSubmit(of:.search, runSearch)
         } else {
-            WubiListView(selected: $selected, wubis: wubis)
+            WubiListView(selected: $selected, wubis: wubis, scheme: scheme)
                 .searchable(text: $searchString,prompt: "查找")
                 .onSubmit(of:.search, runSearch)
         }
@@ -33,20 +34,14 @@ struct SearchListView: View {
                 wubis.removeAll()
             }
             searchString.forEach { word in
-                do {
-                    let wubi = try Database.shared!.query(keyValue:String(word))
+                if let wubi =  Database.shared!.query(word:String(word)) {
                     wubi.isSearch = true
-                    wubi.sourceType.insert(.search)
                     DispatchQueue.main.async {
                         wubis.append(wubi)
                         modelContext.insert(wubi)
                     }
-
-                    Database.shared?.insertData()
-                } catch {
-                    //do nothing
-                    print("search error: \(error)")
                 }
+               
             }
 
         }
@@ -56,7 +51,7 @@ struct SearchListView: View {
 struct SearchListView_Previews: PreviewProvider {
 
     static var previews: some View {
-        return SearchListView(selected: .constant(previewWord), wubis:.constant([previewWord,previewWord]), searchString: "就把五笔")
+        return SearchListView(selected: .constant(previewWord), wubis:.constant([previewWord,previewWord]), searchString: "就把五笔", scheme: .wubi98)
     }
 }
 

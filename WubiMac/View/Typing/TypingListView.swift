@@ -22,6 +22,9 @@ struct TypingListView: View {
                     .lineLimit(1)
             })
         }
+        .onAppear {
+            selected = articles.first
+        }
     }
 }
 
