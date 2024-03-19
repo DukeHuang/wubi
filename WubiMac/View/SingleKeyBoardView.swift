@@ -8,39 +8,41 @@
 import SwiftUI
 
 struct SingleKeyBoardView: View {
-    var quanma: Array<String>
 
-    @State var showPoem: Bool = true
+    var quanma: Array<String>
+    var scheme: WubiScheme
+    @State var showPoem: Bool = false
     var body: some View {
-        HStack(spacing: 5) {
+        var dic: [String: NSImage] = [:]
+        var backColor: Color
+        switch scheme {
+            case .wubi86:
+                dic = KeyboardImageManager.shared.image86Dict
+                backColor = .clear
+            case .wubi98:
+                dic = KeyboardImageManager.shared.image98Dict
+                backColor = .clear
+            case .wubigbk:
+                dic = KeyboardImageManager.shared.imagegbkDict
+                backColor = .brown
+        }
+        return HStack(spacing: 5) {
             ForEach(quanma.indices,id:\.self) { index  in
                 let key = quanma[index].capitalized.lowercased()
-                if let image = KeyboardImageManager.shared.image98Dict[key.uppercased()] {
+                if let image = dic[key.uppercased()] {
                     VStack {
-//                        Image(systemName: "\(key).square.fill")
-//                            .resizable()
-//                            .frame(width: 60, height: 60, alignment: .center)
-//                            .foregroundStyle(.gray)
                         HStack(){
                             Image(nsImage: image)
                                 .resizable()
                                 .frame(width: 60, height: 60, alignment: .center)
-//                            Button {
-//                                showPoem.toggle()
-//                            } label: {
-//                            }
-//                            .keyboardShortcut("h")
-
+                                .background(backColor)
                         }
                         if showPoem {
                             Text(poem[key] ?? "" )
                                  .foregroundStyle(.gray)
                         }
-
-//
                     }
                     .frame(width: 100)
-//                    Spacer().frame(width: 50)
                 }
             }
         }
@@ -49,7 +51,7 @@ struct SingleKeyBoardView: View {
 
 struct SingleKeyBoardView_Previews: PreviewProvider {
     static var previews: some View {
-        SingleKeyBoardView(quanma: ["a","b","c"])
+        SingleKeyBoardView(quanma: ["a","b","c"], scheme: .wubi98)
     }
 }
 

@@ -19,10 +19,10 @@ struct WubiListView: View {
                     .foregroundStyle(.blue)
                 VStack(alignment:.leading) {
 //                    Text((word.jianma_1.first?.values.first?.uppercased() ?? ""))
-                    Text(word.quanma[scheme]?.uppercased() ?? "")
+                    Text(word.quanma_98.uppercased())
                         .font(.system(size: 10))
                         .foregroundStyle(.black)
-                    Text((word.components[.wubi98]?.filter { $0 != "〔" && $0 != "〕" && $0 != "※" }) ?? "")
+                    Text(word.components_98.filter { $0 != "〔" && $0 != "〕" && $0 != "※" })
                         .font(.custom("98WB-2.otf", size: 10,relativeTo: .title3))
                         .foregroundStyle(.gray)
                 }

@@ -8,7 +8,7 @@
 import Foundation
 import SwiftData
 
-enum WubiScheme: Codable,Hashable {
+enum WubiScheme: String, Codable,Hashable {
     case wubi86 
     case wubi98
     case wubigbk

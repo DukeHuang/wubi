@@ -37,8 +37,8 @@ struct DatabaseTestView: View {
             } catch {
                 print("search error: \(error)")
             }
-//            Database.shared?.insert86Data()
-//            Database.shared?.insert86compents()
+            Database.shared?.insertgbkData()
+            Database.shared?.insertgbkcompents()
         }, label: {
             Text("创建gbk五笔数据表")
         })

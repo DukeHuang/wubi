@@ -7,9 +7,49 @@
 
 import Foundation
 
-let previewWord = Wubi(word: "摘", pingyin: "zhāi", components: [.wubi98:"󰃿󰄶󰄒󰂟"], jianma_1: [.wubi98:""], jianma_2: [.wubi98:""], jianma_3: [.wubi98:""], quanma: [.wubi98:""], isFavorite: true, isSearch: true, searchDate: .now, favoriteDate: .now)
+let previewWord = Wubi(word: "摘",
+                       pingyin: "zhāi",
+                       components_86: "󰃿󰄶󰄒󰂟",
+                       jianma_86_1: "r",
+                       jianma_86_2: "rn",
+                       jianma_86_3: "rny",
+                       quanma_86: "rnyt",
+                       components_98: "󰃿󰄶󰄒󰂟",
+                       jianma_98_1: "r",
+                       jianma_98_2: "rn",
+                       jianma_98_3: "rny",
+                       quanma_98: "rnyt",
+                       components_gbk: "󰃿󰄶󰄒󰂟",
+                       jianma_gbk_1: "r",
+                       jianma_gbk_2: "rn",
+                       jianma_gbk_3: "rny",
+                       quanma_gbk: "qqqq",
+                       isFavorite: true,
+                       isSearch: true,
+                       searchDate: .now,
+                       favoriteDate: .now)
 
-let previewWord1 =  Wubi(word: "摘", pingyin: "zhāi", components: [.wubi98:"󰃿󰄶󰄒󰂟"], jianma_1: [.wubi98:""], jianma_2: [.wubi98:""], jianma_3: [.wubi98:""], quanma: [.wubi98:""], isFavorite: true, isSearch: true, searchDate: .now, favoriteDate: .now)
+let previewWord1 = Wubi(word: "摘",
+                       pingyin: "zhāi",
+                       components_86: "󰃿󰄶󰄒󰂟",
+                       jianma_86_1: "r",
+                       jianma_86_2: "rn",
+                       jianma_86_3: "rny",
+                       quanma_86: "rnyt",
+                       components_98: "󰃿󰄶󰄒󰂟",
+                       jianma_98_1: "r",
+                       jianma_98_2: "rn",
+                       jianma_98_3: "rny",
+                       quanma_98: "rnyt",
+                       components_gbk: "󰃿󰄶󰄒󰂟",
+                       jianma_gbk_1: "r",
+                       jianma_gbk_2: "rn",
+                       jianma_gbk_3: "rny",
+                       quanma_gbk: "rnyt",
+                       isFavorite: true,
+                       isSearch: true,
+                       searchDate: .now,
+                       favoriteDate: .now)
 
 let poem: [String:String] = ["g": "王旁青头五夫一",
                              "f": "土干十寸未甘雨",

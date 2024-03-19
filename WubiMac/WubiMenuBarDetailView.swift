@@ -22,7 +22,7 @@ struct WubiMenuBarDetailView: View {
                     .background(.teal)
                     .cornerRadius(3)
                 FavoriteButton(word: $wubi)
-                Text(wubi.components[.wubi98]?.filter { $0 != "〔" && $0 != "〕" && $0 != "※" } ?? "")
+                Text(wubi.components_98.filter { $0 != "〔" && $0 != "〕" && $0 != "※" })
                     .font(.title)
             }
 //            Section("简码:\(wubi.jianma.uppercased())") {

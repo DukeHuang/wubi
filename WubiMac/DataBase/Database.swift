@@ -124,7 +124,167 @@ extension Database {
             throw SQLiteError.Step(message: "Failed to create wubigbk table: \(error)")
         }
     }
+
+    func update_gbk(where theKey: String, equal theValue: Any, which key: String, equal value: Any) throws {
+        let updateStatementString = "UPDATE wubigbk SET \(key) = ? WHERE \(theKey) = ? "
+        guard let updateStatement = try? prepareStatement(sql: updateStatementString) else {
+            throw SQLiteError.Update(meessage: "statement invalid")
+        }
+
+        if  let value = value as? Int {
+            guard sqlite3_bind_int(updateStatement, 1, Int32(value as Int)) == SQLITE_OK else {
+                throw SQLiteError.Bind(message: "Bind  \(value) to \(key) Failed")
+            }
+
+        } else if let value = value as? Double {
+            guard sqlite3_bind_double(updateStatement, 1, Double(floatLiteral: value)) == SQLITE_OK else {
+                throw SQLiteError.Bind(message: "Bind  \(value) to \(key) Failed")
+            }
+        } else if let value =  value as? String {
+            guard sqlite3_bind_text(updateStatement, 1, (value as NSString).utf8String, -1, nil) == SQLITE_OK else {
+                throw SQLiteError.Bind(message: "Bind  \(value) to \(key) Failed")
+            }
+        } else {
+            throw SQLiteError.Bind(message: "Bind  \(value) to \(key) Failed, not supported this type")
+        }
+
+        if  let theValue = theValue as? Int {
+            guard sqlite3_bind_int(updateStatement, 2, Int32(theValue as Int)) == SQLITE_OK else {
+                throw SQLiteError.Bind(message: "Bind  \(value) to \(key) Failed")
+            }
+
+        } else if let theValue = theValue as? Double {
+            guard sqlite3_bind_double(updateStatement, 2, Double(floatLiteral: theValue)) == SQLITE_OK else {
+                throw SQLiteError.Bind(message: "Bind  \(theValue) to \(theKey) Failed")
+
+            }
+        } else if let theValue =  theValue as? String {
+            guard sqlite3_bind_text(updateStatement, 2, (theValue as NSString).utf8String, -1, nil) == SQLITE_OK else {
+                throw SQLiteError.Bind(message: "Bind  \(theValue) to \(theKey) Failed")
+            }
+        } else {
+            throw SQLiteError.Bind(message: "Bind  \(theValue) to \(theKey) Failed, not supported this type")
+        }
+
+        defer {
+            sqlite3_finalize(updateStatement)
+        }
+
+        if sqlite3_step(updateStatement) == SQLITE_DONE {
+            print("update success")
+        } else {
+            let error = String(cString:sqlite3_errmsg(updateStatement))
+            throw SQLiteError.Update(meessage: error)
+        }
+    }
+
+    func insertgbkData() {
+        let fileName = "gbk"
+        var insertStatement: OpaquePointer?
+        var dic_gbk: [String: [String]] = [:]
+        if let file = Bundle.main.url(forResource: fileName, withExtension: "json") {
+            do {
+                let data = try Data(contentsOf: file)
+                if let jsonArray = try JSONSerialization.jsonObject(with: data, options: []) as? [[String]] {
+                    for arr in jsonArray {
+                        if arr.count > 1 {
+                            let jianma = arr[0]
+                            for word  in arr[1...] {
+                                let isExit = dic_gbk.keys.contains(word)
+                                if isExit {
+                                    dic_gbk[word]?.append(jianma)
+                                } else {
+                                    dic_gbk[word] = [jianma]
+                                }
+                            }
+                        }
+                    }
+                }
+            } catch {
+                print("Error parsing JSON: \(error)")
+            }
+        }
+        //将这个数据插入数据库
+        for x in dic_gbk {
+            let word = x.key
+            let jianmas = x.value
+            //3.将查到的数据insert到wubi98.db中
+            var jianma_1 = ""
+            var jianma_2 = ""
+            var jianma_3 = ""
+            for jianma in jianmas {
+                if (jianma.count == 1) {
+                    jianma_1 = jianma
+                } else if (jianma.count == 2) {
+                    jianma_2 = jianma
+                } else if (jianma.count == 3) {
+                    jianma_3 = jianma
+                }
+            }
+            let quanma = jianmas.max(by: {$0.count < $1.count }) ?? ""
+            var insertStatement: OpaquePointer?
+            let insertStatementString = "INSERT INTO wubigbk (word, jianma_1, jianma_2, jianma_3,quanma) VALUES (?, ?, ?,?,?);"
+            if sqlite3_prepare_v2(dbMainPointer, insertStatementString, -1, &insertStatement, nil) ==
+                SQLITE_OK {
+                sqlite3_bind_text(insertStatement, 1, (word as NSString).utf8String, -1, nil)
+                sqlite3_bind_text(insertStatement, 2, (jianma_1 as NSString).utf8String, -1, nil)
+                sqlite3_bind_text(insertStatement, 3, (jianma_2 as NSString).utf8String, -1, nil)
+                sqlite3_bind_text(insertStatement, 4, (jianma_3 as NSString).utf8String, -1, nil)
+                sqlite3_bind_text(insertStatement, 5, (quanma as NSString).utf8String, -1, nil)
+                if sqlite3_step(insertStatement) == SQLITE_DONE {
+                    print("\nSuccessfully inserted row.")
+                } else {
+                    print("\nCould not insert row.")
+                }
+            } else {
+                print("\nINSERT statement is not prepared.")
+            }
+        }
+        sqlite3_finalize(insertStatement)
+    }
+
+    func insertgbkcompents() {
+        if let file = Bundle.main.url(forResource: "gbk", withExtension: "txt") {
+            do {
+                let fileContent = try String(contentsOf: file, encoding: .utf8)
+                // 创建一个空字典来存储解析结果
+                var dictionary: [String: String] = [:]
+
+                // 按行分割文件内容
+                let lines = fileContent.split(separator: "\n")
+
+                // 遍历每一行
+                for line in lines {
+                    // 按制表符或多个空格分割每一行以提取汉字和编码
+                    let parts = line.split(whereSeparator: { $0.isWhitespace }).map(String.init)
+                    if parts.count >= 2 {
+                        let character = parts[0]  // 汉字
+                        let code = parts.dropFirst().joined(separator: " ")  // 编码，将剩余部分合并回一个字符串
+                        dictionary[character] = code
+                    }
+                }
+
+                // 打印字典查看结果
+                for (key, value) in dictionary {
+                    print("\(key): \(value)")
+                    do {
+                        try self.update_gbk(where: "word", equal: key, which: "components", equal: value)
+                    } catch {
+                        print("Error update_gbk txt  -> key: \(key), value: \(value), error: \(error)")
+                    }
+                }
+            } catch {
+                print("Error parsing txt: \(error)")
+            }
+        }
+    }
+
+    func insertgbkpinyin() {
+        //用sql实现
+    }
 }
+
+
 
 extension Database {
     func createTable86Dic() throws {
@@ -598,45 +758,59 @@ extension Database {
             let jianma_3 = sqlite3_column_text(queryStatement, 4) //简码
             let quanma = sqlite3_column_text(queryStatement, 5) //全码
             
-            
-            let componentsString = String(cString:components!)
-            let pinyinString = String(cString:pinyin!)
-            let jianma_1String = String(cString:jianma_1!)
-            let jianma_2String = String(cString:jianma_2!)
-            let jianma_3String = String(cString:jianma_3!)
-            let quanmaString = String(cString:quanma!)
-            
-            var scheme: WubiScheme = .wubi86
-            
+
+            let componentsString = components != nil ? String(cString:components!) : ""
+            let pinyinString = pinyin != nil ? String(cString:pinyin!) : ""
+            let jianma_1String = jianma_1 != nil ? String(cString:jianma_1!) : ""
+            let jianma_2String = jianma_2 != nil ? String(cString:jianma_2!) : ""
+            let jianma_3String = jianma_3 != nil ? String(cString:jianma_3!) : ""
+            let quanmaString = quanma != nil ? String(cString:quanma!) : ""
+
+            var wubi: Wubi = Wubi(word: value as! String, pingyin: pinyinString)
             if name == "wubi86" {
-                scheme = .wubi86
+                wubi = Wubi(word: value as! String,
+                            pingyin: pinyinString,
+                            components_86: componentsString,
+                            jianma_86_1: jianma_1String,
+                            jianma_86_2: jianma_2String,
+                            jianma_86_3: jianma_3String,
+                            quanma_86: quanmaString)
             } else if name == "wubi98" {
-                scheme = .wubi98
+                wubi = Wubi(word: value as! String,
+                            pingyin: pinyinString,
+                            components_98: componentsString,
+                            jianma_98_1: jianma_1String,
+                            jianma_98_2: jianma_2String,
+                            jianma_98_3: jianma_3String,
+                            quanma_98: quanmaString)
             } else if name == "wubigbk" {
-                scheme = .wubigbk
+                wubi = Wubi(word: value as! String,
+                            pingyin: pinyinString,
+                            components_gbk: componentsString,
+                            jianma_gbk_1: jianma_1String,
+                            jianma_gbk_2: jianma_2String,
+                            jianma_gbk_3: jianma_3String,
+                            quanma_gbk: quanmaString)
             }
-            
-            let wubi = Wubi(word: value as! String, pingyin: pinyinString, components: [scheme: componentsString], jianma_1: [scheme: jianma_1String], jianma_2: [scheme: jianma_2String], jianma_3: [scheme: jianma_3String], quanma: [scheme: quanmaString])
-            
             wubis.append(wubi)
         }
         return wubis
     }
     
     func query(scheme: WubiScheme, word:String) -> Wubi? {
-        var name = ""
-        switch scheme {
-        case .wubi86:
-            name = "wubi86"
-        case .wubi98:
-            name = "wubi98"
-        case .wubigbk:
-            name = "wubigbk"
-        }
+//        var name = scheme.rawValue
+//        switch scheme {
+//        case .wubi86:
+//            name = "wubi86"
+//        case .wubi98:
+//            name = "wubi98"
+//        case .wubigbk:
+//            name = "wubigbk"
+//        }
         
         var wubi: Wubi?
         do {
-             wubi = try self.query(table: name, which: "word", equal: word).first
+             wubi = try self.query(table: scheme.rawValue, which: "word", equal: word).first
         } catch {
             print(error)
         }
@@ -652,20 +826,22 @@ extension Database {
         }
         if let wubi98 = query(scheme: .wubi98, word: word) {
             if let wubi = wubi {
-                wubi.jianma_1.merge(wubi98.jianma_1, uniquingKeysWith: { _, new in new })
-                wubi.jianma_2.merge(wubi98.jianma_2, uniquingKeysWith: { _, new in new })
-                wubi.jianma_3.merge(wubi98.jianma_3, uniquingKeysWith: { _, new in new })
-                wubi.quanma.merge(wubi98.quanma, uniquingKeysWith: { _, new in new })
+                wubi.jianma_98_1 = wubi98.jianma_98_1
+                wubi.jianma_98_2 = wubi98.jianma_98_2
+                wubi.jianma_98_3 = wubi98.jianma_98_3
+                wubi.quanma_98 = wubi98.quanma_98
+                wubi.components_98  = wubi98.components_98
             } else {
                 wubi = wubi98
             }
         }
         if let wubigbk = query(scheme: .wubigbk, word: word) {
             if let wubi = wubi {
-                wubi.jianma_1.merge(wubigbk.jianma_1, uniquingKeysWith: { _, new in new })
-                wubi.jianma_2.merge(wubigbk.jianma_2, uniquingKeysWith: { _, new in new })
-                wubi.jianma_3.merge(wubigbk.jianma_3, uniquingKeysWith: { _, new in new })
-                wubi.quanma.merge(wubigbk.quanma, uniquingKeysWith: { _, new in new })
+                wubi.jianma_gbk_1 = wubigbk.jianma_gbk_1
+                wubi.jianma_gbk_2 = wubigbk.jianma_gbk_2
+                wubi.jianma_gbk_3 = wubigbk.jianma_gbk_3
+                wubi.quanma_gbk = wubigbk.quanma_gbk
+                wubi.components_gbk  = wubigbk.components_gbk
             } else {
                 wubi = wubigbk
             }
