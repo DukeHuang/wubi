@@ -17,7 +17,7 @@ struct TypingView: View {
     @State private var version:Int = 0
 
     var body: some View {
-         VStack {
+        VStack {
             HStack {
                 HStack {
                     Button {
@@ -72,8 +72,8 @@ struct TypingView: View {
                     Text("极简模式")
                 }
             }
-
-             Text(content)
+            
+            Text(content)
                 .border(.primary)
                 .font(.largeTitle)
                 .padding(.top,20)
@@ -84,21 +84,22 @@ struct TypingView: View {
                     .padding()
                     .padding(.top, 20)
                     .onChange(of: inputText, { oldValue, newValue in
-//                        let words = inputText.split { $0 == " " || $0.isNewline }
+                        //let words = inputText.split { $0 == " " || $0.isNewline }
                         self.wordCount = inputText.count
                         self.content = self.compareAndColorize(origin, with: inputText)
-
+                        
                     })
                 Text("\(wordCount) words")
                     .font(.headline)
                     .foregroundStyle(.secondary)
             }
-         }
+        }
     }
         
     
-    func compareAndColorize(_ mutableString:String, with immutableString: String) -> AttributedString {        var result = AttributedString()
-
+    func compareAndColorize(_ mutableString:String, with immutableString: String) -> AttributedString { 
+        
+        var result = AttributedString()
         let minLength = min(mutableString.count, immutableString.count)
         let mutableChars = Array(mutableString)
         let immutableChars = Array(immutableString)

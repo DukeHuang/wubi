@@ -63,6 +63,7 @@
 		E0E721332BA09EC7001C6434 /* TypingListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0E721322BA09EC7001C6434 /* TypingListView.swift */; };
 		E0E721352BA0A903001C6434 /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0E721342BA0A903001C6434 /* Article.swift */; };
 		E0E721372BA0AC4E001C6434 /* DefaultArticle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0E721362BA0AC4E001C6434 /* DefaultArticle.swift */; };
+		E0F1D80E2BA9D565006C1E7B /* WubiDetailSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0F1D80D2BA9D565006C1E7B /* WubiDetailSection.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -119,6 +120,7 @@
 		E0E721322BA09EC7001C6434 /* TypingListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypingListView.swift; sourceTree = "<group>"; };
 		E0E721342BA0A903001C6434 /* Article.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Article.swift; sourceTree = "<group>"; };
 		E0E721362BA0AC4E001C6434 /* DefaultArticle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultArticle.swift; sourceTree = "<group>"; };
+		E0F1D80D2BA9D565006C1E7B /* WubiDetailSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WubiDetailSection.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -177,6 +179,7 @@
 				767984AA2B3E6057000BA5A6 /* About */,
 				E0ACBA872B72801700F40339 /* Setting */,
 				761008E62A79FD15005C57B9 /* WubiDetailView.swift */,
+				E0F1D80D2BA9D565006C1E7B /* WubiDetailSection.swift */,
 				7618BA462B5660C700FEBCF1 /* WubiListView.swift */,
 				769DC2D62A5FA0BB0087A16D /* SingleKeyBoardView.swift */,
 				76F847E52B510C89003FE909 /* QLImage.swift */,
@@ -460,6 +463,7 @@
 				76F847E62B510C89003FE909 /* QLImage.swift in Sources */,
 				E0ACBA892B72806300F40339 /* SettingListView.swift in Sources */,
 				767AFA0E2A7B80D40016EB4D /* WubiMenuBarDetailView.swift in Sources */,
+				E0F1D80E2BA9D565006C1E7B /* WubiDetailSection.swift in Sources */,
 				76F17E8D2A7503AB006B7F1D /* FavoriteButton.swift in Sources */,
 				7618BA602B56785500FEBCF1 /* WubiMacContentView.swift in Sources */,
 			);
