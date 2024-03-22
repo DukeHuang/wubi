@@ -21,7 +21,55 @@ struct AttributedDemoView: View {
 
 
     var body: some View {
-        Text(message)
+
+        VStack {
+            Text(message)
+            Button("登录/注册1") {
+
+            }
+            .padding(EdgeInsets(top: 10, leading: 15, bottom: 10, trailing: 15))
+            .cornerRadius(15)
+            Button("登录/注册2") {
+
+            }
+            .foregroundColor(.white)
+            .padding(EdgeInsets(top: 38, leading: 15, bottom: 38, trailing: 15))
+            .background(Color.gray)
+            .clipShape(Circle())
+
+            Button("登录/注册3") {
+
+            }
+            .foregroundColor(.white)
+            .padding(EdgeInsets(top: 38, leading: 15, bottom: 38, trailing: 15))
+            .background(Color.gray)
+            .clipShape(Circle())
+
+            Button("登录/注册4") {
+
+            }
+            .foregroundColor(.white)
+            .padding(EdgeInsets(top: 38, leading: 15, bottom: 38, trailing: 15))
+            .background(Color.gray)
+            .clipShape(Circle())
+
+            Button("登录/注册5") {
+
+            }
+            .cornerRadius(20)
+            .overlay(
+                RoundedRectangle(cornerRadius: 20, style: .continuous)
+                    .stroke(.orange, lineWidth: 2)
+
+            )
+            Button("登录/注册6") {
+
+            }
+            .overlay(Circle().stroke(.orange, lineWidth: 2))
+        }
+
+
+
     }
 }
 

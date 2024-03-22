@@ -65,7 +65,7 @@ enum DetailItem {
     case favorite(Binding<Wubi?>)
     case typing(Binding<Article?>)
     case about
-    case setting
+    case setting(SettingItem?)
 }
 
 struct WubiMacContentView: View {
@@ -90,6 +90,8 @@ struct WubiMacContentView: View {
     var articles: [Article] = [DefaultArticle.top500,DefaultArticle.mid500,DefaultArticle.tail500]
     
     //UserSetting
+
+    @State var selectedSettingItem: SettingItem?
     @Query var settings: [UserSetting]
 
     var selectedDetailItem: DetailItem? {
@@ -105,7 +107,7 @@ struct WubiMacContentView: View {
             case .about:
                 return .about
             case .setting:
-                return .setting
+                return .setting(selectedSettingItem)
         }
     }
 
@@ -127,24 +129,34 @@ struct WubiMacContentView: View {
                 case .about:
                     Text("").navigationSplitViewColumnWidth(0)
                 case .setting:
-                    SettingListView()
+                    SettingListView(selected:$selectedSettingItem , settingItems: SettingItem.allCases)
 //                    DatabaseTestView()
             }
         },  detail: {
             if let detailItem = selectedDetailItem {
                 switch detailItem {
-                case .search(let wubi):
-                    WubiDetailView(wubi:wubi)
-                case .history(let wubi):
-                    WubiDetailView(wubi:wubi)
-                case .favorite(let wubi):
-                    WubiDetailView(wubi:wubi)
-                case .typing(let article):
-                    TypingView(article: article)
-                case .about:
-                    AboutView()
-                case .setting:
-                    VersionSegementView(version: 0)
+                    case .search(let wubi):
+                        WubiDetailView(wubi:wubi)
+                    case .history(let wubi):
+                        WubiDetailView(wubi:wubi)
+                    case .favorite(let wubi):
+                        WubiDetailView(wubi:wubi)
+                    case .typing(let article):
+                        TypingView(article: article)
+                    case .about:
+                        AboutView()
+                    case .setting(let settingItem):
+                        switch settingItem {
+                            case .showWubiVersion:
+                                VersionSegementView(version: 0)
+                            case .typing:
+                                AttributedDemoView()
+                            case .wubiVersion:
+                                VersionListView()
+                            case .none:
+                                EmptyView()
+                        }
+
                 }
             }
         })

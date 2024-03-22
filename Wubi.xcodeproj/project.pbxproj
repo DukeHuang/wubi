@@ -14,6 +14,8 @@
 		761008E72A79FD15005C57B9 /* WubiDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 761008E62A79FD15005C57B9 /* WubiDetailView.swift */; };
 		7618BA472B5660C700FEBCF1 /* WubiListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7618BA462B5660C700FEBCF1 /* WubiListView.swift */; };
 		7618BA602B56785500FEBCF1 /* WubiMacContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7618BA5F2B56785500FEBCF1 /* WubiMacContentView.swift */; };
+		761D98F02BAD8E2800783F95 /* SettingItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 761D98EF2BAD8E2800783F95 /* SettingItem.swift */; };
+		761D98F22BAD92DF00783F95 /* VersionListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 761D98F12BAD92DF00783F95 /* VersionListView.swift */; };
 		761F2CD82B51048D007F97BB /* URLType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 761F2CD72B51048D007F97BB /* URLType.swift */; };
 		762C3BA02A54130500C0E048 /* KeyboardImageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E2C895292341FF0022364A /* KeyboardImageManager.swift */; };
 		763830242B4558BB00FFC915 /* SearchHistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 763830232B4558BB00FFC915 /* SearchHistoryView.swift */; };
@@ -74,6 +76,8 @@
 		761008E62A79FD15005C57B9 /* WubiDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WubiDetailView.swift; sourceTree = "<group>"; };
 		7618BA462B5660C700FEBCF1 /* WubiListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WubiListView.swift; sourceTree = "<group>"; };
 		7618BA5F2B56785500FEBCF1 /* WubiMacContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WubiMacContentView.swift; sourceTree = "<group>"; };
+		761D98EF2BAD8E2800783F95 /* SettingItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingItem.swift; sourceTree = "<group>"; };
+		761D98F12BAD92DF00783F95 /* VersionListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VersionListView.swift; sourceTree = "<group>"; };
 		761F2CD72B51048D007F97BB /* URLType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLType.swift; sourceTree = "<group>"; };
 		761F904D2B5105D1007F97BB /* GIFView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GIFView.swift; sourceTree = "<group>"; };
 		762C3B972A54014900C0E048 /* Sidebar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sidebar.swift; sourceTree = "<group>"; };
@@ -316,7 +320,9 @@
 			children = (
 				E0ACBA882B72806300F40339 /* SettingListView.swift */,
 				E0ACBA8A2B72836900F40339 /* VersionSegementView.swift */,
+				761D98F12BAD92DF00783F95 /* VersionListView.swift */,
 				E0D8F41D2BA7194F0086EBE9 /* DatabaseTestView.swift */,
+				761D98EF2BAD8E2800783F95 /* SettingItem.swift */,
 			);
 			path = Setting;
 			sourceTree = "<group>";
@@ -440,6 +446,7 @@
 				E0E721372BA0AC4E001C6434 /* DefaultArticle.swift in Sources */,
 				762C3BA02A54130500C0E048 /* KeyboardImageManager.swift in Sources */,
 				769DC2DB2A5FDEBF0087A16D /* View+Exs.swift in Sources */,
+				761D98F02BAD8E2800783F95 /* SettingItem.swift in Sources */,
 				E0D8F41E2BA7194F0086EBE9 /* DatabaseTestView.swift in Sources */,
 				76F17E8B2A7503AB006B7F1D /* Wubi.swift in Sources */,
 				E0C451082BA88798006C889F /* UserSetting.swift in Sources */,
@@ -450,6 +457,7 @@
 				763830242B4558BB00FFC915 /* SearchHistoryView.swift in Sources */,
 				76C00D2C2A52CC3B009D2ED7 /* WubiMacApp.swift in Sources */,
 				E0E721312BA09A74001C6434 /* HighlightedImage.swift in Sources */,
+				761D98F22BAD92DF00783F95 /* VersionListView.swift in Sources */,
 				E0E721352BA0A903001C6434 /* Article.swift in Sources */,
 				76E1DE402A7C9D8100FD5F7F /* SearchListView.swift in Sources */,
 				767984AC2B3E6A04000BA5A6 /* Sidebar.swift in Sources */,

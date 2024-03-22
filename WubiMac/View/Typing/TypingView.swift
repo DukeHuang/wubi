@@ -85,15 +85,21 @@ struct TypingView: View {
         
         VStack() {
             Text(content ?? "")
-                .border(.primary)
+//                .border(.primary)
                 .font(.largeTitle)
                 
                 .tracking(1.5)
                 // .clipShape(Circle())
                 //     .overlay(Circle().stroke(Color.white, lineWidth: 4)) // 可选，为圆形图片添加白色边框
                 //     .shadow(radius: 10)
-                .clipShape(RoundedRectangle(cornerRadius: 5))
-                .overlay(RoundedRectangle(cornerRadius: 5).stroke(Color.primary, lineWidth: 0.5)) // 可选，为圆角矩形图片添加白色边框
+//                .clipShape(RoundedRectangle(cornerRadius: 5))
+//                .border(.primary)
+                .overlay(
+                    RoundedRectangle(cornerRadius: 5, style: .continuous)
+                        .stroke(.primary, lineWidth: /*@START_MENU_TOKEN@*/1.0/*@END_MENU_TOKEN@*/)
+                )
+//                .overlay(RoundedRectangle(cornerRadius: 5).stroke(Color.primary, lineWidth: 0.5)) // 可选，为圆角矩形图片添加白色边框
+                .padding(.vertical,10)
                 .padding(.horizontal,20)
 //                .shadow(radius: 10)
             TextEditor(text: $inputText)
