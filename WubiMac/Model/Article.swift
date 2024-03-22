@@ -22,7 +22,7 @@ class Article: Identifiable {
     let id: String
     let name: String
     let type: ArticleType
-    let content: String
+    var content: String
 
     init(id: String, name: String, type: ArticleType, content: String) {
         self.id = id

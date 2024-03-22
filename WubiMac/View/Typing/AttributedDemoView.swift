@@ -9,7 +9,7 @@ import SwiftUI
 
 struct AttributedDemoView: View {
     var message: AttributedString {
-        var amount = Measurement(value: 200, unit: UnitLength.kilometers)
+        let amount = Measurement(value: 200, unit: UnitLength.kilometers)
         var result = amount.formatted(.measurement(width: .wide).attributed)
 
         let distanceStyling = AttributeContainer.font(.title)

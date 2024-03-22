@@ -222,7 +222,6 @@ extension Database {
                 }
             }
             let quanma = jianmas.max(by: {$0.count < $1.count }) ?? ""
-            var insertStatement: OpaquePointer?
             let insertStatementString = "INSERT INTO wubigbk (word, jianma_1, jianma_2, jianma_3,quanma) VALUES (?, ?, ?,?,?);"
             if sqlite3_prepare_v2(dbMainPointer, insertStatementString, -1, &insertStatement, nil) ==
                 SQLITE_OK {
@@ -410,7 +409,6 @@ extension Database {
                 }
             }
             let quanma = jianmas.max(by: {$0.count < $1.count }) ?? ""
-            var insertStatement: OpaquePointer?
             let insertStatementString = "INSERT INTO wubi86 (word, jianma_1, jianma_2, jianma_3,quanma) VALUES (?, ?, ?,?,?);"
             if sqlite3_prepare_v2(dbMainPointer, insertStatementString, -1, &insertStatement, nil) ==
                 SQLITE_OK {
@@ -535,7 +533,7 @@ extension Database {
 //            let queryResult = self.resultToDictonary(stmt: queryStatement)
 //            print(queryResult)
             
-            let a = sqlite3_column_text(queryStatement, 0) //id
+            _ = sqlite3_column_text(queryStatement, 0) //id
             let b = sqlite3_column_text(queryStatement, 1) //简码
             let c = sqlite3_column_text(queryStatement, 2) //单字
             let d = sqlite3_column_text(queryStatement, 3) //拆字

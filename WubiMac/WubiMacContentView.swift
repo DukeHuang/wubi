@@ -87,7 +87,7 @@ struct WubiMacContentView: View {
     
     //Typing
     @State var selectedArticle: Article?
-    @State var articles: [Article] = [DefaultArticle.top500,DefaultArticle.mid500,DefaultArticle.tail500]
+    var articles: [Article] = [DefaultArticle.top500,DefaultArticle.mid500,DefaultArticle.tail500]
     
     //UserSetting
     @Query var settings: [UserSetting]
@@ -133,18 +133,18 @@ struct WubiMacContentView: View {
         },  detail: {
             if let detailItem = selectedDetailItem {
                 switch detailItem {
-                    case .search(let wubi):
-                        WubiDetailView(wubi:wubi)
-                    case .history(let wubi):
-                        WubiDetailView(wubi:wubi)
-                    case .favorite(let wubi):
-                        WubiDetailView(wubi:wubi)
-                    case .typing(let article):
-                    TypingView(origin: article.projectedValue, content: .constant(AttributedString(article.wrappedValue?.content ?? "")))
-                    case .about:
-                        AboutView()
-                    case .setting:
-                        VersionSegementView(version: 0)
+                case .search(let wubi):
+                    WubiDetailView(wubi:wubi)
+                case .history(let wubi):
+                    WubiDetailView(wubi:wubi)
+                case .favorite(let wubi):
+                    WubiDetailView(wubi:wubi)
+                case .typing(let article):
+                    TypingView(article: article)
+                case .about:
+                    AboutView()
+                case .setting:
+                    VersionSegementView(version: 0)
                 }
             }
         })

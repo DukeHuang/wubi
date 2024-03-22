@@ -9,15 +9,17 @@ import SwiftUI
 
 struct TypingView: View {
 
-//    @Binding var article: Article?
-    @Binding var origin: String
-    @Binding var content: AttributedString
+    @Binding var article: Article?
+    @State var origin: String?
+    @State var content: AttributedString?
     @State private var inputText = ""
     @State private var wordCount: Int = 0
     @State private var version:Int = 0
+    
 
     var body: some View {
-        VStack {
+        
+            /*
             HStack {
                 HStack {
                     Button {
@@ -72,27 +74,41 @@ struct TypingView: View {
                     Text("极简模式")
                 }
             }
-            
-            Text(content)
+             */
+        
+        //            ZStack(alignment: .topTrailing) {
+        //
+        //                Text("\(wordCount) words")
+        //                    .font(.headline)
+        //                    .foregroundStyle(.secondary)
+        //            }
+        
+        VStack() {
+            Text(content ?? "")
                 .border(.primary)
                 .font(.largeTitle)
-                .padding(.top,20)
-            ZStack(alignment: .topTrailing) {
-                TextEditor(text: $inputText)
-                    .border(.primary)
-                    .font(.largeTitle)
-                    .padding()
-                    .padding(.top, 20)
-                    .onChange(of: inputText, { oldValue, newValue in
-                        //let words = inputText.split { $0 == " " || $0.isNewline }
-                        self.wordCount = inputText.count
-                        self.content = self.compareAndColorize(origin, with: inputText)
-                        
-                    })
-                Text("\(wordCount) words")
-                    .font(.headline)
-                    .foregroundStyle(.secondary)
-            }
+                
+                .tracking(1.5)
+                // .clipShape(Circle())
+                //     .overlay(Circle().stroke(Color.white, lineWidth: 4)) // 可选，为圆形图片添加白色边框
+                //     .shadow(radius: 10)
+                .clipShape(RoundedRectangle(cornerRadius: 5))
+                .overlay(RoundedRectangle(cornerRadius: 5).stroke(Color.primary, lineWidth: 0.5)) // 可选，为圆角矩形图片添加白色边框
+                .padding(.horizontal,20)
+//                .shadow(radius: 10)
+            TextEditor(text: $inputText)
+                .border(.primary)
+                .font(.largeTitle)
+                .padding(.horizontal,20)
+                .tracking(1.5)
+                .onChange(of: inputText, { oldValue, newValue in
+                    self.wordCount = inputText.count
+                    self.content = self.compareAndColorize(origin ?? "", with: inputText)
+                })
+        }.onChange(of: article) { oldValue, newValue in
+            origin = newValue?.content
+            content = AttributedString(newValue?.content ?? "")
+            inputText = ""
         }
     }
         
@@ -128,6 +144,8 @@ struct TypingView: View {
     }
 }
 
-//#Preview {
-//    TypingView()
-//}
+#Preview {
+    TypingView(article: .constant(DefaultArticle.mid500),
+               origin: DefaultArticle.mid500.content,
+               content:AttributedString(DefaultArticle.mid500.content) )
+}

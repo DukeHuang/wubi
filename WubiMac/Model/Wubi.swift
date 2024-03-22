@@ -17,7 +17,7 @@ class Wubi: Identifiable {
     let word: String //字
     let pingyin: String //拼音
     
-    var components_86  : String  //字根〔※󰁺※󰃙※󰄦※󰁧※〕
+    var components_86  : String  //字根:󰁺󰃙󰄦󰁧
     var jianma_86_1: String //1级简码
     var jianma_86_2: String //2级简码
     var jianma_86_3: String //3级简码
@@ -30,7 +30,7 @@ class Wubi: Identifiable {
     var quanma_98: String //全码
 
 
-    var components_gbk  : String  //字根〔※󰁺※󰃙※󰄦※󰁧※〕
+    var components_gbk  : String  //字根:󰁺󰃙󰄦󰁧
     var jianma_gbk_1: String //1级简码
     var jianma_gbk_2: String //2级简码
     var jianma_gbk_3: String //3级简码
