@@ -15,98 +15,28 @@ struct TypingView: View {
     @State private var inputText = ""
     @State private var wordCount: Int = 0
     @State private var version:Int = 0
-    
 
     var body: some View {
-        
-            /*
-            HStack {
-                HStack {
-                    Button {
-                    } label: {
-                        Text("打乱")
-                    }
-                    Button {
-                        
-                    } label: {
-                        Text("重打")
-                    }
-                    Button {
-                    } label: {
-                        Text("暂停")
-                    }
-                    Button {
-                    } label: {
-                        Text("继续")
-                    }
-                }
-                Spacer()
-                Text("6/100")
-                Text("1/1")
-                Spacer()
-                Button {
-                } label: {
-                    Text("文章选择")
-                }
-                Button {
-                } label: {
-                    Text("文章自定义")
-                }
-                Spacer()
-                Picker("", selection: $version) {
-                    Text("5").tag(0)
-                    Text("10").tag(1)
-                    Text("15").tag(2)
-                    Text("20").tag(2)
-                    Text("50").tag(0)
-                    Text("100").tag(0)
-                    Text("200").tag(0)
-                    Text("500").tag(0)
-                    Text("全").tag(0)
-                }
-                .pickerStyle(.segmented)
-                
-                Spacer()
-                
-                Button {
-                    
-                } label: {
-                    Text("极简模式")
-                }
-            }
-             */
-        
-        //            ZStack(alignment: .topTrailing) {
-        //
-        //                Text("\(wordCount) words")
-        //                    .font(.headline)
-        //                    .foregroundStyle(.secondary)
-        //            }
-        
         VStack() {
             Text(content ?? "")
-//                .border(.primary)
+                .border(.primary)
                 .font(.largeTitle)
-                
-                .tracking(1.5)
-                // .clipShape(Circle())
-                //     .overlay(Circle().stroke(Color.white, lineWidth: 4)) // 可选，为圆形图片添加白色边框
-                //     .shadow(radius: 10)
-//                .clipShape(RoundedRectangle(cornerRadius: 5))
-//                .border(.primary)
-                .overlay(
-                    RoundedRectangle(cornerRadius: 5, style: .continuous)
-                        .stroke(.primary, lineWidth: /*@START_MENU_TOKEN@*/1.0/*@END_MENU_TOKEN@*/)
-                )
-//                .overlay(RoundedRectangle(cornerRadius: 5).stroke(Color.primary, lineWidth: 0.5)) // 可选，为圆角矩形图片添加白色边框
+//                .tracking(1.5)
+//                .overlay(
+//                    RoundedRectangle(cornerRadius: 5, style: .continuous)
+//                        .stroke(.primary, lineWidth: /*@START_MENU_TOKEN@*/1.0/*@END_MENU_TOKEN@*/)
+//                )
                 .padding(.vertical,10)
-                .padding(.horizontal,20)
-//                .shadow(radius: 10)
+                .padding(.horizontal,40)
+            Text("\(wordCount) words")
+                .font(.headline)
+                .foregroundStyle(.secondary)
             TextEditor(text: $inputText)
                 .border(.primary)
                 .font(.largeTitle)
-                .padding(.horizontal,20)
-                .tracking(1.5)
+                .padding(.vertical,10)
+                .padding(.horizontal,40)
+//                .tracking(1.5)
                 .onChange(of: inputText, { oldValue, newValue in
                     self.wordCount = inputText.count
                     self.content = self.compareAndColorize(origin ?? "", with: inputText)
@@ -130,10 +60,10 @@ struct TypingView: View {
             var mutableChar = AttributedString(String(mutableChars[i]))
             if mutableChars[i] == immutableChars[i] {
                 // 如果汉字相同，颜色变成灰色
-                mutableChar.foregroundColor = .green
+                mutableChar.backgroundColor = .gray
             } else {
                 // 如果汉字不同，颜色变成红色
-                mutableChar.foregroundColor = .red
+                mutableChar.backgroundColor = .red
             }
             result.append(mutableChar)
         }
@@ -142,7 +72,7 @@ struct TypingView: View {
         if mutableString.count > minLength {
             let index = mutableString.index(mutableString.startIndex, offsetBy: minLength)
             var remainingString = AttributedString(String(mutableString[index...]))
-            remainingString.foregroundColor = .black
+//            remainingString.backgroundColor = .clear
             result.append(remainingString)
         }
 
@@ -155,3 +85,61 @@ struct TypingView: View {
                origin: DefaultArticle.mid500.content,
                content:AttributedString(DefaultArticle.mid500.content) )
 }
+
+
+/*
+HStack {
+    HStack {
+        Button {
+        } label: {
+            Text("打乱")
+        }
+        Button {
+            
+        } label: {
+            Text("重打")
+        }
+        Button {
+        } label: {
+            Text("暂停")
+        }
+        Button {
+        } label: {
+            Text("继续")
+        }
+    }
+    Spacer()
+    Text("6/100")
+    Text("1/1")
+    Spacer()
+    Button {
+    } label: {
+        Text("文章选择")
+    }
+    Button {
+    } label: {
+        Text("文章自定义")
+    }
+    Spacer()
+    Picker("", selection: $version) {
+        Text("5").tag(0)
+        Text("10").tag(1)
+        Text("15").tag(2)
+        Text("20").tag(2)
+        Text("50").tag(0)
+        Text("100").tag(0)
+        Text("200").tag(0)
+        Text("500").tag(0)
+        Text("全").tag(0)
+    }
+    .pickerStyle(.segmented)
+    
+    Spacer()
+    
+    Button {
+        
+    } label: {
+        Text("极简模式")
+    }
+}
+ */

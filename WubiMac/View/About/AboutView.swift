@@ -13,16 +13,33 @@ struct AboutView: View {
         VStack(spacing: 10) {
             Image(nsImage: NSImage(named: "AppIcon")!)
 
-            Text("\(Bundle.main.appName)")
+            Text("\(Bundle.main.displayName)")
                 .font(.system(size: 20, weight: .bold))
             // Xcode 13.0 beta 2
             //.textSelection(.enabled)
 
-//            Link("\(AboutView.offSiteAdr.replace(of: "http://", to: ""))", destination: AboutView.offCiteUrl )
+            HStack {
+                Image(systemName: "network")
+                Link("\(AboutView.offSiteAdr.replacingOccurrences(of: "http://", with: ""))", destination: AboutView.offCiteUrl)
+            }
+            
+            
+            HStack {
+                Image(systemName: "paperplane")
+                Link("邮件", destination: AboutView.offEmailUrl)
+            }
+            
 
-            Text("V\(Bundle.main.appVersionLong) (\(Bundle.main.appBuild)) ")
+            HStack {
+                Image(systemName: "v.circle.fill")
+                Text("\(Bundle.main.appVersionLong)")
+                //(\(Bundle.main.appBuild))
+            }
+            
             
             Text("Copyright © 2024 sakuragi. All Rights Reserved.")
+                .font(.system(size: 10, weight: .thin))
+                               .multilineTextAlignment(.center)
             // Xcode 13.0 beta 2
             //.textSelection(.enabled)
 
@@ -57,15 +74,15 @@ struct AboutView: View {
 //}
 
 extension AboutView {
-    private static var offSiteAdr: String { "http://www.taogit.com" }
-    private static var offEmail: String { "someUser@gmail.com" }
+    private static var offSiteAdr: String { "http://www.sakuragg.com" }
+    private static var offEmail: String { "huangyongyou1989@gmail.com" }
 
     public static var offCiteUrl: URL { URL(string: AboutView.offSiteAdr )! }
     public static var offEmailUrl: URL { URL(string: "mailto:\(AboutView.offEmail)")! }
 }
 extension Bundle {
-    public var appName: String { getInfo("CFBundleName")  }
-    //public var displayName: String {getInfo("CFBundleDisplayName")}
+//    public var appName: String { getInfo("CFBundleName")  }
+    public var displayName: String {getInfo("CFBundleDisplayName")}
     //public var language: String {getInfo("CFBundleDevelopmentRegion")}
     //public var identifier: String {getInfo("CFBundleIdentifier")}
 //    public var copyright: String { getInfo("NSHumanReadableCopyright").replace(of: "\\\\n", to: "\n") }

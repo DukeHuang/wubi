@@ -6,11 +6,14 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct VersionListView: View {
     @State var isOn86: Bool = false
     @State var isOn98: Bool = false
     @State var isOngbk: Bool = false
+    var userSetting: UserSetting?
+    @Environment(\.modelContext) var modelContext
 
     var body: some View {
         VStack(alignment: .leading) {
@@ -26,6 +29,20 @@ struct VersionListView: View {
                 Text("新世纪五笔")
             }
             .toggleStyle(.checkbox)
+        }
+        .onChange(of: isOn86) { oldValue, newValue in
+            userSetting?.isShow86 = newValue
+        }
+        .onChange(of: isOn98) { oldValue, newValue in
+            userSetting?.isShow98 = newValue
+        }
+        .onChange(of: isOngbk) { oldValue, newValue in
+            userSetting?.isShowgbk = newValue
+        }
+        .onAppear {
+            isOn86 = userSetting?.isShow86 ?? false
+            isOn98 = userSetting?.isShow98 ?? false
+            isOngbk = userSetting?.isShowgbk ?? false
         }
     }
 }

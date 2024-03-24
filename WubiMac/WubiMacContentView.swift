@@ -8,12 +8,6 @@
 import SwiftUI
 import SwiftData
 
-
-struct MenuItem: Identifiable {
-    var id: Int
-    let name: String
-    let icon: String
-}
 enum SideBarItem: String, Identifiable, CaseIterable {
     case search
     case history
@@ -29,16 +23,15 @@ enum SideBarItem: String, Identifiable, CaseIterable {
             case .search:
                 "magnifyingglass"
             case .history:
-                "doc.text.magnifyingglass"
+                "folder.circle"
             case .favorite:
                 "star"
             case .typing:
-                "rectangle.and.pencil.and.ellipsis"
+                "keyboard.chevron.compact.down"
             case .setting:
                 "gear"
             case .about:
                 "person"
-
         }
     }
 
@@ -58,6 +51,23 @@ enum SideBarItem: String, Identifiable, CaseIterable {
                 "设置"
         }
     }
+    
+    var backgroundColor: Color {
+        switch self {
+            case .search:
+                .red
+            case .history:
+                .red
+            case .favorite:
+                .red
+            case .typing:
+                .green
+            case .about:
+                .orange
+            case .setting:
+                .gray
+        }
+    }
 }
 enum DetailItem {
     case search(Binding<Wubi?>)
@@ -71,15 +81,15 @@ enum DetailItem {
 struct WubiMacContentView: View {
     @State var columnVisibility: NavigationSplitViewVisibility = .all
     @State var selectedSideBarItem: SideBarItem = .search
-
+    
     //search
     @State var selectedSearch: Wubi?
     @State var searchs: [Wubi] = []
-
+    
     //history
     @State var selectedHistory: Wubi?
     @Query(filter: #Predicate<Wubi> {$0.isSearch},sort: \Wubi.searchDate,order: .reverse) var historys: [Wubi]
-
+    
     //favorite
     @State var selectedFavorite: Wubi?
     @Query(filter: #Predicate<Wubi> {$0.isFavorite},sort: \Wubi.searchDate,order: .reverse) var favorites: [Wubi]
@@ -90,78 +100,98 @@ struct WubiMacContentView: View {
     var articles: [Article] = [DefaultArticle.top500,DefaultArticle.mid500,DefaultArticle.tail500]
     
     //UserSetting
-
+    
     @State var selectedSettingItem: SettingItem?
+    
+    //(filter: #Predicate<UserSetting> { $0.},order:.reverse)
     @Query var settings: [UserSetting]
-
+    
+    @Environment(\.modelContext) var modelContext
+    @State var userSetting: UserSetting?
+    
+    let sideBarItems: [[SideBarItem]] = [ [.search,.history,.favorite],[.typing],[.setting],[.about]]
+    
     var selectedDetailItem: DetailItem? {
         switch selectedSideBarItem {
-            case .search:
-                return .search($selectedSearch)
-            case .history:
-                return .history($selectedHistory)
-            case .favorite:
-                return .favorite($selectedFavorite)
-            case .typing:
-                return .typing($selectedArticle)
-            case .about:
-                return .about
-            case .setting:
-                return .setting(selectedSettingItem)
+        case .search:
+            return .search($selectedSearch)
+        case .history:
+            return .history($selectedHistory)
+        case .favorite:
+            return .favorite($selectedFavorite)
+        case .typing:
+            return .typing($selectedArticle)
+        case .about:
+            return .about
+        case .setting:
+            return .setting(selectedSettingItem)
         }
     }
-
+    
     var body: some View  {
         NavigationSplitView(columnVisibility: $columnVisibility, sidebar: {
-            List(SideBarItem.allCases,id: \.self, selection: $selectedSideBarItem) { item in
-                SideBarLabel(title: item.name, imageName: item.icon)
+            List(selection: $selectedSideBarItem) {
+                ForEach(sideBarItems, id: \.self) { sectionItems in
+                    Section {
+                        ForEach(sectionItems,id:\.self) { item in
+                            SideBarLabel(item: item)
+                        }
+                    }
+                }
             }
         }, content: {
             switch selectedSideBarItem {
-                case .search: 
+            case .search:
                 SearchListView(selected: $selectedSearch, wubis: $searchs, scheme: settings.first?.wubiScheme ?? .wubi98)
-                case .history:
+            case .history:
                 SearchHistoryView(selected: $selectedHistory, wubis: historys, scheme: settings.first?.wubiScheme ?? .wubi98)
-                case .favorite:
+            case .favorite:
                 FavoriteListView(selectedWubi: $selectedFavorite, wubis: favorites, scheme: settings.first?.wubiScheme ?? .wubi98)
-                case .typing:
-                    TypingListView(selected: $selectedArticle, articles: articles)
-                case .about:
-                    Text("").navigationSplitViewColumnWidth(0)
-                case .setting:
-                    SettingListView(selected:$selectedSettingItem , settingItems: SettingItem.allCases)
-//                    DatabaseTestView()
+            case .typing:
+                TypingListView(selected: $selectedArticle, articles: articles)
+            case .about:
+                Text("").navigationSplitViewColumnWidth(0)
+            case .setting:
+                SettingListView(selected:$selectedSettingItem , settingItems: SettingItem.allCases)
             }
         },  detail: {
             if let detailItem = selectedDetailItem {
                 switch detailItem {
-                    case .search(let wubi):
-                        WubiDetailView(wubi:wubi)
-                    case .history(let wubi):
-                        WubiDetailView(wubi:wubi)
-                    case .favorite(let wubi):
-                        WubiDetailView(wubi:wubi)
-                    case .typing(let article):
-                        TypingView(article: article)
-                    case .about:
-                        AboutView()
-                    case .setting(let settingItem):
-                        switch settingItem {
-                            case .showWubiVersion:
-                                VersionSegementView(version: 0)
-                            case .typing:
-                                AttributedDemoView()
-                            case .wubiVersion:
-                                VersionListView()
-                            case .none:
-                                EmptyView()
-                        }
-
+                case .search(let wubi):
+                    WubiDetailView(wubi:wubi)
+                case .history(let wubi):
+                    WubiDetailView(wubi:wubi)
+                case .favorite(let wubi):
+                    WubiDetailView(wubi:wubi)
+                case .typing(let article):
+                    TypingView(article: article)
+                case .about:
+                    AboutView()
+                case .setting(let settingItem):
+                    switch settingItem {
+                    case .showWubiVersion:
+                        VersionListView(userSetting: self.userSetting)
+                    case .typing:
+                        AttributedDemoView()
+                    case .wubiVersion:
+                        VersionSegementView(version: 0)
+                    case .none:
+                        EmptyView()
+                    }
+                    
                 }
             }
         })
-        .frame(minWidth: 1250, minHeight: 650)
-        .navigationTitle("98五笔")
+        //        .frame(minWidth: 1250, minHeight: 650)
+        .navigationTitle("五笔助手")
+        .onAppear {
+            if let s = settings.first {
+                userSetting = s
+            } else {
+                userSetting = UserSetting(wubiScheme: .wubi98)
+                modelContext.insert(userSetting!)
+            }
+        }
     }
 }
 

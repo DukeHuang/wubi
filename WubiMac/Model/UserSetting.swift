@@ -17,7 +17,10 @@ enum WubiScheme: String, Codable,Hashable {
 @Model
 class UserSetting {
     
-    let wubiScheme: WubiScheme
+    var wubiScheme: WubiScheme
+    var isShow86: Bool = true
+    var isShow98: Bool = true
+    var isShowgbk: Bool = true
 
     init(wubiScheme: WubiScheme = .wubi98) {
         self.wubiScheme = wubiScheme

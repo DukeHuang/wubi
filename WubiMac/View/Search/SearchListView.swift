@@ -17,7 +17,7 @@ struct SearchListView: View {
     @Environment(\.modelContext) var modelContext
     var body: some View {
         if wubis.isEmpty {
-            Text("请输入要查找的内容")
+            EmptyView()
                 .searchable(text: $searchString,prompt: "查找")
                 .onSubmit(of:.search, runSearch)
         } else {
