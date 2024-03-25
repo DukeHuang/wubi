@@ -55,7 +55,7 @@ struct SingleKeyBoardView: View {
                                  .foregroundStyle(.gray)
                         }
                     }
-                    .frame(width: 100)
+//                    .frame(width: 100)
                 }
             }
         }

@@ -11,22 +11,22 @@ struct SideBarLabel: View {
     var item: SideBarItem
 
     var body: some View {
-//        HStack {
-//            Image(systemName:item.icon)
-//                .resizable()
-//                .aspectRatio(contentMode: .fit)
-//                .padding(.all,4)
-//                .foregroundColor(.white)
-//                .background(item.backgroundColor)
-//                .frame(maxWidth: 20,maxHeight: 20)
-//                .cornerRadius(5.0)
-//                
-//                
-//            Spacer().frame(width: 10)
-//            Text(item.name)
-//        }
+        HStack {
+            Image(systemName:item.icon)
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .padding(.all,4)
+                .foregroundColor(.white)
+                .background(item.backgroundColor)
+                .frame(maxWidth: 20,maxHeight: 20)
+                .cornerRadius(5.0)
+                
+                
+            Spacer().frame(width: 10)
+            Text(item.name)
+        }
 
-        Label(item.name, systemImage: item.icon)
+//        Label(item.name, systemImage: item.icon)
 //        Label(title: { Text(item.name) },
 //              icon: { Image(systemName:item.icon)
 //                .resizable()

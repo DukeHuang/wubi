@@ -79,7 +79,11 @@ enum DetailItem {
 }
 
 struct WubiContentView: View {
+    #if os(macOS)
     @State var columnVisibility: NavigationSplitViewVisibility = .all
+    #else
+    @State var columnVisibility: NavigationSplitViewVisibility = .doubleColumn
+    #endif
     @State var selectedSideBarItem: SideBarItem? = .search
 
     //search

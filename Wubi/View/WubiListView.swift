@@ -48,7 +48,9 @@ struct WubiListView: View {
 
             }
         }.onAppear {
+            #if os(macOS)
             selected = wubis.first
+            #endif
         }
     }
 }
