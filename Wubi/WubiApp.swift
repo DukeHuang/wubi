@@ -2,16 +2,61 @@
 //  WubiApp.swift
 //  Wubi
 //
-//  Created by yongyou on 2022/11/15.
+//  Created by yongyou on 2023/7/3.
 //
 
 import SwiftUI
+import SwiftData
 
 @main
 struct WubiApp: App {
-    var body: some Scene {
-        WindowGroup {
-            ContentView()
+    let modelContainer: ModelContainer
+    init() {
+        do {
+            modelContainer = try ModelContainer(for: Wubi.self,Article.self,UserSetting.self)
+        } catch {
+            fatalError("Could not initialize ModelContainer")
         }
     }
+    var body: some Scene {
+        WindowGroup {
+            WubiContentView()
+        }
+        .modelContainer(modelContainer)
+    }
 }
+
+extension WubiApp {
+    //    @State var search: String = ""
+    //    @State var show: Bool = false
+
+    //        MenuBarExtra("五笔查询", systemImage: "magnifyingglass.circle") {
+    //            TextField("请输入要查询的汉字",text: $search)
+    //            .onSubmit {
+    //                self.runSearch()
+    //                if self.wubi.character.count > 0 {
+    //                    show = true
+    //                } else {
+    //                show = false
+    //                }
+    //            }.keyboardShortcut("s")
+    //            WubiMenuBarDetailView(wubi: $wubi) {}.opacity(show ? 0 : 1)
+    //            Button("Quit") {
+    //                NSApplication.shared.terminate(nil)
+    //            }.keyboardShortcut("q")
+    //        }.menuBarExtraStyle(.window)
+
+
+    //    func runSearch() {
+    //        do {
+    //            try self.wubi = Database.shared!.query(keyValue:search)
+    //        } catch {
+    //            //do nothing
+    //            print("search error: \(error)")
+    //        }
+    //    }
+}
+
+
+
+

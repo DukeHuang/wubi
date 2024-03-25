@@ -7,52 +7,34 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		760AA1332A61479300592525 /* FavoriteListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 760AA1322A61479300592525 /* FavoriteListView.swift */; };
 		760AA1342A61479300592525 /* FavoriteListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 760AA1322A61479300592525 /* FavoriteListView.swift */; };
 		760E29AC2BA2DA3D00A2A1DD /* gbk.json in Resources */ = {isa = PBXBuildFile; fileRef = 760E29AA2BA2DA3D00A2A1DD /* gbk.json */; };
 		760E29AD2BA2DA3D00A2A1DD /* 86.json in Resources */ = {isa = PBXBuildFile; fileRef = 760E29AB2BA2DA3D00A2A1DD /* 86.json */; };
 		761008E72A79FD15005C57B9 /* WubiDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 761008E62A79FD15005C57B9 /* WubiDetailView.swift */; };
 		7618BA472B5660C700FEBCF1 /* WubiListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7618BA462B5660C700FEBCF1 /* WubiListView.swift */; };
-		7618BA602B56785500FEBCF1 /* WubiMacContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7618BA5F2B56785500FEBCF1 /* WubiMacContentView.swift */; };
+		7618BA602B56785500FEBCF1 /* WubiContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7618BA5F2B56785500FEBCF1 /* WubiContentView.swift */; };
 		761D98F02BAD8E2800783F95 /* SettingItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 761D98EF2BAD8E2800783F95 /* SettingItem.swift */; };
 		761D98F22BAD92DF00783F95 /* VersionListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 761D98F12BAD92DF00783F95 /* VersionListView.swift */; };
 		761F2CD82B51048D007F97BB /* URLType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 761F2CD72B51048D007F97BB /* URLType.swift */; };
 		762C3BA02A54130500C0E048 /* KeyboardImageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E2C895292341FF0022364A /* KeyboardImageManager.swift */; };
 		763830242B4558BB00FFC915 /* SearchHistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 763830232B4558BB00FFC915 /* SearchHistoryView.swift */; };
+		7659138F2BB16ACC0017A4F6 /* SingleKeyBoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769DC2D62A5FA0BB0087A16D /* SingleKeyBoardView.swift */; };
 		765A14EB2BA05FC100EA127A /* AttributedDemoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 765A14EA2BA05FC100EA127A /* AttributedDemoView.swift */; };
-		7662EB322A5C02E00088E4A5 /* NSImageExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7662EB312A5C02E00088E4A5 /* NSImageExtensions.swift */; };
-		7662EB332A5C02E00088E4A5 /* NSImageExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7662EB312A5C02E00088E4A5 /* NSImageExtensions.swift */; };
 		767984AC2B3E6A04000BA5A6 /* Sidebar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 762C3B972A54014900C0E048 /* Sidebar.swift */; };
 		767AFA0E2A7B80D40016EB4D /* WubiMenuBarDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 767AFA0D2A7B80D40016EB4D /* WubiMenuBarDetailView.swift */; };
 		769DC2D52A5F8F480087A16D /* NSImage+Exs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769DC2D42A5F8F480087A16D /* NSImage+Exs.swift */; };
-		769DC2D82A5FA0BB0087A16D /* SingleKeyBoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769DC2D62A5FA0BB0087A16D /* SingleKeyBoardView.swift */; };
-		769DC2DA2A5FDEBF0087A16D /* View+Exs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769DC2D92A5FDEBF0087A16D /* View+Exs.swift */; };
 		769DC2DB2A5FDEBF0087A16D /* View+Exs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769DC2D92A5FDEBF0087A16D /* View+Exs.swift */; };
-		76C00D2C2A52CC3B009D2ED7 /* WubiMacApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76C00D2B2A52CC3B009D2ED7 /* WubiMacApp.swift */; };
-		76C00D302A52CC3C009D2ED7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 76C00D2F2A52CC3C009D2ED7 /* Assets.xcassets */; };
+		76C00D2C2A52CC3B009D2ED7 /* WubiApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76C00D2B2A52CC3B009D2ED7 /* WubiApp.swift */; };
 		76C00D332A52CC3D009D2ED7 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 76C00D322A52CC3D009D2ED7 /* Preview Assets.xcassets */; };
 		76C00D372A52CCBF009D2ED7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 76E2C8832923404C0022364A /* Assets.xcassets */; };
 		76C00D3F2A52CCED009D2ED7 /* main.db in Resources */ = {isa = PBXBuildFile; fileRef = 76E2C88E292341FB0022364A /* main.db */; };
 		76E1DE3D2A7C99D900FD5F7F /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E1DE3B2A7C99D900FD5F7F /* Constants.swift */; };
 		76E1DE402A7C9D8100FD5F7F /* SearchListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E1DE3E2A7C9D8100FD5F7F /* SearchListView.swift */; };
-		76E2C8802923404A0022364A /* WubiApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E2C87F2923404A0022364A /* WubiApp.swift */; };
-		76E2C8842923404C0022364A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 76E2C8832923404C0022364A /* Assets.xcassets */; };
-		76E2C8882923404C0022364A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 76E2C8872923404C0022364A /* Preview Assets.xcassets */; };
-		76E2C896292341FF0022364A /* main.db in Resources */ = {isa = PBXBuildFile; fileRef = 76E2C88E292341FB0022364A /* main.db */; };
-		76E2C897292341FF0022364A /* AnalysisView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E2C88F292341FC0022364A /* AnalysisView.swift */; };
-		76E2C89D292341FF0022364A /* KeyboardImageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E2C895292341FF0022364A /* KeyboardImageManager.swift */; };
-		76E89D342B550D44001637FE /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E89D322B54E656001637FE /* WebView.swift */; };
 		76E89D392B552BC7001637FE /* TypingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E89D382B552BC7001637FE /* TypingView.swift */; };
-		76F17E8A2A7503AB006B7F1D /* Wubi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F17E842A7503AB006B7F1D /* Wubi.swift */; };
 		76F17E8B2A7503AB006B7F1D /* Wubi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F17E842A7503AB006B7F1D /* Wubi.swift */; };
-		76F17E8C2A7503AB006B7F1D /* FavoriteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F17E852A7503AB006B7F1D /* FavoriteButton.swift */; };
 		76F17E8D2A7503AB006B7F1D /* FavoriteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F17E852A7503AB006B7F1D /* FavoriteButton.swift */; };
-		76F17E8E2A7503AB006B7F1D /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F17E862A7503AB006B7F1D /* Database.swift */; };
 		76F17E8F2A7503AB006B7F1D /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F17E862A7503AB006B7F1D /* Database.swift */; };
-		76F17E902A7503AB006B7F1D /* SearchDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F17E872A7503AB006B7F1D /* SearchDetailView.swift */; };
 		76F17E912A7503AB006B7F1D /* SearchDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F17E872A7503AB006B7F1D /* SearchDetailView.swift */; };
-		76F847E42B510AFB003FE909 /* GIFView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 761F904D2B5105D1007F97BB /* GIFView.swift */; };
-		76F847E62B510C89003FE909 /* QLImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F847E52B510C89003FE909 /* QLImage.swift */; };
 		E0553D462B6DFF7000E7D4A7 /* 98WB-2.otf in Resources */ = {isa = PBXBuildFile; fileRef = E0553D452B6DFF7000E7D4A7 /* 98WB-2.otf */; };
 		E0ACBA852B72716E00F40339 /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F511D42A93377B00E293E3 /* AboutView.swift */; };
 		E0ACBA892B72806300F40339 /* SettingListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0ACBA882B72806300F40339 /* SettingListView.swift */; };
@@ -61,7 +43,6 @@
 		E0D8F41B2BA6D2420086EBE9 /* gbk.txt in Resources */ = {isa = PBXBuildFile; fileRef = E0D8F4192BA6D2420086EBE9 /* gbk.txt */; };
 		E0D8F41C2BA6D2420086EBE9 /* 86.txt in Resources */ = {isa = PBXBuildFile; fileRef = E0D8F41A2BA6D2420086EBE9 /* 86.txt */; };
 		E0D8F41E2BA7194F0086EBE9 /* DatabaseTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0D8F41D2BA7194F0086EBE9 /* DatabaseTestView.swift */; };
-		E0E721312BA09A74001C6434 /* HighlightedImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0E721302BA09A74001C6434 /* HighlightedImage.swift */; };
 		E0E721332BA09EC7001C6434 /* TypingListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0E721322BA09EC7001C6434 /* TypingListView.swift */; };
 		E0E721352BA0A903001C6434 /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0E721342BA0A903001C6434 /* Article.swift */; };
 		E0E721372BA0AC4E001C6434 /* DefaultArticle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0E721362BA0AC4E001C6434 /* DefaultArticle.swift */; };
@@ -69,17 +50,15 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		760AA1292A61454800592525 /* ModelData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelData.swift; sourceTree = "<group>"; };
 		760AA1322A61479300592525 /* FavoriteListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteListView.swift; sourceTree = "<group>"; };
 		760E29AA2BA2DA3D00A2A1DD /* gbk.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = gbk.json; sourceTree = "<group>"; };
 		760E29AB2BA2DA3D00A2A1DD /* 86.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = 86.json; sourceTree = "<group>"; };
 		761008E62A79FD15005C57B9 /* WubiDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WubiDetailView.swift; sourceTree = "<group>"; };
 		7618BA462B5660C700FEBCF1 /* WubiListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WubiListView.swift; sourceTree = "<group>"; };
-		7618BA5F2B56785500FEBCF1 /* WubiMacContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WubiMacContentView.swift; sourceTree = "<group>"; };
+		7618BA5F2B56785500FEBCF1 /* WubiContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WubiContentView.swift; sourceTree = "<group>"; };
 		761D98EF2BAD8E2800783F95 /* SettingItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingItem.swift; sourceTree = "<group>"; };
 		761D98F12BAD92DF00783F95 /* VersionListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VersionListView.swift; sourceTree = "<group>"; };
 		761F2CD72B51048D007F97BB /* URLType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLType.swift; sourceTree = "<group>"; };
-		761F904D2B5105D1007F97BB /* GIFView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GIFView.swift; sourceTree = "<group>"; };
 		762C3B972A54014900C0E048 /* Sidebar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sidebar.swift; sourceTree = "<group>"; };
 		763830232B4558BB00FFC915 /* SearchHistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchHistoryView.swift; sourceTree = "<group>"; };
 		765A14EA2BA05FC100EA127A /* AttributedDemoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttributedDemoView.swift; sourceTree = "<group>"; };
@@ -88,22 +67,15 @@
 		769DC2D42A5F8F480087A16D /* NSImage+Exs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSImage+Exs.swift"; sourceTree = "<group>"; };
 		769DC2D62A5FA0BB0087A16D /* SingleKeyBoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleKeyBoardView.swift; sourceTree = "<group>"; };
 		769DC2D92A5FDEBF0087A16D /* View+Exs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Exs.swift"; sourceTree = "<group>"; };
-		76C00D292A52CC3B009D2ED7 /* WubiMac.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WubiMac.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		76C00D2B2A52CC3B009D2ED7 /* WubiMacApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WubiMacApp.swift; sourceTree = "<group>"; };
-		76C00D2F2A52CC3C009D2ED7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		76C00D292A52CC3B009D2ED7 /* Wubi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Wubi.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		76C00D2B2A52CC3B009D2ED7 /* WubiApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WubiApp.swift; sourceTree = "<group>"; };
 		76C00D322A52CC3D009D2ED7 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		76E1DE3B2A7C99D900FD5F7F /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		76E1DE3E2A7C9D8100FD5F7F /* SearchListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchListView.swift; sourceTree = "<group>"; };
-		76E2C87C2923404A0022364A /* Wubi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Wubi.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		76E2C87F2923404A0022364A /* WubiApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WubiApp.swift; sourceTree = "<group>"; };
 		76E2C8832923404C0022364A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		76E2C8852923404C0022364A /* Wubi.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Wubi.entitlements; sourceTree = "<group>"; };
-		76E2C8872923404C0022364A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		76E2C88E292341FB0022364A /* main.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = main.db; sourceTree = "<group>"; };
-		76E2C88F292341FC0022364A /* AnalysisView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnalysisView.swift; sourceTree = "<group>"; };
 		76E2C891292341FD0022364A /* FiveStroke.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FiveStroke.swift; sourceTree = "<group>"; };
 		76E2C895292341FF0022364A /* KeyboardImageManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardImageManager.swift; sourceTree = "<group>"; };
-		76E89D322B54E656001637FE /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
 		76E89D382B552BC7001637FE /* TypingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypingView.swift; sourceTree = "<group>"; };
 		76F17E842A7503AB006B7F1D /* Wubi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Wubi.swift; sourceTree = "<group>"; };
 		76F17E852A7503AB006B7F1D /* FavoriteButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteButton.swift; sourceTree = "<group>"; };
@@ -111,7 +83,6 @@
 		76F17E872A7503AB006B7F1D /* SearchDetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchDetailView.swift; sourceTree = "<group>"; };
 		76F511D42A93377B00E293E3 /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
 		76F847E52B510C89003FE909 /* QLImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QLImage.swift; sourceTree = "<group>"; };
-		E0553D442B6DF39200E7D4A7 /* WubiMac.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = WubiMac.entitlements; sourceTree = "<group>"; };
 		E0553D452B6DFF7000E7D4A7 /* 98WB-2.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "98WB-2.otf"; sourceTree = "<group>"; };
 		E0553D472B6DFFA800E7D4A7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		E0ACBA882B72806300F40339 /* SettingListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingListView.swift; sourceTree = "<group>"; };
@@ -129,13 +100,6 @@
 
 /* Begin PBXFrameworksBuildPhase section */
 		76C00D262A52CC3A009D2ED7 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		76E2C8792923404A0022364A /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -166,6 +130,7 @@
 		767984A52B3E5FB0000BA5A6 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				76E2C891292341FD0022364A /* FiveStroke.swift */,
 				76F17E842A7503AB006B7F1D /* Wubi.swift */,
 				E0E721342BA0A903001C6434 /* Article.swift */,
 				E0C451072BA88798006C889F /* UserSetting.swift */,
@@ -242,13 +207,12 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
-		76C00D2A2A52CC3B009D2ED7 /* WubiMac */ = {
+		76C00D2A2A52CC3B009D2ED7 /* Wubi */ = {
 			isa = PBXGroup;
 			children = (
 				E0553D472B6DFFA800E7D4A7 /* Info.plist */,
-				E0553D442B6DF39200E7D4A7 /* WubiMac.entitlements */,
-				76C00D2B2A52CC3B009D2ED7 /* WubiMacApp.swift */,
-				7618BA5F2B56785500FEBCF1 /* WubiMacContentView.swift */,
+				76C00D2B2A52CC3B009D2ED7 /* WubiApp.swift */,
+				7618BA5F2B56785500FEBCF1 /* WubiContentView.swift */,
 				767984A62B3E600F000BA5A6 /* View */,
 				769DC2D32A5F8EA80087A16D /* Extensions */,
 				767984A52B3E5FB0000BA5A6 /* Model */,
@@ -258,11 +222,11 @@
 				762C3B972A54014900C0E048 /* Sidebar.swift */,
 				76E1DE3B2A7C99D900FD5F7F /* Constants.swift */,
 				E0E721362BA0AC4E001C6434 /* DefaultArticle.swift */,
-				76C00D2F2A52CC3C009D2ED7 /* Assets.xcassets */,
 				E0553D452B6DFF7000E7D4A7 /* 98WB-2.otf */,
+				76E2C8832923404C0022364A /* Assets.xcassets */,
 				76C00D312A52CC3D009D2ED7 /* Preview Content */,
 			);
-			path = WubiMac;
+			path = Wubi;
 			sourceTree = "<group>";
 		};
 		76C00D312A52CC3D009D2ED7 /* Preview Content */ = {
@@ -276,8 +240,7 @@
 		76E2C8732923404A0022364A = {
 			isa = PBXGroup;
 			children = (
-				76E2C87E2923404A0022364A /* Wubi */,
-				76C00D2A2A52CC3B009D2ED7 /* WubiMac */,
+				76C00D2A2A52CC3B009D2ED7 /* Wubi */,
 				76E2C87D2923404A0022364A /* Products */,
 			);
 			sourceTree = "<group>";
@@ -285,34 +248,9 @@
 		76E2C87D2923404A0022364A /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				76E2C87C2923404A0022364A /* Wubi.app */,
-				76C00D292A52CC3B009D2ED7 /* WubiMac.app */,
+				76C00D292A52CC3B009D2ED7 /* Wubi.app */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		76E2C87E2923404A0022364A /* Wubi */ = {
-			isa = PBXGroup;
-			children = (
-				76E2C88F292341FC0022364A /* AnalysisView.swift */,
-				76E89D322B54E656001637FE /* WebView.swift */,
-				76E2C891292341FD0022364A /* FiveStroke.swift */,
-				760AA1292A61454800592525 /* ModelData.swift */,
-				76E2C87F2923404A0022364A /* WubiApp.swift */,
-				761F904D2B5105D1007F97BB /* GIFView.swift */,
-				76E2C8832923404C0022364A /* Assets.xcassets */,
-				76E2C8852923404C0022364A /* Wubi.entitlements */,
-				76E2C8862923404C0022364A /* Preview Content */,
-			);
-			path = Wubi;
-			sourceTree = "<group>";
-		};
-		76E2C8862923404C0022364A /* Preview Content */ = {
-			isa = PBXGroup;
-			children = (
-				76E2C8872923404C0022364A /* Preview Assets.xcassets */,
-			);
-			path = "Preview Content";
 			sourceTree = "<group>";
 		};
 		E0ACBA872B72801700F40339 /* Setting */ = {
@@ -330,9 +268,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		76C00D282A52CC3A009D2ED7 /* WubiMac */ = {
+		76C00D282A52CC3A009D2ED7 /* Wubi */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 76C00D362A52CC3D009D2ED7 /* Build configuration list for PBXNativeTarget "WubiMac" */;
+			buildConfigurationList = 76C00D362A52CC3D009D2ED7 /* Build configuration list for PBXNativeTarget "Wubi" */;
 			buildPhases = (
 				76C00D252A52CC3A009D2ED7 /* Sources */,
 				76C00D262A52CC3A009D2ED7 /* Frameworks */,
@@ -342,28 +280,11 @@
 			);
 			dependencies = (
 			);
-			name = WubiMac;
+			name = Wubi;
 			packageProductDependencies = (
 			);
 			productName = WubiMac;
-			productReference = 76C00D292A52CC3B009D2ED7 /* WubiMac.app */;
-			productType = "com.apple.product-type.application";
-		};
-		76E2C87B2923404A0022364A /* Wubi */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 76E2C88B2923404C0022364A /* Build configuration list for PBXNativeTarget "Wubi" */;
-			buildPhases = (
-				76E2C8782923404A0022364A /* Sources */,
-				76E2C8792923404A0022364A /* Frameworks */,
-				76E2C87A2923404A0022364A /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = Wubi;
-			productName = Wubi;
-			productReference = 76E2C87C2923404A0022364A /* Wubi.app */;
+			productReference = 76C00D292A52CC3B009D2ED7 /* Wubi.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -378,9 +299,6 @@
 				TargetAttributes = {
 					76C00D282A52CC3A009D2ED7 = {
 						CreatedOnToolsVersion = 14.3.1;
-					};
-					76E2C87B2923404A0022364A = {
-						CreatedOnToolsVersion = 14.0;
 					};
 				};
 			};
@@ -399,8 +317,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				76E2C87B2923404A0022364A /* Wubi */,
-				76C00D282A52CC3A009D2ED7 /* WubiMac */,
+				76C00D282A52CC3A009D2ED7 /* Wubi */,
 			);
 		};
 /* End PBXProject section */
@@ -418,17 +335,6 @@
 				760E29AC2BA2DA3D00A2A1DD /* gbk.json in Resources */,
 				76C00D372A52CCBF009D2ED7 /* Assets.xcassets in Resources */,
 				E0553D462B6DFF7000E7D4A7 /* 98WB-2.otf in Resources */,
-				76C00D302A52CC3C009D2ED7 /* Assets.xcassets in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		76E2C87A2923404A0022364A /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				76E2C896292341FF0022364A /* main.db in Resources */,
-				76E2C8882923404C0022364A /* Preview Assets.xcassets in Resources */,
-				76E2C8842923404C0022364A /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -440,7 +346,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				761008E72A79FD15005C57B9 /* WubiDetailView.swift in Sources */,
-				769DC2D82A5FA0BB0087A16D /* SingleKeyBoardView.swift in Sources */,
+				7659138F2BB16ACC0017A4F6 /* SingleKeyBoardView.swift in Sources */,
 				769DC2D52A5F8F480087A16D /* NSImage+Exs.swift in Sources */,
 				76F17E8F2A7503AB006B7F1D /* Database.swift in Sources */,
 				E0E721372BA0AC4E001C6434 /* DefaultArticle.swift in Sources */,
@@ -453,10 +359,8 @@
 				E0ACBA8B2B72836900F40339 /* VersionSegementView.swift in Sources */,
 				7618BA472B5660C700FEBCF1 /* WubiListView.swift in Sources */,
 				761F2CD82B51048D007F97BB /* URLType.swift in Sources */,
-				7662EB332A5C02E00088E4A5 /* NSImageExtensions.swift in Sources */,
 				763830242B4558BB00FFC915 /* SearchHistoryView.swift in Sources */,
-				76C00D2C2A52CC3B009D2ED7 /* WubiMacApp.swift in Sources */,
-				E0E721312BA09A74001C6434 /* HighlightedImage.swift in Sources */,
+				76C00D2C2A52CC3B009D2ED7 /* WubiApp.swift in Sources */,
 				761D98F22BAD92DF00783F95 /* VersionListView.swift in Sources */,
 				E0E721352BA0A903001C6434 /* Article.swift in Sources */,
 				76E1DE402A7C9D8100FD5F7F /* SearchListView.swift in Sources */,
@@ -468,31 +372,11 @@
 				765A14EB2BA05FC100EA127A /* AttributedDemoView.swift in Sources */,
 				E0E721332BA09EC7001C6434 /* TypingListView.swift in Sources */,
 				76E1DE3D2A7C99D900FD5F7F /* Constants.swift in Sources */,
-				76F847E62B510C89003FE909 /* QLImage.swift in Sources */,
 				E0ACBA892B72806300F40339 /* SettingListView.swift in Sources */,
 				767AFA0E2A7B80D40016EB4D /* WubiMenuBarDetailView.swift in Sources */,
 				E0F1D80E2BA9D565006C1E7B /* WubiDetailSection.swift in Sources */,
 				76F17E8D2A7503AB006B7F1D /* FavoriteButton.swift in Sources */,
-				7618BA602B56785500FEBCF1 /* WubiMacContentView.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		76E2C8782923404A0022364A /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				7662EB322A5C02E00088E4A5 /* NSImageExtensions.swift in Sources */,
-				769DC2DA2A5FDEBF0087A16D /* View+Exs.swift in Sources */,
-				76E2C89D292341FF0022364A /* KeyboardImageManager.swift in Sources */,
-				76F17E8A2A7503AB006B7F1D /* Wubi.swift in Sources */,
-				760AA1332A61479300592525 /* FavoriteListView.swift in Sources */,
-				76E2C897292341FF0022364A /* AnalysisView.swift in Sources */,
-				76F17E902A7503AB006B7F1D /* SearchDetailView.swift in Sources */,
-				76E2C8802923404A0022364A /* WubiApp.swift in Sources */,
-				76F17E8E2A7503AB006B7F1D /* Database.swift in Sources */,
-				76F847E42B510AFB003FE909 /* GIFView.swift in Sources */,
-				76F17E8C2A7503AB006B7F1D /* FavoriteButton.swift in Sources */,
-				76E89D342B550D44001637FE /* WebView.swift in Sources */,
+				7618BA602B56785500FEBCF1 /* WubiContentView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -504,36 +388,39 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = WubiMac/WubiMac.entitlements;
+				CODE_SIGN_ENTITLEMENTS = "";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"WubiMac/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"Wubi/Preview Content\"";
 				DEVELOPMENT_TEAM = GH9J6ETQPF;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = WubiMac/Info.plist;
+				INFOPLIST_FILE = Wubi/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "五笔助手";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 14.1;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
 				MARKETING_VERSION = 0.0.1;
-				PRODUCT_BUNDLE_IDENTIFIER = com.sakuragg.WubiMac;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sakuragg.Wubi;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
-				SUPPORTED_PLATFORMS = macosx;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -542,36 +429,39 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = WubiMac/WubiMac.entitlements;
+				CODE_SIGN_ENTITLEMENTS = "";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"WubiMac/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"Wubi/Preview Content\"";
 				DEVELOPMENT_TEAM = GH9J6ETQPF;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = WubiMac/Info.plist;
+				INFOPLIST_FILE = Wubi/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "五笔助手";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 14.1;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
 				MARKETING_VERSION = 0.0.1;
-				PRODUCT_BUNDLE_IDENTIFIER = com.sakuragg.WubiMac;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sakuragg.Wubi;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
-				SUPPORTED_PLATFORMS = macosx;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -685,90 +575,10 @@
 			};
 			name = Release;
 		};
-		76E2C88C2923404C0022364A /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = Wubi/Wubi.entitlements;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"Wubi/Preview Content\"";
-				DEVELOPMENT_TEAM = K8MXV5Q42C;
-				ENABLE_HARDENED_RUNTIME = YES;
-				ENABLE_PREVIEWS = YES;
-				GENERATE_INFOPLIST_FILE = YES;
-				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
-				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
-				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
-				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
-				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
-				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
-				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
-				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
-				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
-				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 12.3;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.sakuragi.WubiApp;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
-				SUPPORTS_MACCATALYST = YES;
-				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
-		76E2C88D2923404C0022364A /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = Wubi/Wubi.entitlements;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"Wubi/Preview Content\"";
-				DEVELOPMENT_TEAM = K8MXV5Q42C;
-				ENABLE_HARDENED_RUNTIME = YES;
-				ENABLE_PREVIEWS = YES;
-				GENERATE_INFOPLIST_FILE = YES;
-				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
-				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
-				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
-				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
-				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
-				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
-				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
-				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
-				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
-				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 12.3;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.sakuragi.WubiApp;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
-				SUPPORTS_MACCATALYST = YES;
-				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		76C00D362A52CC3D009D2ED7 /* Build configuration list for PBXNativeTarget "WubiMac" */ = {
+		76C00D362A52CC3D009D2ED7 /* Build configuration list for PBXNativeTarget "Wubi" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				76C00D342A52CC3D009D2ED7 /* Debug */,
@@ -782,15 +592,6 @@
 			buildConfigurations = (
 				76E2C8892923404C0022364A /* Debug */,
 				76E2C88A2923404C0022364A /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		76E2C88B2923404C0022364A /* Build configuration list for PBXNativeTarget "Wubi" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				76E2C88C2923404C0022364A /* Debug */,
-				76E2C88D2923404C0022364A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
