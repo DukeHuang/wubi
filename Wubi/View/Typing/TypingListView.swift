@@ -23,7 +23,9 @@ struct TypingListView: View {
             })
         }
         .onAppear {
+            #if os(macOS)
             selected = articles.first
+            #endif
         }
     }
 }

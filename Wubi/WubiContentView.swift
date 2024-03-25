@@ -84,7 +84,7 @@ struct WubiContentView: View {
     #else
     @State var columnVisibility: NavigationSplitViewVisibility = .doubleColumn
     #endif
-    @State var selectedSideBarItem: SideBarItem? = .search
+    @State var selectedSideBarItem: SideBarItem?
 
     //search
     @State var selectedSearch: Wubi?
@@ -149,14 +149,18 @@ struct WubiContentView: View {
             switch selectedSideBarItem {
                 case .search:
                     SearchListView(selected: $selectedSearch, wubis: $searchs, scheme: settings.first?.wubiScheme ?? .wubi98)
+                    .navigationTitle("搜索")
                 case .history:
                     SearchHistoryView(selected: $selectedHistory, wubis: historys, scheme: settings.first?.wubiScheme ?? .wubi98)
+                    .navigationTitle("搜索历史")
                 case .favorite:
                     FavoriteListView(selectedWubi: $selectedFavorite, wubis: favorites, scheme: settings.first?.wubiScheme ?? .wubi98)
+                    .navigationTitle("收藏")
                 case .typing:
                     TypingListView(selected: $selectedArticle, articles: articles)
                 case .about:
-                    Text("").navigationSplitViewColumnWidth(0)
+//                    Text("").navigationSplitViewColumnWidth(0)
+                    AboutView()
                 case .setting:
                     SettingListView(selected:$selectedSettingItem , settingItems: SettingItem.allCases)
                 case .none:

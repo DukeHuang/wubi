@@ -33,7 +33,9 @@ struct SettingListView: View {
         List(settingItems,id:\.self, selection: $selected) { item in
             SettingSideBarLabel(item: item)
         }.onAppear {
+            #if os(macOS)
             selected = settingItems.first
+            #endif
         }
     }
 }

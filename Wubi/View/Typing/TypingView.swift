@@ -18,24 +18,20 @@ struct TypingView: View {
 
     var body: some View {
         VStack() {
-            Label("Lightning", systemImage: "bolt.fill")
-
             Text(content ?? "")
                 .border(.primary)
                 .font(.largeTitle)
-//                .padding(.vertical,10)
-//                .padding(.horizontal,40)
-
-
-            Text("\(wordCount) words")
-                .font(.headline)
-                .foregroundStyle(.secondary)
-            TextEditor(text: $inputText)
+//                .lineSpacing(5.0)
+//                .tracking(2.0)
+                .padding(.horizontal,5)
+            
+            
+            TextField("", text: $inputText, axis: .vertical)
+//            TextEditor(text: $inputText)
                 .border(.primary)
                 .font(.largeTitle)
-//                .padding(.vertical,10)
-//                .padding(.horizontal,40)
-//                .tracking(1.5)
+//                .lineSpacing(5.0)
+//                .tracking(2.0)
                 .onChange(of: inputText, { oldValue, newValue in
                     self.wordCount = inputText.count
                     self.content = self.compareAndColorize(origin ?? "", with: inputText)
@@ -44,7 +40,7 @@ struct TypingView: View {
             origin = newValue?.content
             content = AttributedString(newValue?.content ?? "")
             inputText = ""
-        }.padding(.horizontal,100)
+        }
     }
         
     
@@ -70,7 +66,7 @@ struct TypingView: View {
         // 如果可变字符串比不可变字符串长，将剩余部分添加为红色
         if mutableString.count > minLength {
             let index = mutableString.index(mutableString.startIndex, offsetBy: minLength)
-            var remainingString = AttributedString(String(mutableString[index...]))
+            let remainingString = AttributedString(String(mutableString[index...]))
 //            remainingString.backgroundColor = .clear
             result.append(remainingString)
         }
