@@ -14,33 +14,33 @@ class Wubi: Identifiable {
     var id = UUID()
 //    //这里改成数据库中的id
 //    let id: String
-    let word: String //字
-    let pingyin: String //拼音
+    let word: String = "" //字
+    let pingyin: String = "" //拼音
     
-    var components_86  : String  //字根:󰁺󰃙󰄦󰁧
-    var jianma_86_1: String //1级简码
-    var jianma_86_2: String //2级简码
-    var jianma_86_3: String //3级简码
-    var quanma_86: String //全码
+    var components_86  : String = ""  //字根:󰁺󰃙󰄦󰁧
+    var jianma_86_1: String = "" //1级简码
+    var jianma_86_2: String = "" //2级简码
+    var jianma_86_3: String = "" //3级简码
+    var quanma_86: String = "" //全码
 
-    var components_98  : String  //字根〔※󰁺※󰃙※󰄦※󰁧※〕
-    var jianma_98_1: String //1级简码
-    var jianma_98_2: String //2级简码
-    var jianma_98_3: String //3级简码
-    var quanma_98: String //全码
+    var components_98  : String = ""  //字根〔※󰁺※󰃙※󰄦※󰁧※〕
+    var jianma_98_1: String = "" //1级简码
+    var jianma_98_2: String = "" //2级简码
+    var jianma_98_3: String = "" //3级简码
+    var quanma_98: String = "" //全码
 
 
-    var components_gbk  : String  //字根:󰁺󰃙󰄦󰁧
-    var jianma_gbk_1: String //1级简码
-    var jianma_gbk_2: String //2级简码
-    var jianma_gbk_3: String //3级简码
-    var quanma_gbk: String //全码
+    var components_gbk  : String = ""  //字根:󰁺󰃙󰄦󰁧
+    var jianma_gbk_1: String = "" //1级简码
+    var jianma_gbk_2: String = "" //2级简码
+    var jianma_gbk_3: String = "" //3级简码
+    var quanma_gbk: String = "" //全码
 
 
     var isFavorite: Bool = false //是否被收藏
     var isSearch: Bool = false //是否查找过
-    let searchDate: Date //查找时间，用于排序
-    let favoriteDate: Date //收藏时间，用于排序
+    let searchDate: Date? //查找时间，用于排序
+    let favoriteDate: Date? //收藏时间，用于排序
 
     
     init(id: UUID = UUID(), word: String, pingyin: String, 

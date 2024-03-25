@@ -83,6 +83,7 @@
 		76F17E872A7503AB006B7F1D /* SearchDetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchDetailView.swift; sourceTree = "<group>"; };
 		76F511D42A93377B00E293E3 /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
 		76F847E52B510C89003FE909 /* QLImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QLImage.swift; sourceTree = "<group>"; };
+		E0506B8A2BB1A9DA000DF017 /* Wubi.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Wubi.entitlements; sourceTree = "<group>"; };
 		E0553D452B6DFF7000E7D4A7 /* 98WB-2.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "98WB-2.otf"; sourceTree = "<group>"; };
 		E0553D472B6DFFA800E7D4A7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		E0ACBA882B72806300F40339 /* SettingListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingListView.swift; sourceTree = "<group>"; };
@@ -210,6 +211,7 @@
 		76C00D2A2A52CC3B009D2ED7 /* Wubi */ = {
 			isa = PBXGroup;
 			children = (
+				E0506B8A2BB1A9DA000DF017 /* Wubi.entitlements */,
 				E0553D472B6DFFA800E7D4A7 /* Info.plist */,
 				76C00D2B2A52CC3B009D2ED7 /* WubiApp.swift */,
 				7618BA5F2B56785500FEBCF1 /* WubiContentView.swift */,
@@ -388,7 +390,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = "";
+				CODE_SIGN_ENTITLEMENTS = Wubi/Wubi.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
@@ -429,7 +431,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = "";
+				CODE_SIGN_ENTITLEMENTS = Wubi/Wubi.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;

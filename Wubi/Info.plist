@@ -8,5 +8,9 @@
 	<array>
 		<string>98WB-2.otf</string>
 	</array>
+	<key>UIBackgroundModes</key>
+	<array>
+		<string>remote-notification</string>
+	</array>
 </dict>
 </plist>

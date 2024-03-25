@@ -17,7 +17,7 @@ enum WubiScheme: String, Codable,Hashable {
 @Model
 class UserSetting {
     
-    var wubiScheme: WubiScheme
+    var wubiScheme: WubiScheme?
     var isShow86: Bool = true
     var isShow98: Bool = true
     var isShowgbk: Bool = true

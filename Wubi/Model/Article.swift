@@ -19,10 +19,10 @@ class Article: Identifiable {
         case word //单词
         case customize //自定义
     }
-    let id: String
-    let name: String
-    let type: ArticleType
-    var content: String
+    let id: String = ""
+    let name: String = ""
+    let type: ArticleType?
+    var content: String = ""
 
     init(id: String, name: String, type: ArticleType, content: String) {
         self.id = id
