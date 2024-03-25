@@ -135,6 +135,8 @@ struct WubiContentView: View {
     }
     
     var body: some View  {
+        
+        #if os(macOS)
         NavigationSplitView(columnVisibility: $columnVisibility, sidebar: {
             List(selection: $selectedSideBarItem) {
                 ForEach(sideBarItems, id: \.self) { sectionItems in
@@ -204,6 +206,32 @@ struct WubiContentView: View {
                 modelContext.insert(userSetting!)
             }
         }
+        
+        #else
+        
+        TabView {
+            SearchListView(selected: $selectedSearch, wubis: $searchs, scheme: settings.first?.wubiScheme ?? .wubi98)
+            .navigationTitle("搜索")
+            .tabItem {
+                Label(SideBarItem.search.name, systemImage: SideBarItem.search.icon)
+            }
+            
+            SearchHistoryView(selected: $selectedHistory, wubis: historys, scheme: settings.first?.wubiScheme ?? .wubi98)
+            .navigationTitle("搜索历史")
+            .tabItem {
+                Label(SideBarItem.history.name, systemImage: SideBarItem.history.icon)
+            }
+        }
+        .navigationTitle("五笔助手")
+        .onAppear {
+            if let s = settings.first {
+                userSetting = s
+            } else {
+                userSetting = UserSetting(wubiScheme: .wubi98)
+                modelContext.insert(userSetting!)
+            }
+        }
+        #endif
     }
 }
 
