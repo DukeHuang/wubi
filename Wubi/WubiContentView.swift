@@ -209,17 +209,66 @@ struct WubiContentView: View {
         
         #else
         
-        TabView {
-            SearchListView(selected: $selectedSearch, wubis: $searchs, scheme: settings.first?.wubiScheme ?? .wubi98)
-            .navigationTitle("搜索")
-            .tabItem {
-                Label(SideBarItem.search.name, systemImage: SideBarItem.search.icon)
-            }
-            
-            SearchHistoryView(selected: $selectedHistory, wubis: historys, scheme: settings.first?.wubiScheme ?? .wubi98)
-            .navigationTitle("搜索历史")
-            .tabItem {
-                Label(SideBarItem.history.name, systemImage: SideBarItem.history.icon)
+        NavigationSplitView {
+            TabView(selection: $selectedSideBarItem,
+                    content:  {
+                //                Text("Tab Content 1").tabItem { /*@START_MENU_TOKEN@*/Text("Tab Label 1")/*@END_MENU_TOKEN@*/ }.tag(1)
+                //                Text("Tab Content 2").tabItem { /*@START_MENU_TOKEN@*/Text("Tab Label 2")/*@END_MENU_TOKEN@*/ }.tag(2)
+                
+                SearchListView(selected: $selectedSearch, wubis: $searchs, scheme: settings.first?.wubiScheme ?? .wubi98)
+                    .navigationTitle("搜索")
+                    .tabItem {
+                        Label(SideBarItem.search.name, systemImage: SideBarItem.search.icon)
+                    }.tag(SideBarItem.search)
+                SearchHistoryView(selected: $selectedHistory, wubis: historys, scheme: settings.first?.wubiScheme ?? .wubi98)
+                    .navigationTitle("搜索历史")
+                    .tabItem {
+                        Label(SideBarItem.history.name, systemImage: SideBarItem.history.icon)
+                    }.tag(SideBarItem.history)
+                FavoriteListView(selectedWubi: $selectedFavorite, wubis: favorites, scheme: settings.first?.wubiScheme ?? .wubi98)
+                    .navigationTitle("收藏")
+                    .tabItem {
+                        Label(SideBarItem.favorite.name, systemImage: SideBarItem.favorite.icon)
+                    }.tag(SideBarItem.favorite)
+                TypingListView(selected: $selectedArticle, articles: articles)
+                    .tabItem {
+                        Label(SideBarItem.typing.name, systemImage: SideBarItem.typing.icon)
+                    }.tag(SideBarItem.typing)
+                AboutView()
+                    .tabItem {
+                        Label(SideBarItem.about.name, systemImage: SideBarItem.about.icon)
+                    }.tag(SideBarItem.about)
+                SettingListView(selected:$selectedSettingItem , settingItems: SettingItem.allCases)
+                    .tabItem {
+                        Label(SideBarItem.setting.name, systemImage: SideBarItem.setting.icon)
+                    }.tag(SideBarItem.setting)
+            })
+        } detail: {
+            if let detailItem = selectedDetailItem {
+                switch detailItem {
+                case .search(let wubi):
+                    WubiDetailView(wubi:wubi)
+                case .history(let wubi):
+                    WubiDetailView(wubi:wubi)
+                case .favorite(let wubi):
+                    WubiDetailView(wubi:wubi)
+                case .typing(let article):
+                    TypingView(article: article)
+                case .about:
+                    AboutView()
+                case .setting(let settingItem):
+                    switch settingItem {
+                    case .showWubiVersion:
+                        VersionListView(userSetting: self.userSetting)
+                    case .typing:
+                        AttributedDemoView()
+                    case .wubiVersion:
+                        VersionSegementView(version: 0)
+                    case .none:
+                        EmptyView()
+                    }
+                    
+                }
             }
         }
         .navigationTitle("五笔助手")
