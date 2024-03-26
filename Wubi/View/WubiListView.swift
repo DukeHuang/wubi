@@ -26,14 +26,14 @@ struct WubiListView: View {
                             .font(.system(size: 10))
                             .foregroundStyle(.black)
                         Text(word.components_86)
-                            .font(.custom("98WB-2.otf", size: 10,relativeTo: .title3))
+                            .font(.custom("98WB2", size: 10,relativeTo: .title3))
                             .foregroundStyle(.gray)
                     } else if (userSettings.first?.wubiScheme == .wubi98) {
                         Text(word.quanma_98.uppercased())
                             .font(.system(size: 10))
                             .foregroundStyle(.black)
                         Text(word.components_98.filter { $0 != "〔" && $0 != "〕" && $0 != "※" })
-                            .font(.custom("98WB-2.otf", size: 10,relativeTo: .title3))
+                            .font(.custom("98WB2", size: 10,relativeTo: .title3))
                             .foregroundStyle(.gray)
                     }
                     else if (userSettings.first?.wubiScheme == .wubigbk) {
@@ -41,7 +41,7 @@ struct WubiListView: View {
                             .font(.system(size: 10))
                             .foregroundStyle(.black)
                         Text(word.components_gbk)
-                            .font(.custom("98WB-2.otf", size: 10,relativeTo: .title3))
+                            .font(.custom("98WB2", size: 10,relativeTo: .title3))
                             .foregroundStyle(.gray)
                     }
                 }

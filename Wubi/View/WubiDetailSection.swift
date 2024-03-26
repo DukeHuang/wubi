@@ -38,7 +38,7 @@ struct WubiDetailSection: View {
                             .foregroundStyle(.white)
                             .background(.gray)
                             .cornerRadius(3)
-                            .font(.custom("98WB-2.otf", size: 14,relativeTo: .title3))
+                            .font(.custom("98WB2", size: 14,relativeTo: .title3))
                     }
                     HStack {
                         Text("简码:")
@@ -89,7 +89,7 @@ struct WubiDetailSection: View {
                             .foregroundStyle(.white)
                             .background(.gray)
                             .cornerRadius(3)
-                            .font(.custom("98WB-2.otf", size: 14,relativeTo: .title3))
+                            .font(.custom("98WB2", size: 14,relativeTo: .title3))
                     }
                     HStack {
                         Text("简码:")
