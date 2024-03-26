@@ -14,38 +14,33 @@ struct WubiListView: View {
     var scheme: WubiScheme
     @Query var userSettings: [UserSetting]
     var body: some View {
-        List(wubis,id:\.self, selection: $selected) { word in
-            HStack {
-                Text(word.word)
-                    .font(.system(size: 15))
-                    .foregroundStyle(.blue)
-                VStack(alignment:.leading) {
-                    
+        List(wubis,id:\.self, selection: $selected) { wubi in
+            LabeledContent(wubi.word) {
+                HStack(alignment:.center) {
                     if (userSettings.first?.wubiScheme == .wubi86) {
-                        Text(word.quanma_86.uppercased())
+                        Text(wubi.quanma_86.uppercased())
                             .font(.system(size: 10))
                             .foregroundStyle(.black)
-                        Text(word.components_86)
+                        Text(wubi.components_86)
                             .font(.custom("98WB2", size: 10,relativeTo: .title3))
                             .foregroundStyle(.gray)
                     } else if (userSettings.first?.wubiScheme == .wubi98) {
-                        Text(word.quanma_98.uppercased())
+                        Text(wubi.quanma_98.uppercased())
                             .font(.system(size: 10))
                             .foregroundStyle(.black)
-                        Text(word.components_98.filter { $0 != "〔" && $0 != "〕" && $0 != "※" })
+                        Text(wubi.components_98.filter { $0 != "〔" && $0 != "〕" && $0 != "※" })
                             .font(.custom("98WB2", size: 10,relativeTo: .title3))
                             .foregroundStyle(.gray)
                     }
                     else if (userSettings.first?.wubiScheme == .wubigbk) {
-                        Text(word.quanma_gbk.uppercased())
+                        Text(wubi.quanma_gbk.uppercased())
                             .font(.system(size: 10))
                             .foregroundStyle(.black)
-                        Text(word.components_gbk)
+                        Text(wubi.components_gbk)
                             .font(.custom("98WB2", size: 10,relativeTo: .title3))
                             .foregroundStyle(.gray)
                     }
                 }
-
             }
         }.onAppear {
             #if os(macOS)
