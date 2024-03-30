@@ -110,7 +110,7 @@ struct WubiContentView: View {
                     case .favorite(let wubi):
                         WubiDetailView(wubi:wubi)
                     case .typing(let article):
-                        TypingView(article: article)
+                    TypingView(article: article)
                     case .about:
                         AboutView()
                     case .setting(let settingItem):

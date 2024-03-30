@@ -76,7 +76,7 @@ struct WubiDetailSection: View {
                     }
                 }.frame(width: 250,alignment: .leading)
                 SingleKeyBoardView(quanma:quanma.map {String($0)} , scheme: scheme)
-            }
+            }.listRowSeparator(.hidden,edges: .bottom)
 
 
 #else
@@ -128,6 +128,7 @@ struct WubiDetailSection: View {
 
                     SingleKeyBoardView(quanma:quanma.map {String($0)} , scheme: scheme)
                 }
+                .listRowSeparator(.hidden)
 
 #endif
         }

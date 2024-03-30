@@ -12,35 +12,34 @@ struct TypingView: View {
     @Binding var article: Article?
     @State var origin: String?
     @State var content: AttributedString?
-    @State private var inputText = ""
+    @State private var inputText = DefaultArticle.love_your_life.content
     @State private var wordCount: Int = 0
     @State private var version:Int = 0
-
+    
     var body: some View {
-        VStack() {
-            Text(content ?? "")
-                .border(.primary)
+        VStack(alignment: .leading) {
+            ScrollView {
+                Text(content ?? "")
+                    .font(.largeTitle)
+                    .frame(maxWidth: .infinity)
+                    .background(Color.white)
+                    .lineSpacing(10)
+            }.border(.black)
+            TextEditor(text: $inputText)
                 .font(.largeTitle)
-//                .lineSpacing(5.0)
-//                .tracking(2.0)
-                .padding(.horizontal,5)
-            
-            
-            TextField("", text: $inputText, axis: .vertical)
-//            TextEditor(text: $inputText)
-                .border(.primary)
-                .font(.largeTitle)
-//                .lineSpacing(5.0)
-//                .tracking(2.0)
-                .onChange(of: inputText, { oldValue, newValue in
-                    self.wordCount = inputText.count
-                    self.content = self.compareAndColorize(origin ?? "", with: inputText)
-                })
-        }.onChange(of: article) { oldValue, newValue in
+                .border(.black)
+                .lineSpacing(10)
+        }
+        .onChange(of: inputText, { oldValue, newValue in
+            self.wordCount = inputText.count
+            self.content = self.compareAndColorize(origin ?? "", with: inputText)
+        })
+        .onChange(of: article) { oldValue, newValue in
             origin = newValue?.content
             content = AttributedString(newValue?.content ?? "")
             inputText = ""
         }
+        .padding()
     }
         
     
@@ -67,7 +66,6 @@ struct TypingView: View {
         if mutableString.count > minLength {
             let index = mutableString.index(mutableString.startIndex, offsetBy: minLength)
             let remainingString = AttributedString(String(mutableString[index...]))
-//            remainingString.backgroundColor = .clear
             result.append(remainingString)
         }
 
@@ -76,9 +74,10 @@ struct TypingView: View {
 }
 
 #Preview {
-    TypingView(article: .constant(DefaultArticle.mid500),
-               origin: DefaultArticle.mid500.content,
-               content:AttributedString(DefaultArticle.mid500.content) )
+    TypingView(article: .constant(DefaultArticle.love_your_life),
+                origin: DefaultArticle.love_your_life.content,
+               content: AttributedString(DefaultArticle.love_your_life.content)
+    )
 }
 
 
