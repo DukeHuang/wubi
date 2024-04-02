@@ -36,6 +36,7 @@
 		76F17E8F2A7503AB006B7F1D /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F17E862A7503AB006B7F1D /* Database.swift */; };
 		76F17E912A7503AB006B7F1D /* SearchDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F17E872A7503AB006B7F1D /* SearchDetailView.swift */; };
 		E0553D462B6DFF7000E7D4A7 /* 98WB-2.otf in Resources */ = {isa = PBXBuildFile; fileRef = E0553D452B6DFF7000E7D4A7 /* 98WB-2.otf */; };
+		E08A275E2BBAFCA400C58830 /* AboutDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E08A275D2BBAFCA400C58830 /* AboutDetailView.swift */; };
 		E0ACBA852B72716E00F40339 /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F511D42A93377B00E293E3 /* AboutView.swift */; };
 		E0ACBA892B72806300F40339 /* SettingListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0ACBA882B72806300F40339 /* SettingListView.swift */; };
 		E0ACBA8B2B72836900F40339 /* VersionSegementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0ACBA8A2B72836900F40339 /* VersionSegementView.swift */; };
@@ -86,6 +87,7 @@
 		E0506B8A2BB1A9DA000DF017 /* Wubi.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Wubi.entitlements; sourceTree = "<group>"; };
 		E0553D452B6DFF7000E7D4A7 /* 98WB-2.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "98WB-2.otf"; sourceTree = "<group>"; };
 		E0553D472B6DFFA800E7D4A7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		E08A275D2BBAFCA400C58830 /* AboutDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutDetailView.swift; sourceTree = "<group>"; };
 		E0ACBA882B72806300F40339 /* SettingListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingListView.swift; sourceTree = "<group>"; };
 		E0ACBA8A2B72836900F40339 /* VersionSegementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VersionSegementView.swift; sourceTree = "<group>"; };
 		E0C451072BA88798006C889F /* UserSetting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSetting.swift; sourceTree = "<group>"; };
@@ -179,6 +181,7 @@
 			isa = PBXGroup;
 			children = (
 				76F511D42A93377B00E293E3 /* AboutView.swift */,
+				E08A275D2BBAFCA400C58830 /* AboutDetailView.swift */,
 			);
 			path = About;
 			sourceTree = "<group>";
@@ -376,6 +379,7 @@
 				76E1DE3D2A7C99D900FD5F7F /* Constants.swift in Sources */,
 				E0ACBA892B72806300F40339 /* SettingListView.swift in Sources */,
 				767AFA0E2A7B80D40016EB4D /* WubiMenuBarDetailView.swift in Sources */,
+				E08A275E2BBAFCA400C58830 /* AboutDetailView.swift in Sources */,
 				E0F1D80E2BA9D565006C1E7B /* WubiDetailSection.swift in Sources */,
 				76F17E8D2A7503AB006B7F1D /* FavoriteButton.swift in Sources */,
 				7618BA602B56785500FEBCF1 /* WubiContentView.swift in Sources */,
@@ -392,7 +396,6 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Wubi/Wubi.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
-				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Wubi/Preview Content\"";
@@ -400,7 +403,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Wubi/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "五笔助手";
+				INFOPLIST_KEY_CFBundleDisplayName = "布丁五笔助手";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -433,7 +436,6 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Wubi/Wubi.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
-				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Wubi/Preview Content\"";
@@ -441,7 +443,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Wubi/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "五笔助手";
+				INFOPLIST_KEY_CFBundleDisplayName = "布丁五笔助手";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

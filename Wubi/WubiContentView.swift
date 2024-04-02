@@ -112,7 +112,7 @@ struct WubiContentView: View {
                     case .typing(let article):
                     TypingView(article: article)
                     case .about:
-                        AboutView()
+                        AboutDetailView()
                     case .setting(let settingItem):
                         switch settingItem {
                             case .showWubiVersion:
@@ -129,7 +129,7 @@ struct WubiContentView: View {
             }
         })
         //        .frame(minWidth: 1250, minHeight: 650)
-        .navigationTitle("五笔助手")
+        .navigationTitle("布丁五笔助手")
         .onAppear {
             if let s = settings.first {
                 userSetting = s
@@ -141,69 +141,112 @@ struct WubiContentView: View {
 
 #else
 
-        NavigationSplitView {
-            TabView(selection: $selectedSideBarItem,
-                    content:  {
-                //                Text("Tab Content 1").tabItem { /*@START_MENU_TOKEN@*/Text("Tab Label 1")/*@END_MENU_TOKEN@*/ }.tag(1)
-                //                Text("Tab Content 2").tabItem { /*@START_MENU_TOKEN@*/Text("Tab Label 2")/*@END_MENU_TOKEN@*/ }.tag(2)
-                
+        TabView(selection: $selectedSideBarItem,
+                content:  {
+            NavigationStack {
                 SearchListView(selected: $selectedSearch, wubis: $searchs, scheme: settings.first?.wubiScheme ?? .wubi98)
                     .navigationTitle("搜索")
-                    .tabItem {
-                        Label(SideBarItem.search.name, systemImage: SideBarItem.search.icon)
-                    }.tag(SideBarItem.search)
+                    .navigationDestination(item: $selectedSearch) { _ in
+                        WubiDetailView(wubi:$selectedSearch)
+                            .toolbar(.hidden, for: .tabBar)
+                    }
+            }.tabItem {
+                Label(SideBarItem.search.name, systemImage: SideBarItem.search.icon)
+            }.tag(SideBarItem.search)
+            
+            NavigationStack {
                 SearchHistoryView(selected: $selectedHistory, wubis: historys, scheme: settings.first?.wubiScheme ?? .wubi98)
                     .navigationTitle("搜索历史")
-                    .tabItem {
-                        Label(SideBarItem.history.name, systemImage: SideBarItem.history.icon)
-                    }.tag(SideBarItem.history)
+                    .navigationDestination(item: $selectedHistory) { _ in
+                        WubiDetailView(wubi:$selectedHistory)
+                            .toolbar(.hidden, for: .tabBar)
+                    }
+            }.tabItem {
+                Label(SideBarItem.history.name, systemImage: SideBarItem.history.icon)
+            }.tag(SideBarItem.history)
+            
+            NavigationStack {
                 FavoriteListView(selectedWubi: $selectedFavorite, wubis: favorites, scheme: settings.first?.wubiScheme ?? .wubi98)
                     .navigationTitle("收藏")
-                    .tabItem {
-                        Label(SideBarItem.favorite.name, systemImage: SideBarItem.favorite.icon)
-                    }.tag(SideBarItem.favorite)
+                    .navigationDestination(item: $selectedFavorite) { _ in
+                        WubiDetailView(wubi:$selectedFavorite)
+                            .toolbar(.hidden, for: .tabBar)
+                    }
+            }.tabItem {
+                Label(SideBarItem.favorite.name, systemImage: SideBarItem.favorite.icon)
+            }.tag(SideBarItem.favorite)
+            
+            NavigationStack {
                 TypingListView(selected: $selectedArticle, articles: articles)
-                    .tabItem {
-                        Label(SideBarItem.typing.name, systemImage: SideBarItem.typing.icon)
-                    }.tag(SideBarItem.typing)
-                AboutView()
-                    .tabItem {
-                        Label(SideBarItem.about.name, systemImage: SideBarItem.about.icon)
-                    }.tag(SideBarItem.about)
-                SettingListView(selected:$selectedSettingItem , settingItems: SettingItem.allCases)
-                    .tabItem {
-                        Label(SideBarItem.setting.name, systemImage: SideBarItem.setting.icon)
-                    }.tag(SideBarItem.setting)
-            })
-        } detail: {
-            if let detailItem = selectedDetailItem {
-                switch detailItem {
-                    case .search(let wubi):
-                        WubiDetailView(wubi:wubi)
-                    case .history(let wubi):
-                        WubiDetailView(wubi:wubi)
-                    case .favorite(let wubi):
-                        WubiDetailView(wubi:wubi)
-                    case .typing(let article):
-                        TypingView(article: article)
-                    case .about:
-                        AboutView()
-                    case .setting(let settingItem):
-                        switch settingItem {
-                            case .showWubiVersion:
-                                VersionListView(userSetting: self.userSetting)
-                            case .typing:
-                                AttributedDemoView()
-                            case .wubiVersion:
-                                VersionSegementView(version: 0)
-                            case .none:
-                                EmptyView()
-                        }
-
+                    .navigationTitle("跟打")
+                    .navigationDestination(item: $selectedArticle) { _ in
+                        TypingView(article: $selectedArticle)
+                            .toolbar(.hidden, for: .tabBar)
+                    }
+            }.tabItem {
+                Label(SideBarItem.typing.name, systemImage: SideBarItem.typing.icon)
+            }.tag(SideBarItem.typing)
+            
+            NavigationStack {
+                VStack {
+                    SettingListView(selected:$selectedSettingItem , settingItems: [.wubiVersion,.showWubiVersion])
+                    AboutView()
                 }
-            }
-        }
-//        .navigationTitle("五笔助手")
+                    .navigationTitle("我的")
+                    .navigationDestination(item: $selectedSettingItem) { _ in
+                        switch selectedSettingItem {
+                        case .showWubiVersion:
+                            VersionListView(userSetting: self.userSetting)
+                                .toolbar(.hidden, for: .tabBar)
+                        case .typing:
+                            AttributedDemoView()
+                                .toolbar(.hidden, for: .tabBar)
+                        case .wubiVersion:
+                            VersionSegementView(version: 0)
+                                .toolbar(.hidden, for: .tabBar)
+                        case .none:
+                            EmptyView()
+                                .toolbar(.hidden, for: .tabBar)
+                        }
+                            
+                    }
+            }.tabItem {
+                Label(SideBarItem.about.name, systemImage: SideBarItem.about.icon)
+            }.tag(SideBarItem.about)
+            
+        })
+        
+//        NavigationSplitView {
+//            
+//        } detail: {
+//            if let detailItem = selectedDetailItem {
+//                switch detailItem {
+//                    case .search(let wubi):
+//                        WubiDetailView(wubi:wubi)
+//                    case .history(let wubi):
+//                        WubiDetailView(wubi:wubi)
+//                    case .favorite(let wubi):
+//                        WubiDetailView(wubi:wubi)
+//                    case .typing(let article):
+//                        TypingView(article: article)
+//                    case .about:
+//                        AboutView()
+//                    case .setting(let settingItem):
+//                        switch settingItem {
+//                            case .showWubiVersion:
+//                                VersionListView(userSetting: self.userSetting)
+//                            case .typing:
+//                                AttributedDemoView()
+//                            case .wubiVersion:
+//                                VersionSegementView(version: 0)
+//                            case .none:
+//                                EmptyView()
+//                        }
+//
+//                }
+//            }
+//        }
+//        .navigationTitle("布丁五笔助手")
         .onAppear {
             if let s = settings.first {
                 userSetting = s
