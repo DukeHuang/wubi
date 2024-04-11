@@ -37,16 +37,17 @@ struct TypingView: View {
 
     @State private var inputText = ""
     @State private var version:Int = 0
-    
-    @State private var count = 0
+    @State private var nextWord: Wubi?
+
 
     var body: some View {
         VStack (alignment: .leading) {
+            TypingTipsView(wubi: $nextWord)
             ScrollView {
                 Text(content ?? "")
                     .font(.largeTitle)
-                    .frame(maxWidth: .infinity)
-                    .background(Color.white)
+                    .multilineTextAlignment(.leading)
+                    .frame(maxWidth: .infinity, alignment: .leading)
             }.border(.black)
             TextEditor(text: $inputText)
                 .font(.largeTitle)
@@ -55,6 +56,12 @@ struct TypingView: View {
         }
         .onChange(of: inputText, { oldValue, newValue in
             self.content = self.compareAndColorize(origin ?? "", with: inputText)
+            //找到下一个字符，并在反查字典中查找
+
+            if let index = self.origin?.index(self.origin!.startIndex, offsetBy: inputText.count),
+               let word = self.origin.map({String($0)})?[index] {
+                   nextWord = Database.shared!.query(word:String(word))
+               }
         })
         .onChange(of: article) { oldValue, newValue in
             origin = newValue?.content

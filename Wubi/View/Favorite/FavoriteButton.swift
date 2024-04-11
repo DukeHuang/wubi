@@ -13,6 +13,7 @@ struct FavoriteButton: View {
     var body: some View {
         Button {
             word.isFavorite.toggle()
+            word.favoriteDate = .now
 //            do {
 //                try Database.shared?.update(
 //                    where: "A_key",

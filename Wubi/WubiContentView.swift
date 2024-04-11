@@ -28,12 +28,12 @@ struct WubiContentView: View {
 
     //favorite
     @State var selectedFavorite: Wubi?
-    @Query(filter: #Predicate<Wubi> {$0.isFavorite},sort: \Wubi.searchDate,order: .reverse) var favorites: [Wubi]
+    @Query(filter: #Predicate<Wubi> {$0.isFavorite},sort: \Wubi.favoriteDate,order: .reverse) var favorites: [Wubi]
 
 
     //Typing
     @State var selectedArticle: Article?
-    var articles: [Article] = [DefaultArticle.top500,DefaultArticle.mid500,DefaultArticle.tail500]
+    @State var articles: [Article] = [DefaultArticle.top500,DefaultArticle.mid500,DefaultArticle.tail500]
 
     //UserSetting
 
@@ -137,6 +137,20 @@ struct WubiContentView: View {
                 userSetting = UserSetting(wubiScheme: .wubi98)
                 modelContext.insert(userSetting!)
             }
+            let favoriteWubis: [String] = favorites.map { wubi in
+                wubi.word
+            }
+            let favoriteContent: String = favoriteWubis.joined()
+            let favoriteArticle: Article = Article(id: "我的收藏", name: "我的收藏", type: .article, content: favoriteContent)
+            articles.insert(favoriteArticle, at: 0)
+        }
+        .onChange(of: favorites) {
+            let favoriteWubis: [String] = favorites.map { wubi in
+                wubi.word
+            }
+            let favoriteContent: String = favoriteWubis.joined()
+            let favoriteArticle: Article = Article(id: "我的收藏", name: "我的收藏", type: .article, content: favoriteContent)
+            articles[0] = favoriteArticle
         }
 
 #else

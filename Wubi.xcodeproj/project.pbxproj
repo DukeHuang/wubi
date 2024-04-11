@@ -28,6 +28,7 @@
 		76C00D332A52CC3D009D2ED7 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 76C00D322A52CC3D009D2ED7 /* Preview Assets.xcassets */; };
 		76C00D372A52CCBF009D2ED7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 76E2C8832923404C0022364A /* Assets.xcassets */; };
 		76C00D3F2A52CCED009D2ED7 /* main.db in Resources */ = {isa = PBXBuildFile; fileRef = 76E2C88E292341FB0022364A /* main.db */; };
+		76C150042BC7930400768D79 /* TypingTipsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76C150032BC7930400768D79 /* TypingTipsView.swift */; };
 		76E1DE3D2A7C99D900FD5F7F /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E1DE3B2A7C99D900FD5F7F /* Constants.swift */; };
 		76E1DE402A7C9D8100FD5F7F /* SearchListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E1DE3E2A7C9D8100FD5F7F /* SearchListView.swift */; };
 		76E89D392B552BC7001637FE /* TypingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E89D382B552BC7001637FE /* TypingView.swift */; };
@@ -71,6 +72,7 @@
 		76C00D292A52CC3B009D2ED7 /* Wubi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Wubi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		76C00D2B2A52CC3B009D2ED7 /* WubiApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WubiApp.swift; sourceTree = "<group>"; };
 		76C00D322A52CC3D009D2ED7 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		76C150032BC7930400768D79 /* TypingTipsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypingTipsView.swift; sourceTree = "<group>"; };
 		76E1DE3B2A7C99D900FD5F7F /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		76E1DE3E2A7C9D8100FD5F7F /* SearchListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchListView.swift; sourceTree = "<group>"; };
 		76E2C8832923404C0022364A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -124,6 +126,7 @@
 			isa = PBXGroup;
 			children = (
 				76E89D382B552BC7001637FE /* TypingView.swift */,
+				76C150032BC7930400768D79 /* TypingTipsView.swift */,
 				E0E721322BA09EC7001C6434 /* TypingListView.swift */,
 				765A14EA2BA05FC100EA127A /* AttributedDemoView.swift */,
 			);
@@ -379,6 +382,7 @@
 				76E1DE3D2A7C99D900FD5F7F /* Constants.swift in Sources */,
 				E0ACBA892B72806300F40339 /* SettingListView.swift in Sources */,
 				767AFA0E2A7B80D40016EB4D /* WubiMenuBarDetailView.swift in Sources */,
+				76C150042BC7930400768D79 /* TypingTipsView.swift in Sources */,
 				E08A275E2BBAFCA400C58830 /* AboutDetailView.swift in Sources */,
 				E0F1D80E2BA9D565006C1E7B /* WubiDetailSection.swift in Sources */,
 				76F17E8D2A7503AB006B7F1D /* FavoriteButton.swift in Sources */,

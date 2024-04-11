@@ -40,7 +40,7 @@ class Wubi: Identifiable {
     var isFavorite: Bool = false //是否被收藏
     var isSearch: Bool = false //是否查找过
     let searchDate: Date? //查找时间，用于排序
-    let favoriteDate: Date? //收藏时间，用于排序
+    var favoriteDate: Date? //收藏时间，用于排序
 
     
     init(id: UUID = UUID(), word: String, pingyin: String, 

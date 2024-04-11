@@ -11,7 +11,7 @@ struct SingleKeyBoardView: View {
 
     var quanma: Array<String>
     var scheme: WubiScheme
-    @State var showPoem: Bool = false
+    @State var showPoem: Bool = true
     var body: some View {
         #if os(macOS)
         var dic: [String: NSImage] = [:]

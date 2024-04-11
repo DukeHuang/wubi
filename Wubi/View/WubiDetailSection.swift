@@ -30,7 +30,7 @@ struct WubiDetailSection: View {
 
             #if os(macOS)
             HStack {
-                VStack(alignment: .leading){
+                VStack(alignment: .leading) {
                     HStack {
                         Text("拆字:")
                         Text(components)
