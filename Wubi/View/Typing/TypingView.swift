@@ -34,28 +34,15 @@ struct TypingView: View {
     @Binding var article: Article?
     @State var origin: String?
     @State var content: AttributedString?
-    
-    @State var words: [[String]]?
-    
+
     @State private var inputText = ""
     @State private var version:Int = 0
     
-    //    @State private var contentWidth: CGFloat = 0
     @State private var count = 0
-    static let largeTitleFontWidth = 35
-    
-    //                    .lineSpacing(10)
+
     var body: some View {
         VStack (alignment: .leading) {
             ScrollView {
-                //                ForEach(self.words ?? [[""]],id:\.self) { row in
-                //                    HStack {
-                //                        ForEach(row, id: \.self) { character in
-                //                            Text(String(character))
-                //                                .font(.largeTitle)
-                //                        }
-                //                    }.frame(maxWidth: .infinity)
-                //                }
                 Text(content ?? "")
                     .font(.largeTitle)
                     .frame(maxWidth: .infinity)
@@ -68,45 +55,14 @@ struct TypingView: View {
         }
         .onChange(of: inputText, { oldValue, newValue in
             self.content = self.compareAndColorize(origin ?? "", with: inputText)
-            //            self.words = self.splitStringIntoRows(string: self.origin ?? "", charactersPerRow: Int((size?.width ?? 0) / 35))
         })
         .onChange(of: article) { oldValue, newValue in
             origin = newValue?.content
             content = AttributedString(newValue?.content ?? "")
             inputText = ""
         }
-        //        .onChange(of: size, { oldValue, newValue in
-        //            self.words = self.splitStringIntoRows(string: self.origin ?? "", charactersPerRow: Int(newValue?.width) / 35)
-        //        })
-        
         .padding()
-        
-        
-        
     }
-    
-    func splitStringIntoRows(string: String, charactersPerRow: Int) -> [[String]] {
-        var result: [[String]] = []
-        var currentRow: [String] = []
-        
-        var currentIndex = string.startIndex
-        while currentIndex < string.endIndex {
-            let endIndex = string.index(currentIndex, offsetBy: min(charactersPerRow, string.distance(from: currentIndex, to: string.endIndex)))
-            let substring = String(string[currentIndex..<endIndex])
-            currentRow.append(contentsOf: substring.map{String($0)})
-            currentIndex = endIndex
-        }
-        
-        var currentRowIndex = 0
-        while currentRowIndex < currentRow.count {
-            let endIndex = min(currentRowIndex + charactersPerRow, currentRow.count)
-            result.append(Array(currentRow[currentRowIndex..<endIndex]))
-            currentRowIndex += charactersPerRow
-        }
-        
-        return result
-    }
-
     func compareAndColorize(_ mutableString:String, with immutableString: String) -> AttributedString {
         
         var result = AttributedString()
@@ -117,10 +73,10 @@ struct TypingView: View {
         for i in 0..<minLength {
             var mutableChar = AttributedString(String(mutableChars[i]))
             if mutableChars[i] == immutableChars[i] {
-                // 如果汉字相同，颜色变成灰色
+                // 如果汉字相同，背景颜色变成灰色
                 mutableChar.backgroundColor = .gray
             } else {
-                // 如果汉字不同，颜色变成红色
+                // 如果汉字不同，背景颜色变成红色
                 mutableChar.backgroundColor = .red
             }
             result.append(mutableChar)
