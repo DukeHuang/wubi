@@ -17,9 +17,9 @@ struct TypingTipsView: View {
         if let wubi = wubi {
             HStack {
                 List {
-//                    HStack {
-//                        Text(wubi.word)
-//                            .font(.system(size: 70))
+                    HStack {
+                        Text(wubi.word)
+                            .font(.system(size: 70))
 //                        HStack(alignment: .top) {
 //                            VStack(alignment:.leading) {
 //                                Text(wubi.pingyin)
@@ -29,28 +29,18 @@ struct TypingTipsView: View {
 //                                    .cornerRadius(3)
 //                            }
 //                            FavoriteButton(word: .constant(wubi))
-//                        }
-//                    }.listRowSeparator(.hidden,edges: .all)
-                    /*
-                     Section("拆字:") {
-                     QLImage(wubi.character)
-                     .frame(width: 280, height: 70, alignment: .leading)
-                     }
-                     */
-//                    if (settings.first?.isShow86 ?? true) {
-//                        WubiDetailSection(components: wubi.components_86, jianma_1: wubi.jianma_86_1, jianma_2: wubi.jianma_86_2, jianma_3: wubi.jianma_86_3, quanma: wubi.quanma_86, scheme: .wubi86)
-//                        //                            .listSectionSeparator(.visible)
-//                    }
-
-                    if (settings.first?.isShow98 ?? true) {
-                        WubiDetailSection(components: wubi.components_98.filter({ $0 != "〔" && $0 != "〕" && $0 != "※" }), jianma_1: wubi.jianma_98_1, jianma_2: wubi.jianma_98_2, jianma_3: wubi.jianma_98_3, quanma: wubi.quanma_98, scheme: .wubi98)
-                        //                            .listSectionSeparator(.hidden)
-                    }
-//                    if (settings.first?.isShowgbk ?? true) {
-//                        WubiDetailSection(components: wubi.components_gbk, jianma_1: wubi.jianma_gbk_1, jianma_2: wubi.jianma_gbk_2, jianma_3: wubi.jianma_gbk_3, quanma: wubi.quanma_gbk, scheme: .wubigbk)
-//                        //                            .listSectionSeparator(.hidden)
-//                    }
-                }
+                            switch settings.first?.wubiScheme {
+                                case .wubi86:
+                                    WubiDetailSection(components: wubi.components_86, jianma_1: wubi.jianma_86_1, jianma_2: wubi.jianma_86_2, jianma_3: wubi.jianma_86_3, quanma: wubi.quanma_86, scheme: .wubi86)
+                                case .wubi98:
+                                    WubiDetailSection(components: wubi.components_98.filter({ $0 != "〔" && $0 != "〕" && $0 != "※" }), jianma_1: wubi.jianma_98_1, jianma_2: wubi.jianma_98_2, jianma_3: wubi.jianma_98_3, quanma: wubi.quanma_98, scheme: .wubi98)
+                                case .wubigbk:
+                                    WubiDetailSection(components: wubi.components_gbk, jianma_1: wubi.jianma_gbk_1, jianma_2: wubi.jianma_gbk_2, jianma_3: wubi.jianma_gbk_3, quanma: wubi.quanma_gbk, scheme: .wubigbk)
+                                case nil:
+                                    WubiDetailSection(components: wubi.components_98.filter({ $0 != "〔" && $0 != "〕" && $0 != "※" }), jianma_1: wubi.jianma_98_1, jianma_2: wubi.jianma_98_2, jianma_3: wubi.jianma_98_3, quanma: wubi.quanma_98, scheme: .wubi98)
+                            }
+                        }
+                    }.listRowSeparator(.hidden,edges: .all)
             }
         }
     }

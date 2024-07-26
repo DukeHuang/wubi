@@ -30,11 +30,11 @@ enum SettingItem: String, Identifiable, CaseIterable {
     var name: String {
         switch self {
             case .wubiVersion:
-                "五笔版本"
+                "跟打显示版本"
             case .showWubiVersion:
-                "显示版本"
+                "搜索显示版本"
             case .typing:
-                "跟打设置"
+                "跟打相关设置"
         }
     }
     

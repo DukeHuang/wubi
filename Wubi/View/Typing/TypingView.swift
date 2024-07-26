@@ -29,6 +29,10 @@ public extension View {
     }
 }
 
+private enum Editor: Int, Hashable {
+    case input
+}
+
 struct TypingView: View {
     
     @Binding var article: Article?
@@ -39,10 +43,16 @@ struct TypingView: View {
     @State private var version:Int = 0
     @State private var nextWord: Wubi?
 
+    @State private var isShowTips: Bool = true
+
+    @FocusState private var focusedEditor: Editor?
+
 
     var body: some View {
         VStack (alignment: .leading) {
-            TypingTipsView(wubi: $nextWord)
+            if (isShowTips) {
+                TypingTipsView(wubi: $nextWord)
+            }
             ScrollView {
                 Text(content ?? "")
                     .font(.largeTitle)
@@ -53,7 +63,19 @@ struct TypingView: View {
                 .font(.largeTitle)
                 .border(.black)
                 .lineSpacing(10)
+                .focused($focusedEditor, equals: .input)
+            HStack (alignment: .center) {
+                Toggle("提示", isOn: $isShowTips)
+                    .toggleStyle(.switch)
+                if (isShowTips) {
+                    VersionSegementView(version: 0)
+                }
+            }
+
         }
+        .onAppear(perform: {
+            focusedEditor = .input
+        })
         .onChange(of: inputText, { oldValue, newValue in
             self.content = self.compareAndColorize(origin ?? "", with: inputText)
             //找到下一个字符，并在反查字典中查找
@@ -65,8 +87,12 @@ struct TypingView: View {
         })
         .onChange(of: article) { oldValue, newValue in
             origin = newValue?.content
+            if let firstWord = self.origin.map({String($0)})?.first {
+                nextWord = Database.shared!.query(word: String(firstWord))
+            }
             content = AttributedString(newValue?.content ?? "")
             inputText = ""
+
         }
         .padding()
     }
